@@ -1,0 +1,28 @@
+# git tag chartVersion/appVersion
+# git tag 1.0.2/4.2.1
+name: release
+on:
+  push:
+    tags: '*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Set chart version based on tags
+          run: echo "CHART_VERSION=${GITHUB_REF#refs/*/} | rev | cut -d '/' -f 1 | rev" >> $GITHUB_ENV
+        - name: Set chart name based on tags
+          run: echo "APP_VERSION=${GITHUB_REF#refs/*/} | rev | cut -d/ -f 2 | rev" >> $GITHUB_ENV
+          
+      - name: Publish Helm charts
+        uses: stefanprodan/helm-gh-pages@master
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          app_version: APP_VERSION
+          chart_version: CHART_VERSION
+          charts_dir: chart
+          charts_url: https://loeken.github.io
+          owner: loeken
+          repository: helm-charts
+          branch: gh-pages
