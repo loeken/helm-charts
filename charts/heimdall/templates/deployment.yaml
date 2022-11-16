@@ -32,7 +32,7 @@ spec:
       enableServiceLinks: true
       containers:
         - name: release-name-heimdall
-          image: "linuxserver/heimdall:{{ .Values.image.tag }}"
+          image: "loeken/heimdall:{{ .Values.image.tag }}"
           imagePullPolicy: IfNotPresent
           env:
             - name: PGID
