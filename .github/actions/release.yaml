@@ -3,7 +3,6 @@
 name: release
 on:
   push:
-    tags: '*'
 
 jobs:
   release:
@@ -24,5 +23,5 @@ jobs:
           charts_dir: charts
           charts_url: https://loeken.github.io
           owner: loeken
-          repository: helm-charts
+          repository: loeken
           branch: gh-pages
