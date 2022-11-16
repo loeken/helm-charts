@@ -7,4 +7,4 @@ resources:
   requests:
     cpu: 100m
     memory: 128Mi
-replicaCount: 2
+replicaCount: 1
