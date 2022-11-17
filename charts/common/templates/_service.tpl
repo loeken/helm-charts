@@ -2,13 +2,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: release-name-heimdall
+  name: {{ .Release.Name | printf "%s-%s" .Chart.Name }}
   labels:
     app.kubernetes.io/instance: release-name
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/name: heimdall
-    app.kubernetes.io/version: 2.2.2
-    helm.sh/chart: heimdall-8.4.2
+    app.kubernetes.io/name: {{ .Release.Name | printf "%s-%s" .Chart.Name }}
+    app.kubernetes.io/version: {{ .Values.image.tag }}
+    helm.sh/chart: {{ .Release.Name | printf "%s-%s" .Chart.Name }}-{{ .Values.image.tag }}
   annotations:
 spec:
   type: ClusterIP
@@ -18,8 +18,8 @@ spec:
     protocol: TCP
     name: http
   selector:
-    app.kubernetes.io/name: heimdall
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/name: {{ .Release.Name | printf "%s-%s" .Chart.Name }}
+    app.kubernetes.io/instance: {{ .Release.Name | printf "%s-%s" .Chart.Name }}
 {{- end -}}
 {{- define "common.service" -}}
 {{- include "common.util.merge" (append . "common.service.tpl") -}}
