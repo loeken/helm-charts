@@ -3,9 +3,9 @@ entries:
   common:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-17T18:39:32.950981925+01:00"
+    created: "2022-11-17T19:03:09.559756046+01:00"
     description: A Helm chart for Kubernetes
-    digest: 0667b90e5648ea342218c2f306612aa79ec6db1daf75a4ad29efad9d279e81e7
+    digest: 42c3589cc5e1f35efe3888c8b4f7ace11e9d3f408f4eac769f527d04f87cf234
     name: common
     type: library
     urls:
@@ -14,54 +14,16 @@ entries:
   heimdall:
   - apiVersion: v2
     appVersion: 2.4.15
-    created: "2022-11-17T18:39:32.951979584+01:00"
+    created: "2022-11-17T19:03:09.56011174+01:00"
     dependencies:
     - name: common
       repository: file://../common
       version: 0.1.0
     description: A Helm chart for Kubernetes
-    digest: bfa458ebd40f533539e39fcf4354470be4feb381810e4e4a3f7eece68143de28
+    digest: f12a49e80ed11bbaf02819958336ea65f1adcbd13aefcfe84761c22cc8d948b6
     name: heimdall
     type: application
     urls:
-    - https://loeken.github.io/helm-charts/charts/heimdall-1.0.8.tgz
-    version: 1.0.8
-  - apiVersion: v2
-    appVersion: 2.4.15
-    created: "2022-11-17T18:39:32.951716328+01:00"
-    dependencies:
-    - name: common
-      repository: file://../common
-      version: 0.1.0
-    description: A Helm chart for Kubernetes
-    digest: 4f34f9efb613db88392c457a91e7a49b7498de329091e5740bd3912de895a26c
-    name: heimdall
-    type: application
-    urls:
-    - https://loeken.github.io/helm-charts/charts/heimdall-1.0.7.tgz
-    version: 1.0.7
-  - apiVersion: v2
-    appVersion: 2.4.15
-    created: "2022-11-17T18:39:32.951419425+01:00"
-    dependencies:
-    - name: common
-      repository: file://../common
-      version: 0.1.0
-    description: A Helm chart for Kubernetes
-    digest: 52372d60f27ad8e49e0d01e62428b3521f078ca4cc0c570a70211effb4bd1639
-    name: heimdall
-    type: application
-    urls:
-    - https://loeken.github.io/helm-charts/charts/heimdall-1.0.6.tgz
-    version: 1.0.6
-  - apiVersion: v2
-    appVersion: 2.4.15
-    created: "2022-11-17T18:39:32.951110514+01:00"
-    description: A Helm chart for Kubernetes
-    digest: 238fd17ea9efed54b0e063d3dcb2e2e545a9f282596df7703b0b11942b420324
-    name: heimdall
-    type: application
-    urls:
-    - https://loeken.github.io/helm-charts/charts/heimdall-1.0.5.tgz
-    version: 1.0.5
-generated: "2022-11-17T18:39:32.950775005+01:00"
+    - https://loeken.github.io/helm-charts/charts/heimdall-1.0.9.tgz
+    version: 1.0.9
+generated: "2022-11-17T19:03:09.559550848+01:00"

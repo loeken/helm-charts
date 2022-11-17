@@ -4,7 +4,7 @@ kind: Service
 metadata:
   name: {{ .Release.Name | printf "%s-%s" .Chart.Name }}
   labels:
-    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/instance: {{ .Release.Name | printf "%s-%s" .Chart.Name }}
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: {{ .Release.Name | printf "%s-%s" .Chart.Name }}
     app.kubernetes.io/version: {{ .Values.image.tag }}
