@@ -8,3 +8,28 @@ resources:
     cpu: 100m
     memory: 128Mi
 replicaCount: 1
+ingress:
+  main:
+    annotations:
+      kubernetes.io/ingress.class: "nginx"
+      cert-manager.io/cluster-issuer: "letsencrypt-prod"
+      external-dns.alpha.kubernetes.io/hostname: "hub.internetz.cloud"
+      external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
+      external-dns.alpha.kubernetes.io/ttl: "120"
+    enabled: false
+    hosts:
+      - host: hub.internetz.cloud
+        paths:
+          - path: /
+            pathType: Prefix
+            service:
+              port: 80
+    tls:
+    - secretName: hub-tls
+      hosts:
+      - hub.internetz.cloud
+persistence:
+  config:
+    enabled: true
+    storageClass: "freenas-iscsi-csi"
+    readOnly: false
