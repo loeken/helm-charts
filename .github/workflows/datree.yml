@@ -17,5 +17,5 @@ jobs:
         uses: datreeio/action-datree@main
         with:
           path: 'charts'
-          cliArguments: ''
           isHelmChart: true
+          cliArguments: '--only-k8s-files'
