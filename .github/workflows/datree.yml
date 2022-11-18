@@ -19,5 +19,4 @@ jobs:
         with:
           path: 'charts'
           isHelmChart: true
-          cliArguments: '--only-k8s-files'
           
