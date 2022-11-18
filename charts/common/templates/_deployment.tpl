@@ -31,7 +31,7 @@ spec:
       enableServiceLinks: true
       containers:
         - name: {{  printf "%s" .Chart.Name }}
-          image: "loeken/{{  printf "%s" .Chart.Name }}:{{ .Values.image.tag }}"
+          image: "linuxserver/{{  printf "%s" .Chart.Name }}:{{ .Values.image.tag }}"
           imagePullPolicy: IfNotPresent
           env:
             - name: PGID
