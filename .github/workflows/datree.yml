@@ -19,4 +19,3 @@ jobs:
           path: 'charts'
           cliArguments: ''
           isHelmChart: true
-          helmArguments: '--values values.yaml'
