@@ -2,13 +2,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name | printf "%s-%s" .Chart.Name }}
+  name: {{  printf "%s" .Chart.Name }}
   labels:
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/name: {{ .Release.Name | printf "%s-%s" .Chart.Name }}
+    app.kubernetes.io/name: {{  printf "%s" .Chart.Name }}
     app.kubernetes.io/version: {{ .Values.image.tag }}
-    app.kubernetes.io/instance: {{ .Release.Name | printf "%s-%s" .Chart.Name }}
-    helm.sh/chart: {{ .Release.Name | printf "%s-%s" .Chart.Name }}-{{ .Values.image.tag }}
+    app.kubernetes.io/instance: {{  printf "%s" .Chart.Name }}
+    helm.sh/chart: {{  printf "%s" .Chart.Name }}-{{ .Values.image.tag }}
 spec:
   revisionHistoryLimit: 3
   replicas: {{ .Values.replicaCount }}
@@ -16,13 +16,13 @@ spec:
     type: Recreate
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ .Release.Name | printf "%s-%s" .Chart.Name }}
-      app.kubernetes.io/instance: {{ .Release.Name | printf "%s-%s" .Chart.Name }}
+      app.kubernetes.io/name: {{  printf "%s" .Chart.Name }}
+      app.kubernetes.io/instance: {{  printf "%s" .Chart.Name }}
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: {{ .Release.Name | printf "%s-%s" .Chart.Name }}
-        app.kubernetes.io/instance: {{ .Release.Name | printf "%s-%s" .Chart.Name }}
+        app.kubernetes.io/name: {{  printf "%s" .Chart.Name }}
+        app.kubernetes.io/instance: {{  printf "%s" .Chart.Name }}
     spec:
       
       serviceAccountName: default
@@ -30,8 +30,8 @@ spec:
       dnsPolicy: ClusterFirst
       enableServiceLinks: true
       containers:
-        - name: {{ .Release.Name | printf "%s-%s" .Chart.Name }}
-          image: "loeken/{{ .Release.Name | printf "%s-%s" .Chart.Name }}:{{ .Values.image.tag }}"
+        - name: {{  printf "%s" .Chart.Name }}
+          image: "loeken/{{  printf "%s" .Chart.Name }}:{{ .Values.image.tag }}"
           imagePullPolicy: IfNotPresent
           env:
             - name: PGID

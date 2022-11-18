@@ -1,0 +1,1 @@
+name: {{  printf "%s" .Chart.Name }}
