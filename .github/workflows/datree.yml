@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v2
               
       - name: Run Datree Policy Check
-        uses: datreeio/action-datree@main
+        uses: loeken/action-datree@main
         with:
           path: 'charts'
           isHelmChart: true
