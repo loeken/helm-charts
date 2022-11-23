@@ -34,6 +34,8 @@ spec:
           image: "linuxserver/{{  printf "%s" .Chart.Name }}:{{ .Values.image.tag }}"
           imagePullPolicy: IfNotPresent
           env:
+            - name: FORCE_HTTPS
+              value: false
             - name: PGID
               value: "1000"
             - name: PUID
