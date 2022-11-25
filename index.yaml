@@ -3,16 +3,23 @@ entries:
   heimdall:
   - apiVersion: v2
     appVersion: 2.5.2
-    created: "2022-11-26T00:30:11.692925286+01:00"
+    created: "2022-11-26T00:35:07.655411393+01:00"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
       version: 1.1.3
-    description: heimdall chart
-    digest: e0b18998b09cb6887f1057284510eedb199dc4f17fb7225d2f947054694b0afb
+    description: a helm chart to install heimdall
+    digest: 5bfa80ed9a3d8638f4672ce245180c1999bb549991b8f483d210952a86f3349b
+    home: https://github.com/loeken/helm-charts
+    kubeVersion: <=1.23
+    maintainers:
+    - email: loeken@internetz.me
+      name: loeken
     name: heimdall
+    sources:
+    - https://github.com/loeken/helm-charts/tree/main/charts/heimdall
     type: application
     urls:
     - https://loeken.github.io/helm-charts/charts/heimdall-8.4.3.tgz
     version: 8.4.3
-generated: "2022-11-26T00:30:11.690661892+01:00"
+generated: "2022-11-26T00:35:07.652863059+01:00"
