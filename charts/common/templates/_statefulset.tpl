@@ -1,6 +1,6 @@
-{{- define "common.deployment.tpl" -}}
+{{- define "common.statefulset.tpl" -}}
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 {{ template "common.metadata" . }}
 spec:
   selector:
@@ -16,6 +16,6 @@ spec:
         -
 {{ include "common.container.tpl" .| indent 10 }}
 {{- end -}}
-{{- define "common.deployment" -}}
-{{- template "common.util.merge" (append . "common.deployment.tpl") -}}
+{{- define "common.statefulset" -}}
+{{- template "common.util.merge" (append . "common.statefulset.tpl") -}}
 {{- end -}}

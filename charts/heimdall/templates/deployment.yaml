@@ -1,6 +1,0 @@
-{{- include "common.deployment" (list . "heimdall.deployment") -}}
-{{- define "heimdall.deployment" -}}
-# start customization here
-
-# end customizations
-{{- end -}}

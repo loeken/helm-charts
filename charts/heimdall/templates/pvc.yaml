@@ -1,6 +1,0 @@
-{{- include "common.pvc" (list . "heimdall.pvc") -}}
-{{- define "heimdall.pvc" -}}
-# start customization here
-
-# end customizations
-{{- end -}}

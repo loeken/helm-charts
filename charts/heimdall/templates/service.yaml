@@ -1,6 +1,0 @@
-{{- include "common.service" (list . "heimdall.service") -}}
-{{- define "heimdall.service" -}}
-# start customization here
-
-# end customizations
-{{- end -}}
