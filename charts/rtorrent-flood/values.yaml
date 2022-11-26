@@ -125,36 +125,6 @@ resources:
     cpu: "1"
     memory: 512Mi
 probes:
-  liveness:
-    enabled: true
-    custom: true
-    spec:
-      httpGet:
-        path: /
-        port: 3000
-      initialDelaySeconds: 0
-      periodSeconds: 10
-      timeoutSeconds: 1
-      failureThreshold: 3
-  readiness:
-    enabled: true
-    custom: true
-    spec:
-      httpGet:
-        path: /
-        port: 3000
-      initialDelaySeconds: 0
-      periodSeconds: 10
-      timeoutSeconds: 1
-      failureThreshold: 3
   startup:
-    enabled: true
-    custom: true
     spec:
-      httpGet:
-        path: /
-        port: 3000
-      initialDelaySeconds: 0
-      periodSeconds: 5
-      timeoutSeconds: 1
-      failureThreshold: 30
+      initialDelaySeconds: 20
