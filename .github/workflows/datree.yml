@@ -10,6 +10,9 @@ jobs:
   k8sPolicyCheck:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        version: ["v1.20.0", "v1.23.12"]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -19,5 +22,5 @@ jobs:
         with:
           path: 'charts'
           isHelmChart: true
-          cliArguments: '--schema-version 1.23.12'
+          cliArguments: '--schema-version ${{ matrix.version }}'
 
