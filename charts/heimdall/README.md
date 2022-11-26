@@ -1,4 +1,4 @@
-# $chartName
+# heimdall
 
 ## Requirements
 Tested with Kubernetes: v1.23.12
