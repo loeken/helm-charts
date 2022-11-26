@@ -16,4 +16,4 @@ name: chartname
 sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/chartname
 type: application
-version: chartversion
+version: 0.0.1

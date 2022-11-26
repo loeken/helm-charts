@@ -5,7 +5,7 @@ for d in */ ; do
    
     version=`cat $d"Chart.yaml"|grep version|grep -v "  "|cut -d" " -f 2`
     chartName=`echo $d | cut -d"/" -f 1`
-    helm dependency build $chartName
+    helm dependency update $chartName
     echo '# heimdall
 
 ## Requirements

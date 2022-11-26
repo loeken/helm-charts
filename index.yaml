@@ -3,13 +3,14 @@ entries:
   heimdall:
   - apiVersion: v2
     appVersion: 2.5.2
-    created: "2022-11-26T03:28:31.589530525+01:00"
+    created: "2022-11-26T04:12:11.493847073+01:00"
     dependencies:
-    - name: common
+    - alias: bjw-s
+      name: common
       repository: https://bjw-s.github.io/helm-charts
       version: 1.1.3
     description: a helm chart to install heimdall
-    digest: a4af99c476d2419ffdf018a32e6ee85c8ff87cababb419424b149a21bfb8e51d
+    digest: cb37780a09c91a7d9ce7b515aac6b6b99e84116031819e14ca6be38dbd678d0a
     home: https://github.com/loeken/helm-charts
     kubeVersion: '>=1.16.0'
     maintainers:
@@ -25,13 +26,14 @@ entries:
   rtorrent-flood:
   - apiVersion: v2
     appVersion: v4.7.0
-    created: "2022-11-26T03:28:31.591359363+01:00"
+    created: "2022-11-26T04:12:11.495649829+01:00"
     dependencies:
-    - name: common
+    - alias: bjw-s
+      name: common
       repository: https://bjw-s.github.io/helm-charts
       version: 1.1.3
     description: a helm chart to install rtorrent-flood
-    digest: 55ec173cda598d1e763daf938752423939c43f7cb0f1f4fc07684ff982ca63bf
+    digest: 4bb6c5b38904c2a582f16532d8b4662278ffe283357b1b72db2e4d14668d25bf
     home: https://github.com/loeken/helm-charts
     kubeVersion: '>=1.16.0'
     maintainers:
@@ -44,4 +46,4 @@ entries:
     urls:
     - https://loeken.github.io/helm-charts/charts/rtorrent-flood-0.0.1.tgz
     version: 0.0.1
-generated: "2022-11-26T03:28:31.587187927+01:00"
+generated: "2022-11-26T04:12:11.491339707+01:00"
