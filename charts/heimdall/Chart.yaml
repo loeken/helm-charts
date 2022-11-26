@@ -16,4 +16,4 @@ name: heimdall
 sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/heimdall
 type: application
-version: 1.0.2
+version: 1.0.4
