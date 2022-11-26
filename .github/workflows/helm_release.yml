@@ -1,8 +1,7 @@
 name: release
 on:
   push:
-    tags: '*/*/*'
-
+    branches: [ main ]
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -13,3 +12,5 @@ jobs:
         uses: stefanprodan/helm-gh-pages@master
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          owner: loeken
+          repository: helm-charts
