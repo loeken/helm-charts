@@ -16,4 +16,4 @@ name: vaultwarden
 sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/vaultwarden
 type: application
-version: 0.0.2
+version: 1.0.0
