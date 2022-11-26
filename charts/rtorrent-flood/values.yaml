@@ -119,8 +119,42 @@ config: |
   log.add_output = "info", "log"
 resources:
   limits:
-    cpu: "1"
-    memory: 256Mi
+    cpu: "2"
+    memory: 1024Mi
   requests:
-    cpu: "0.5"
-    memory: 128Mi
+    cpu: "1"
+    memory: 512Mi
+probes:
+  liveness:
+    enabled: true
+    custom: true
+    spec:
+      httpGet:
+        path: /
+        port: 3000
+      initialDelaySeconds: 0
+      periodSeconds: 10
+      timeoutSeconds: 1
+      failureThreshold: 3
+  readiness:
+    enabled: true
+    custom: true
+    spec:
+      httpGet:
+        path: /
+        port: 3000
+      initialDelaySeconds: 0
+      periodSeconds: 10
+      timeoutSeconds: 1
+      failureThreshold: 3
+  startup:
+    enabled: true
+    custom: true
+    spec:
+      httpGet:
+        path: /
+        port: 3000
+      initialDelaySeconds: 0
+      periodSeconds: 5
+      timeoutSeconds: 1
+      failureThreshold: 30
