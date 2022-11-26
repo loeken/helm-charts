@@ -3,13 +3,13 @@ entries:
   heimdall:
   - apiVersion: v2
     appVersion: 2.5.2
-    created: "2022-11-26T21:38:11.818655878Z"
+    created: "2022-11-26T22:26:15.612170309Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
       version: 1.1.3
     description: a helm chart to install heimdall
-    digest: c278286897ffce7d6a66c057ea86746c2c6bacdf2d8e7e055675913f98d8a70d
+    digest: 78b1dda0a7d5838fe93cc5808c1c4ba47c5a1677b58678d3fbb1d140eda7d589
     home: https://github.com/loeken/helm-charts
     kubeVersion: '>=1.16.0'
     maintainers:
@@ -25,13 +25,13 @@ entries:
   rtorrent-flood:
   - apiVersion: v2
     appVersion: 4.7.0
-    created: "2022-11-26T21:38:11.821670908Z"
+    created: "2022-11-26T22:26:15.616438457Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
       version: 1.1.3
     description: a helm chart to install rtorrent-flood
-    digest: b8e2b3f8cce3a554a19c64bda35557bfc9433f7a3f20b7abd35b3cf27e4add2b
+    digest: d6ae348b1dc9923ac4262a0e16ec96834628761379958ab13c5e2f60459ce094
     home: https://github.com/loeken/helm-charts
     kubeVersion: '>=1.16.0'
     maintainers:
@@ -45,6 +45,27 @@ entries:
     - https://loeken.github.io/helm-charts/rtorrent-flood-1.0.3.tgz
     version: 1.0.3
   vaultwarden:
+  - apiVersion: v2
+    appVersion: 1.26.0-alpine
+    created: "2022-11-26T22:26:15.621299512Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 1.1.3
+    description: a helm chart to install vaultwarden
+    digest: ea1d0c5b4b58945c72f024427421b5bc934eb253c498278c7145546af1447f7e
+    home: https://github.com/loeken/helm-charts
+    kubeVersion: '>=1.16.0'
+    maintainers:
+    - email: loeken@internetz.me
+      name: loeken
+    name: vaultwarden
+    sources:
+    - https://github.com/loeken/helm-charts/tree/main/charts/vaultwarden
+    type: application
+    urls:
+    - https://loeken.github.io/helm-charts/vaultwarden-1.0.0.tgz
+    version: 1.0.0
   - apiVersion: v2
     appVersion: 1.26.0-alpine
     created: "2022-11-26T21:38:11.824536037Z"
@@ -66,4 +87,4 @@ entries:
     urls:
     - https://loeken.github.io/helm-charts/vaultwarden-0.0.2.tgz
     version: 0.0.2
-generated: "2022-11-26T21:38:11.814402436Z"
+generated: "2022-11-26T22:26:15.60610024Z"
