@@ -1,6 +1,6 @@
 ---
 apiVersion: v2
-appVersion: latest
+appVersion: v4.7.0
 dependencies:
   - name: common
     repository: https://bjw-s.github.io/helm-charts
@@ -16,4 +16,4 @@ name: rtorrent-flood
 sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/rtorrent-flood
 type: application
-version: 8.4.6
+version: 8.4.7
