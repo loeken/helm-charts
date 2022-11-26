@@ -1,9 +1,9 @@
 # heimdall
 
 ## Requirements
-
 Tested with Kubernetes: `<=1.23.12`
 
+Cannot guarantee compatibility with higher versions of kubernetes
 
 ## Add Repository
 ```
