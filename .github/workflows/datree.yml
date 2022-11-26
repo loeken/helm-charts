@@ -19,5 +19,5 @@ jobs:
         with:
           path: 'charts'
           isHelmChart: true
-          cliArguments: '--schema-version 1.23.12'
+          cliArguments: '--schema-version v1.23.12'
 
