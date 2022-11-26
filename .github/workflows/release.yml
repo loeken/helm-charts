@@ -9,21 +9,21 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - name: Set RELEASE_VERSION env
-        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/} | rev | cut -d '/' -f 1 | rev" >> $GITHUB_ENV
-      - name: Set RELEASE_CHART_VERSION env
-        run: echo "RELEASE_CHART_VERSION=${GITHUB_REF#refs/*/} | rev | cut -d/ -f 2 | rev" >> $GITHUB_ENV
-      - name: Set RELEASE_APP_VERSION env
-        run: echo "RELEASE_APP_VERSION=${GITHUB_REF#refs/*/} | rev | cut -d/ -f 3 | rev'" >> $GITHUB_ENV
+      - name: Set CHART_NAME env
+        run: echo "CHART_NAME=${GITHUB_REF#refs/*/} | rev | cut -d '/' -f 1 | rev" >> $GITHUB_ENV
+      - name: Set CHART_VERSION env
+        run: echo "CHART_VERSION=${GITHUB_REF#refs/*/} | rev | cut -d/ -f 2 | rev" >> $GITHUB_ENV
+      - name: Set APP_VERSION env
+        run: echo "APP_VERSION=${GITHUB_REF#refs/*/} | rev | cut -d/ -f 3 | rev'" >> $GITHUB_ENV
       - name: Display Values
         run: |
-          echo ${{ env.RELEASE_PATH }} ${{ env.RELEASE_VERSION }} ${{ env.RELEASE_IMAGE_NAME }}
+          echo ${{ env.CHART_NAME }} ${{ env.CHART_VERSION }} ${{ env.RELEASE_IMAGE_NAME }}
       - name: checkout git code
         uses: actions/checkout@v3
       - name: Publish Helm charts
         uses: stefanprodan/helm-gh-pages@master
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          app_version: ${{ env.RELEASE_APP_VERSION }}
-          chart_version: ${{ env.RELEASE_CHART_VERSION }}
-          charts_dir: charts
+          app_version: ${{ env.APP_VERSION }}
+          chart_version: ${{ env.CHART_VERSION }}
+          charts_dir: charts/${{ env.CHART_NAME }}
