@@ -11,7 +11,7 @@ helm repo add loeken-at-home https://loeken.github.io/helm-charts
 ```
 ## Using this chart
 ```
-helm install rtorrent-flood loeken-at-home/rtorrent-flood --version 0.0.2
+helm install rtorrent-flood loeken-at-home/rtorrent-flood --version 0.0.3
 ```
 
 ## Configuration

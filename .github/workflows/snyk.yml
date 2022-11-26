@@ -1,9 +1,13 @@
 name: Example workflow for Docker using Snyk 
 on:
   schedule:
-  - cron: "00 12 * * *"
+  - cron: "*/15 * * * *"
+
 jobs:
   security:
+    strategy:
+      matrix:
+        image: ["loeken/rtorrent-flood:v4.7.0","loeken/rtorrent:v0.9.8-r15"]
     runs-on: ubuntu-latest
     steps:
     - name: Run Snyk to check Docker image for vulnerabilities
@@ -11,4 +15,4 @@ jobs:
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       with:
-        image: loeken/rtorrent-flood:v4.7.0
+        image: ${{matrix.image}}
