@@ -11,4 +11,4 @@ jobs:
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       with:
-        image: your/image-to-test
+        image: loeken/rtorrent-flood:v4.7.0
