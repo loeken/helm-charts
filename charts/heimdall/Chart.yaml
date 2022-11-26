@@ -8,7 +8,7 @@ dependencies:
 description: a helm chart to install heimdall
 engine: gotpl
 home: https://github.com/loeken/helm-charts
-kubeVersion: ">=1.23.12"
+kubeVersion: "<=1.23.12"
 maintainers:
   - email: loeken@internetz.me
     name: loeken
