@@ -5,15 +5,6 @@ Tested with Kubernetes: v1.23.12
 
 Cannot guarantee compatibility with higher versions of kubernetes
 
-## Add Repository
-```
-helm repo add loeken-at-home https://loeken.github.io/helm-charts
-```
-## Using this chart
-```
-helm install heimdall loeken-at-home/heimdall --version 1.0.0
-```
-
 ## Configuration
 
 Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
