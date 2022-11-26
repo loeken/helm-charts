@@ -1,5 +1,3 @@
-# expects:
-# git tag chartname/chartversion/appversion
 name: release
 on:
   push:
