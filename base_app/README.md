@@ -1,4 +1,4 @@
-# heimdall
+# chartname
 
 ## Requirements
 Tested with Kubernetes: v1.23.12
@@ -11,7 +11,7 @@ helm repo add loeken-at-home https://loeken.github.io/helm-charts
 ```
 ## Using this chart
 ```
-helm install example loeken-at-home/example --version appversion chartversion
+helm install chartname loeken-at-home/chartname --version appversion chartversion
 ```
 
 ## Configuration

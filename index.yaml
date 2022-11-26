@@ -3,13 +3,13 @@ entries:
   heimdall:
   - apiVersion: v2
     appVersion: 2.5.2
-    created: "2022-11-26T17:19:29.845326294+01:00"
+    created: "2022-11-26T18:08:45.888520124+01:00"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
       version: 1.1.3
     description: a helm chart to install heimdall
-    digest: 58f71452c0fe0070efe0975ca2d09ce6d80675d14492a910a25b5aa978840323
+    digest: c852b310c91f16522f0773ff984c85c7c975fb33a386bb088ed2ad11aa4ba175
     home: https://github.com/loeken/helm-charts
     kubeVersion: '>=1.16.0'
     maintainers:
@@ -25,13 +25,13 @@ entries:
   jellyfin:
   - apiVersion: v2
     appVersion: 10.8.7
-    created: "2022-11-26T17:19:29.847957808+01:00"
+    created: "2022-11-26T18:08:45.890405494+01:00"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
       version: 1.1.3
     description: a helm chart to install jellyfin
-    digest: 462d55d24ab0c567869245925c4329f3aee934374acf2f57b5e46e2e4a3150a4
+    digest: 181a31fd8a38b8cb1af7b591638305aa24c8ed656a0703083d5323b9bea120b9
     home: https://github.com/loeken/helm-charts
     kubeVersion: '>=1.16.0'
     maintainers:
@@ -47,13 +47,13 @@ entries:
   rtorrent-flood:
   - apiVersion: v2
     appVersion: v4.7.0
-    created: "2022-11-26T17:19:29.853778872+01:00"
+    created: "2022-11-26T18:08:45.898511223+01:00"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
       version: 1.1.3
     description: a helm chart to install rtorrent-flood
-    digest: f1e7e2c1a1e12e255a46cee85027dd11ac5c535d0b304be97fdeaf18654e84a8
+    digest: 9adf1c13a734b4d16ac8d1faf329d0c09405463ad9991cd509e7c4a0cb70569f
     home: https://github.com/loeken/helm-charts
     kubeVersion: '>=1.16.0'
     maintainers:
@@ -68,7 +68,7 @@ entries:
     version: 0.0.3
   - apiVersion: v2
     appVersion: v4.7.0
-    created: "2022-11-26T17:19:29.85213401+01:00"
+    created: "2022-11-26T18:08:45.895987612+01:00"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
@@ -89,7 +89,7 @@ entries:
     version: 0.0.2
   - apiVersion: v2
     appVersion: v4.7.0
-    created: "2022-11-26T17:19:29.850328899+01:00"
+    created: "2022-11-26T18:08:45.892687629+01:00"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
@@ -110,13 +110,13 @@ entries:
     version: 0.0.1
   vaultwarden:
   - apiVersion: v2
-    created: "2022-11-26T17:19:29.855930397+01:00"
+    created: "2022-11-26T18:08:45.901027912+01:00"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
       version: 1.1.3
     description: a helm chart to install vaultwarden
-    digest: 52a5f4993aaca5589c3aecb6b86cca9bb52ae5cca5339ff108089239f1f8a13f
+    digest: 96f4915f5a145a1c5f9575835768b55268d3f60ec4750c0681a8f2fa43cf3ef1
     home: https://github.com/loeken/helm-charts
     kubeVersion: '>=1.16.0'
     maintainers:
@@ -129,4 +129,4 @@ entries:
     urls:
     - https://loeken.github.io/helm-charts/charts/vaultwarden-0.0.1.tgz
     version: 0.0.1
-generated: "2022-11-26T17:19:29.842370536+01:00"
+generated: "2022-11-26T18:08:45.886628957+01:00"
