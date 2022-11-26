@@ -1,6 +1,6 @@
 ---
 apiVersion: v2
-appVersion: 
+appVersion: 1.26.0-alpine
 dependencies:
   - name: common
     repository: https://bjw-s.github.io/helm-charts

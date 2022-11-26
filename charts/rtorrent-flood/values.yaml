@@ -20,7 +20,7 @@ image:
   # -- image repository
   repository: loeken/rtorrent-flood
   # -- image tag
-  tag: v4.7.0
+  tag: 4.7.0
   # -- image pull policy
   pullPolicy: IfNotPresent
 
