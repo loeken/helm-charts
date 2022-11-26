@@ -16,4 +16,4 @@ name: rtorrent-flood
 sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/rtorrent-flood
 type: application
-version: 8.4.7
+version: 0.0.1

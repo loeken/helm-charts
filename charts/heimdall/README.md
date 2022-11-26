@@ -11,7 +11,7 @@ helm repo add loeken-at-home https://loeken.github.io/helm-charts
 ```
 ## Using this chart
 ```
-helm install heimdall loeken-at-home/heimdall --version 8.4.6
+helm install heimdall loeken-at-home/heimdall --version 0.0.1
 ```
 
 ## Configuration
