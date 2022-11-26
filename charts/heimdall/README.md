@@ -14,8 +14,6 @@ helm repo add loeken-at-home https://loeken.github.io/helm-charts
 helm install my-heimdall loeken-at-home/heimdall --version 8.4.4
 ```
 
-For more information, take a look at the [Docs](http://docs.k8s-at-home.com/our-helm-charts/common-library/).
-
 ## Configuration
 
 Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
@@ -25,8 +23,6 @@ Read through the [values.yaml](./values.yaml) file. It has several commented out
 N/A
 
 ## Values
-
-**Important**: When deploying an application Helm chart you can add more values from our common library chart [here](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common)
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
