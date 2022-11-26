@@ -6,7 +6,8 @@ on:
 env:
   DATREE_TOKEN: ${{ secrets.DATREE_TOKEN }} 
 
-jobs:
+runs:
+  using: 'node16'
   k8sPolicyCheck:
     runs-on: ubuntu-latest
 
