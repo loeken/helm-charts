@@ -7,22 +7,9 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - name: echo raw value
-        run: echo ${GITHUB_REF#refs/*/}
-      - name: Set CHART_NAME env
-        run: echo "CHART_NAME=`echo ${GITHUB_REF#refs/*/} | cut -d/ -f 1`" >> $GITHUB_ENV
-      - name: Set CHART_VERSION env
-        run: echo "CHART_VERSION=`echo ${GITHUB_REF#refs/*/} | cut -d/ -f 2`" >> $GITHUB_ENV
-      - name: Set APP_VERSION env
-        run: echo "APP_VERSION=`echo ${GITHUB_REF#refs/*/} | cut -d/ -f 3`" >> $GITHUB_ENV
-      - name: Display Values
-        run: |
-          echo ${{ env.CHART_NAME }} ${{ env.CHART_VERSION }} ${{ env.APP_VERSION }}
       - name: checkout git code
         uses: actions/checkout@v3
       - name: Publish Helm charts
         uses: stefanprodan/helm-gh-pages@master
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          app_version: ${{ env.APP_VERSION }}
-          chart_version: ${{ env.CHART_VERSION }}
