@@ -1,8 +1,5 @@
 # heimdall
 
-## Image
-The image is build by linuxserver.io
-
 ## Requirements
 Tested with Kubernetes: v1.23.12
 

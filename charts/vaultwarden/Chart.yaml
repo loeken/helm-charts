@@ -23,5 +23,6 @@ maintainers:
 name: vaultwarden
 sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/vaultwarden
+    - https://github.com/loeken/docker-vaultwarden/blob/main/.github/workflows/release.yml
 type: application
 version: 1.0.1

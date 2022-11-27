@@ -15,5 +15,6 @@ maintainers:
 name: rtorrent-flood
 sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/rtorrent-flood
+  - https://github.com/loeken/docker-rtorrent-flood/blob/main/.github/workflows/release.yml
 type: application
 version: 1.0.3
