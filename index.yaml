@@ -3,13 +3,13 @@ entries:
   heimdall:
   - apiVersion: v2
     appVersion: 2.5.2
-    created: "2022-11-27T16:25:55.538274964Z"
+    created: "2022-11-27T22:27:02.498020612Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
       version: 1.1.3
     description: a helm chart to install heimdall
-    digest: dc6e2d9b8471e619dbb00df38aba8c170c3e06074232d16114054360cb75468e
+    digest: e6731c76ea3c9366999869c02905026a817722c14b2c90e24c0428f45c646ddc
     home: https://github.com/loeken/helm-charts
     kubeVersion: '>=1.16.0'
     maintainers:
@@ -22,16 +22,50 @@ entries:
     urls:
     - https://loeken.github.io/helm-charts/heimdall-1.0.15.tgz
     version: 1.0.15
+  home-assistant:
+  - apiVersion: v2
+    appVersion: 2022.11.0
+    created: "2022-11-27T22:27:02.51385151Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 1.1.3
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.6.12
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.0.14
+    - condition: influxdb.enabled
+      name: influxdb
+      repository: https://charts.bitnami.com/bitnami
+      version: 5.3.5
+    description: a helm chart to install home-assistant
+    digest: 0a6a0c47256efa71411513a7346373607aa1db77277c0c56df48d611f98a48f8
+    home: https://github.com/loeken/helm-charts
+    kubeVersion: '>=1.16.0'
+    maintainers:
+    - email: loeken@internetz.me
+      name: loeken
+    name: home-assistant
+    sources:
+    - https://github.com/loeken/helm-charts/tree/main/charts/home-assistant
+    type: application
+    urls:
+    - https://loeken.github.io/helm-charts/home-assistant-0.0.1.tgz
+    version: 0.0.1
   rtorrent-flood:
   - apiVersion: v2
     appVersion: 4.7.0
-    created: "2022-11-27T16:25:55.541881758Z"
+    created: "2022-11-27T22:27:02.516932871Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
       version: 1.1.3
     description: a helm chart to install rtorrent-flood
-    digest: 902f81ecbaf89126975d4b0cd2326ad315d11216c6c236e13bc44b46df7fa2c7
+    digest: 2fa55480978115b2ccabb37511795c7f8cc9a22aac561eac21e5264bd9f1fb12
     home: https://github.com/loeken/helm-charts
     kubeVersion: '>=1.16.0'
     maintainers:
@@ -47,7 +81,7 @@ entries:
   vaultwarden:
   - apiVersion: v2
     appVersion: 1.26.0-alpine
-    created: "2022-11-27T16:25:55.55694715Z"
+    created: "2022-11-27T22:27:02.529242713Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
@@ -61,7 +95,7 @@ entries:
       repository: https://charts.bitnami.com/bitnami
       version: 11.6.12
     description: a helm chart to install vaultwarden
-    digest: 9ab7cdf3f05caf7c7bbcdd9cf2530c3935a1d565ea953a57bb06534cbef53fcc
+    digest: 848944c45b468559656532135b262eef45278f84071482e59e97fc02da447089
     home: https://github.com/loeken/helm-charts
     kubeVersion: '>=1.16.0'
     maintainers:
@@ -124,4 +158,4 @@ entries:
     urls:
     - https://loeken.github.io/helm-charts/vaultwarden-0.0.2.tgz
     version: 0.0.2
-generated: "2022-11-27T16:25:55.533917351Z"
+generated: "2022-11-27T22:27:02.493773467Z"
