@@ -3,13 +3,13 @@ entries:
   heimdall:
   - apiVersion: v2
     appVersion: 2.5.2
-    created: "2022-11-26T22:26:15.612170309Z"
+    created: "2022-11-27T11:02:21.730344347Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
       version: 1.1.3
     description: a helm chart to install heimdall
-    digest: 78b1dda0a7d5838fe93cc5808c1c4ba47c5a1677b58678d3fbb1d140eda7d589
+    digest: 27882b2879fff2ca41cb315c3b8df14200a84117e5ebe521b2084e30585c9b6c
     home: https://github.com/loeken/helm-charts
     kubeVersion: '>=1.16.0'
     maintainers:
@@ -25,13 +25,13 @@ entries:
   rtorrent-flood:
   - apiVersion: v2
     appVersion: 4.7.0
-    created: "2022-11-26T22:26:15.616438457Z"
+    created: "2022-11-27T11:02:21.733547705Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
       version: 1.1.3
     description: a helm chart to install rtorrent-flood
-    digest: d6ae348b1dc9923ac4262a0e16ec96834628761379958ab13c5e2f60459ce094
+    digest: 809cb442ba33f43e819a779ac5aafee051241bf87afbdbb611db9e3ab5134480
     home: https://github.com/loeken/helm-charts
     kubeVersion: '>=1.16.0'
     maintainers:
@@ -47,13 +47,21 @@ entries:
   vaultwarden:
   - apiVersion: v2
     appVersion: 1.26.0-alpine
-    created: "2022-11-26T22:26:15.621299512Z"
+    created: "2022-11-27T11:02:21.747252156Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
       version: 1.1.3
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.0.14
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.6.12
     description: a helm chart to install vaultwarden
-    digest: ea1d0c5b4b58945c72f024427421b5bc934eb253c498278c7145546af1447f7e
+    digest: 4403a2ac60037383ae6756eaf6971536b6996d6c328ea742267d596ed94a953b
     home: https://github.com/loeken/helm-charts
     kubeVersion: '>=1.16.0'
     maintainers:
@@ -87,4 +95,4 @@ entries:
     urls:
     - https://loeken.github.io/helm-charts/vaultwarden-0.0.2.tgz
     version: 0.0.2
-generated: "2022-11-26T22:26:15.60610024Z"
+generated: "2022-11-27T11:02:21.72669638Z"
