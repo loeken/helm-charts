@@ -3,13 +3,13 @@ entries:
   heimdall:
   - apiVersion: v2
     appVersion: 2.5.2
-    created: "2022-11-27T11:03:11.786083079Z"
+    created: "2022-11-27T16:25:55.538274964Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
       version: 1.1.3
     description: a helm chart to install heimdall
-    digest: f705bc2df59f3fe01fbe6f9411165c23984a975661d62afad39f05e9915fb5d7
+    digest: dc6e2d9b8471e619dbb00df38aba8c170c3e06074232d16114054360cb75468e
     home: https://github.com/loeken/helm-charts
     kubeVersion: '>=1.16.0'
     maintainers:
@@ -25,13 +25,13 @@ entries:
   rtorrent-flood:
   - apiVersion: v2
     appVersion: 4.7.0
-    created: "2022-11-27T11:03:11.788932721Z"
+    created: "2022-11-27T16:25:55.541881758Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
       version: 1.1.3
     description: a helm chart to install rtorrent-flood
-    digest: bb383b536c2e3a2a109b41a7973f8f689c5b9b54f56dd44339ac061e4bd3e4ea
+    digest: 902f81ecbaf89126975d4b0cd2326ad315d11216c6c236e13bc44b46df7fa2c7
     home: https://github.com/loeken/helm-charts
     kubeVersion: '>=1.16.0'
     maintainers:
@@ -47,7 +47,7 @@ entries:
   vaultwarden:
   - apiVersion: v2
     appVersion: 1.26.0-alpine
-    created: "2022-11-27T11:03:11.800501892Z"
+    created: "2022-11-27T16:25:55.55694715Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
@@ -61,7 +61,7 @@ entries:
       repository: https://charts.bitnami.com/bitnami
       version: 11.6.12
     description: a helm chart to install vaultwarden
-    digest: 6425140507ab086bcc8c970c59f4ac6da657c9b9dd18270838146f956c76504d
+    digest: 9ab7cdf3f05caf7c7bbcdd9cf2530c3935a1d565ea953a57bb06534cbef53fcc
     home: https://github.com/loeken/helm-charts
     kubeVersion: '>=1.16.0'
     maintainers:
@@ -124,4 +124,4 @@ entries:
     urls:
     - https://loeken.github.io/helm-charts/vaultwarden-0.0.2.tgz
     version: 0.0.2
-generated: "2022-11-27T11:03:11.78280303Z"
+generated: "2022-11-27T16:25:55.533917351Z"
