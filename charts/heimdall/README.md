@@ -1,7 +1,7 @@
 # heimdall
 
 ## Image
-The image is build via github action: https://github.com/loeken/docker-heimdall
+The image is build by linuxserver.io
 
 ## Requirements
 Tested with Kubernetes: v1.23.12
