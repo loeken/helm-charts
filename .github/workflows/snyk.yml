@@ -1,7 +1,7 @@
 name: Example workflow for Docker using Snyk 
 on:
   schedule:
-  - cron: "*/15 * * * *"
+  - cron: "30 16 * * *"
 
 jobs:
   security:
