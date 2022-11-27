@@ -1,5 +1,8 @@
 # vaultwarden
 
+## Image
+The image is build via github action: https://github.com/loeken/docker-vaultwarden
+
 ## Requirements
 Tested with Kubernetes: v1.23.12
 

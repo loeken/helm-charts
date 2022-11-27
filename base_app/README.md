@@ -1,18 +1,12 @@
 # chartname
 
+## Image
+The image is build via github action: https://github.com/loeken/docker-chartname
+
 ## Requirements
 Tested with Kubernetes: v1.23.12
 
 Cannot guarantee compatibility with higher versions of kubernetes
-
-## Add Repository
-```
-helm repo add loeken-at-home https://loeken.github.io/helm-charts
-```
-## Using this chart
-```
-helm install chartname loeken-at-home/chartname --version appversion chartversion
-```
 
 ## Configuration
 
