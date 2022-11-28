@@ -1,7 +1,7 @@
 name: Security Checks
 on:
   schedule:
-  - cron: "30 16 * * *"
+  -  cron: '55 * * * *'
 
 jobs:
   security:
