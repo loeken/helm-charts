@@ -29,4 +29,8 @@ sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/home-assistant
   - https://github.com/loeken/docker-home-assistant/blob/main/.github/workflows/release.yml
 type: application
-version: 0.0.1
+version: 1.0.0
+annotations:
+  artifacthub.io/changes: |-
+    - kind: fixed
+      description: docker image and chart tested bumping version to stable 1.0.0
