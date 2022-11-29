@@ -12,7 +12,7 @@ image:
   # @default -- chart.appVersion
   tag: 2022.11.4
   # -- image pull policy
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 # -- environment variables.
 # @default -- See below

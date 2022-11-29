@@ -22,7 +22,7 @@ image:
   # -- image tag
   tag: 4.7.0
   # -- image pull policy
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 # -- environment variables. See [image docs](https://github.com/jesec/flood#configuration) for more details.
 # @default -- See below
