@@ -16,9 +16,5 @@ jobs:
 
       - name: fail when not matching
         run: |
-          ls 
-          ls bjw
           ls bjw/charts
-          ls bjw/charts/library
-          ls bjw/charts/library/common
           echo `cat bjw/charts/library/common/Chart.yaml|grep version|cut -d' ' -f 2`
