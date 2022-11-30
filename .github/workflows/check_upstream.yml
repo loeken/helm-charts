@@ -12,11 +12,13 @@ jobs:
       - uses: actions/checkout@master
         with:
           name: bjw-s/helm-charts
+          path: bjw
 
       - name: fail when not matching
         run: |
-          ls
-          ls charts
-          ls charts/library
-          ls charts/library/common
-          echo `cat charts/library/common/Chart.yaml|grep version|cut -d' ' -f 2`
+          ls 
+          ls bjw
+          ls bjw/charts
+          ls bjw/charts/library
+          ls bjw/charts/library/common
+          echo `cat bjw/charts/library/common/Chart.yaml|grep version|cut -d' ' -f 2`
