@@ -14,4 +14,6 @@ jobs:
           name: bjw-s/helm-charts
 
       - name: fail when not matching
-        run: echo "cat charts/library/common/Chart.yaml|grep version|cut -d' ' -f 2"
+        run: |
+          ls
+          echo "cat charts/library/common/Chart.yaml|grep version|cut -d' ' -f 2"
