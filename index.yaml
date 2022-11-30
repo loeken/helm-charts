@@ -7,13 +7,13 @@ entries:
           description: docker image and chart tested, released 1.0.16
     apiVersion: v2
     appVersion: 2.5.3
-    created: "2022-11-30T11:47:03.047713315Z"
+    created: "2022-11-30T11:47:57.224998563Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
       version: 1.1.3
     description: heimdall - an application dashboard and launcher
-    digest: e109c7a6ea4490f80122e7b8255d11c62e21971087ecf23a6a9f0891d8ff122f
+    digest: eea1af80fe9f336f9bf87d07e8a6dbb12aa16fb01b332b536a7cf3ddbcfb5633
     home: https://github.com/loeken/helm-charts
     icon: https://d33wubrfki0l68.cloudfront.net/8c14075578b2f3d5c3c7acb0b73a911c1830aec4/96df1/images/avatar.png
     kubeVersion: '>=1.16.0'
@@ -55,7 +55,7 @@ entries:
           description: docker image and chart tested, released 1.0.0
     apiVersion: v2
     appVersion: 2022.11.4
-    created: "2022-11-30T11:47:03.072862007Z"
+    created: "2022-11-30T11:47:57.242021452Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
@@ -75,7 +75,7 @@ entries:
     description: home-assistant  - a free and open-source software for home automation
       designed to be a central control system for smart home devices with a focus
       on local control and privacy
-    digest: 62a4850ade837245242c5c3c38bb4a491a21a6b736a6b50ba0c57ffb335a2441
+    digest: a1af9a018a1fb3a1c83170da006893262d31ed31817facebe512f8d094108592
     home: https://github.com/loeken/helm-charts
     icon: https://d33wubrfki0l68.cloudfront.net/8c14075578b2f3d5c3c7acb0b73a911c1830aec4/96df1/images/avatar.png
     kubeVersion: '>=1.16.0'
@@ -131,14 +131,14 @@ entries:
           description: docker image and chart tested, released 1.0.3
     apiVersion: v2
     appVersion: 4.7.0
-    created: "2022-11-30T11:47:03.076691921Z"
+    created: "2022-11-30T11:47:57.24501262Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
       version: 1.1.3
     description: rtorrent-flood - flood, a beautiful web UI for various torrent clients
       combined with rtorrent in this chart.
-    digest: 17d2649e77fdb97c7d52a113ab4e9e384da455c0f82e7d7c1228601cec224af6
+    digest: c42b4376dad1dd64cd4ee48c2fc14a3f3c5f5319b99e0db9e3c1c4338ebdbb74
     home: https://github.com/loeken/helm-charts
     icon: https://d33wubrfki0l68.cloudfront.net/8c14075578b2f3d5c3c7acb0b73a911c1830aec4/96df1/images/avatar.png
     kubeVersion: '>=1.16.0'
@@ -160,7 +160,7 @@ entries:
           description: docker image and chart tested, released 1.0.0
     apiVersion: v2
     appVersion: 1.26.0-alpine
-    created: "2022-11-30T11:47:03.092034377Z"
+    created: "2022-11-30T11:47:57.256990394Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
@@ -175,7 +175,7 @@ entries:
       version: 11.6.12
     description: vaultwarden - unofficial bitwarden compatible server written in rust,
       formerly known as bitwarden_rs
-    digest: c5da7c0312b23cf6651068748d6d70388a36cb24f06eabc5171f0c276c96d618
+    digest: 445dffbc7942b4e63765528c460eb6e441bee493b1303f88b218786bae5343cb
     home: https://github.com/loeken/helm-charts
     icon: https://d33wubrfki0l68.cloudfront.net/8c14075578b2f3d5c3c7acb0b73a911c1830aec4/96df1/images/avatar.png
     kubeVersion: '>=1.16.0'
@@ -240,4 +240,4 @@ entries:
     urls:
     - https://loeken.github.io/helm-charts/vaultwarden-0.0.2.tgz
     version: 0.0.2
-generated: "2022-11-30T11:47:03.043027097Z"
+generated: "2022-11-30T11:47:57.221420482Z"
