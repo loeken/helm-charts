@@ -1,4 +1,4 @@
-name: Security Checks
+name: Trivy/Snyk Security Checks
 on:
   schedule:
   -  cron: '25 * * * *'
