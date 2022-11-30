@@ -16,4 +16,7 @@ jobs:
       - name: fail when not matching
         run: |
           ls
+          ls charts
+          ls charts/library
+          ls charts/library/common
           echo `cat charts/library/common/Chart.yaml|grep version|cut -d' ' -f 2`
