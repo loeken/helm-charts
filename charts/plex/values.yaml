@@ -2,7 +2,7 @@ image:
   # -- image repository
   repository: loeken/plex
   # @default -- chart.appVersion
-  tag:
+  tag: 1.29.2.6364
   # -- image pull policy
   pullPolicy: IfNotPresent
 
@@ -90,7 +90,7 @@ podSecurityContext: {}
   # - 109
 
 # -- Configure the resource requests and/or limits for the Pod
-resources: {}
+resources:
   requests:
   #   # Hardware acceleration using an Intel iGPU w/ QuickSync and
   #   # using intel-gpu-plugin (https://github.com/intel/intel-device-plugins-for-kubernetes)
