@@ -11,8 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
         with:
-          name: bjw-s/helm-charts     <-- clone https://github.com/org1/repo1
-          ref: refs/for/master
+          name: bjw-s/helm-charts
 
       - name: fail when not matching
         run: echo "cat charts/library/common/Chart.yaml|grep version|cut -d' ' -f 2"
