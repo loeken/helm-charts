@@ -13,8 +13,9 @@ jobs:
         with:
           repository: bjw-s/helm-charts
           path: bjw
-
-      - name: fail when not matching
+      - name: extract version
         run: |
-          ls bjw/charts
-          echo `cat bjw/charts/library/common/Chart.yaml|grep version|cut -d' ' -f 2`
+          echo "VERSION=`cat bjw/charts/library/common/Chart.yaml|grep version|cut -d' ' -f 2`" >> $GITHUB_ENV
+      - name: fail when not matching
+        if: ${{env.VERSION}} != '2022.11.4'
+        run: exit 1
