@@ -1,13 +1,13 @@
 name: Security Checks
 on:
   schedule:
-  -  cron: '55 * * * *'
+  -  cron: '25 * * * *'
 
 jobs:
   security:
     strategy:
       matrix:
-        image: ["loeken/rtorrent-flood", "loeken/rtorrent", "loeken/vaultwarden", "loeken/home-assistant"]
+        image: ["loeken/rtorrent-flood", "loeken/rtorrent", "loeken/vaultwarden", "loeken/home-assistant", "loeken/plex"]
     runs-on: ubuntu-latest
     steps:
     - name: Run Snyk to check Docker image for vulnerabilities
