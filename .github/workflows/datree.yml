@@ -2,7 +2,8 @@ name: datree
 on:
   push:
     branches: [ main ]
-    
+    paths:
+      - 'charts/**'
 env:
   DATREE_TOKEN: ${{ secrets.DATREE_TOKEN }} 
 
