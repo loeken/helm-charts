@@ -2,7 +2,7 @@ image:
   # -- image repository
   repository: linuxserver/heimdall
   # -- image tag
-  tag: version-v2.5.2
+  tag: version-v2.5.3
   # -- image pull policy
   pullPolicy: Always
 
