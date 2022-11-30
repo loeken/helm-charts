@@ -8,7 +8,6 @@ dependencies:
 description: a helm chart to install chartname
 engine: gotpl
 home: https://github.com/loeken/helm-charts
-kubeVersion: ">=1.16.0"
 maintainers:
   - email: loeken@internetz.me
     name: loeken
