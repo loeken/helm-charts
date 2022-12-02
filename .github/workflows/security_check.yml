@@ -1,13 +1,13 @@
 name: Trivy/Snyk Security Checks
 on:
   schedule:
-  -  cron: '25 * * * *'
+  -  cron: '5 * * * *'
 
 jobs:
   security:
     strategy:
       matrix:
-        image: ["loeken/rtorrent-flood", "loeken/rtorrent", "loeken/vaultwarden", "loeken/home-assistant", "loeken/plex"]
+        image: ["loeken/rtorrent-flood", "loeken/rtorrent", "loeken/vaultwarden", "loeken/home-assistant", "loeken/plex", "linuxserver/heimdall", "linuxserver/sonarr", "linuxserver/nzbget"]
     runs-on: ubuntu-latest
     steps:
     - name: Run Snyk to check Docker image for vulnerabilities

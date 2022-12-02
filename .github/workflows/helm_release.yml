@@ -8,6 +8,7 @@ env:
   DATREE_TOKEN: ${{ secrets.DATREE_TOKEN }} 
 jobs:
   test:
+    name: validate helm
     strategy:
       matrix:
         version: ["1.23.0","1.24.0", "1.25.0"]
