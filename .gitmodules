@@ -1,0 +1,4 @@
+[submodule "common_library"]
+	path = common_library
+	url = git@github.com:loeken/bjw-s-helm-charts
+	branch = development
