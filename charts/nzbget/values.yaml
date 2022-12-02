@@ -1,0 +1,41 @@
+image:
+  # -- image repository
+  repository: linuxserver/nzbget
+  # -- image tag
+  tag: version-v21.1
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      http:
+        port: 6789
+
+ingress:
+  # -- Enable and configure ingress settings for the chart under this key.
+  # @default -- See values.yaml
+  main:
+    enabled: false
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  config:
+    enabled: false
+  media:
+    enabled: false
+    mountPath: /media
+  downloads:
+    enabled: false
+    mountPath: /downloads
+
+resources:
+  limits:
+    cpu: "1"
+    memory: 512Mi
+  requests:
+    cpu: "0.5"
+    memory: 256Mi
