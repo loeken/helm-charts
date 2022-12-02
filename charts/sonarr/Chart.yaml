@@ -4,7 +4,7 @@
 #     - kind: added
 #       description: docker image and chart tested, released 1.0.0
 apiVersion: v2
-appVersion: v4-4.0.0.205
+appVersion: release-3.0.9.1549
 dependencies:
   - name: common
     repository: https://bjw-s.github.io/helm-charts
