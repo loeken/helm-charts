@@ -3,6 +3,8 @@ annotations:
   artifacthub.io/changes: |-
     - kind: changed
       description: common library forked and now maintained by me aswell
+    - kind: changed
+      description: changed docker image to use alpine instead of scratch for trivy checks/improve transparency
 #     - kind: added
 #       description: docker image and chart tested, released 1.0.0
 apiVersion: v2
@@ -22,4 +24,4 @@ name: plex
 sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/plex
 type: application
-version: 0.0.2
+version: 0.0.3

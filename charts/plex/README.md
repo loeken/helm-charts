@@ -13,8 +13,6 @@ Using base library from https://bjw-s.github.io/helm-charts/docs/common-library/
 ## Requirements
 tested chart versions >= 1.0.0 on Kubernetes: v1.23.12
 
-Cannot guarantee compatibility with higher versions of kubernetes
-
 ## Configuration
 
 Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
