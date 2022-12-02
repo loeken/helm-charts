@@ -37,10 +37,12 @@ jobs:
     steps:
       - name: checkout git code
         uses: actions/checkout@v3
+        with:
+          submodules: 'true'
 
       - name: copy common library into the right spot
         run: cp -R common_library/charts/library/common/ charts/common/
-        
+
       - name: Publish Helm charts
         uses: stefanprodan/helm-gh-pages@master
         with:
