@@ -1,6 +1,6 @@
 image:
   # -- image repository
-  repository: linuxserver/sonarr
+  repository: hotio/sonarr
   # @default -- chart.appVersion
   tag:
   # -- image pull policy
