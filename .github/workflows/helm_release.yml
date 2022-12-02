@@ -21,6 +21,7 @@ jobs:
 
       - name: copy common library into the right spot
         run: cp -R common_library/charts/library/common/ charts/common/
+
       - name: Run Datree Policy Check
         uses: datreeio/action-datree@main
         with:
@@ -37,6 +38,9 @@ jobs:
       - name: checkout git code
         uses: actions/checkout@v3
 
+      - name: copy common library into the right spot
+        run: cp -R common_library/charts/library/common/ charts/common/
+        
       - name: Publish Helm charts
         uses: stefanprodan/helm-gh-pages@master
         with:
