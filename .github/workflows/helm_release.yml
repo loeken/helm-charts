@@ -4,6 +4,7 @@ on:
     branches: [ main ]
     paths:
       - 'charts/**'
+      - 'common_library/charts/library/common/**'
 env:
   DATREE_TOKEN: ${{ secrets.DATREE_TOKEN }} 
 jobs:
