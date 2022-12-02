@@ -1,4 +1,4 @@
-name: validate & release
+name: validate & release to artifacthub
 on:
   push:
     branches: [ main ]

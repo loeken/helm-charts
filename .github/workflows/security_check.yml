@@ -1,4 +1,4 @@
-name: security checks for used docker images
+name: security checks for docker images
 on:
   schedule:
   -  cron: '*/10 * * * *'
