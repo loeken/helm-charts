@@ -11,7 +11,7 @@ Using base library from https://bjw-s.github.io/helm-charts/docs/common-library/
 - dont forget to encrypt your secrets! ( https://artifacthub.io/packages/helm/bitnami-labs/sealed-secrets )
 
 ## Requirements
-Tested with Kubernetes: v1.23.12
+tested chart versions >= 1.0.0 on k3s v1.23.13+k3s1
 
 Cannot guarantee compatibility with higher versions of kubernetes
 
