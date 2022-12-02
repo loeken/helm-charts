@@ -13,3 +13,5 @@ sed -i "s/appversion/$3/g" charts/$1/Chart.yaml
 sed -i "s/chartname/$1/g" charts/$1/README.md
 sed -i "s/chartversion/$2/g" charts/$1/README.md
 sed -i "s/appversion/$3/g" charts/$1/README.md
+
+helm dependency update charts/$1
