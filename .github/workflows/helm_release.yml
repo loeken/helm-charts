@@ -13,20 +13,6 @@ jobs:
         version: ["1.23.0","1.24.0", "1.25.0"]
     runs-on: ubuntu-latest
     steps:
-      - name: checkout git code
-        uses: actions/checkout@v3
-
-      - name: Publish Helm charts
-        uses: stefanprodan/helm-gh-pages@master
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          owner: loeken
-          repository: helm-charts
-
-  release:
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
       - name: Checkout
         uses: actions/checkout@v3
               
@@ -36,3 +22,18 @@ jobs:
           path: 'charts'
           isHelmChart: true
           cliArguments: '--schema-version ${{ matrix.version }}'
+          
+
+  release:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: checkout git code
+        uses: actions/checkout@v3
+
+      - name: Publish Helm charts
+        uses: stefanprodan/helm-gh-pages@master
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          owner: loeken
+          repository: helm-charts
