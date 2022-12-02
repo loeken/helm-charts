@@ -1,7 +1,7 @@
-name: Trivy/Snyk Security Checks
+name: security checks for used docker images
 on:
   schedule:
-  -  cron: '5 * * * *'
+  -  cron: '*/10 * * * *'
 
 jobs:
   security:
