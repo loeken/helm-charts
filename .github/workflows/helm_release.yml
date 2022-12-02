@@ -11,7 +11,7 @@ jobs:
     name: validate helm
     strategy:
       matrix:
-        version: ["1.23.0","1.24.0", "1.25.0"]
+        version: ["1.23.14","1.24.8", "1.25.4"]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
