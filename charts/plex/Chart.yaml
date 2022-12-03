@@ -5,8 +5,8 @@ annotations:
       description: common library forked and now maintained by me aswell
     - kind: changed
       description: changed docker image to use alpine instead of scratch for trivy checks/improve transparency
-#     - kind: added
-#       description: docker image and chart tested, released 1.0.0
+    - kind: added
+      description: docker image and chart tested, released 1.0.0
 apiVersion: v2
 appVersion: 1.29.2.6364
 dependencies:
@@ -26,4 +26,4 @@ sources:
   - https://github.com/loeken/docker-plex/blob/main/.github/workflows/release.yml
 
 type: application
-version: 0.0.3
+version: 1.0.0
