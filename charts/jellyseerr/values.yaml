@@ -1,0 +1,51 @@
+image:
+  # -- image repository
+  repository: loeken/jellyseerr
+  # -- image tag
+  # @default -- chart.appVersion
+  tag:
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+# -- environment variables. See [image docs](https://jellyfin.org/docs/general/administration/configuration.html) for more details.
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      http:
+        port: 5055
+
+ingress:
+  # -- Enable and configure ingress settings for the chart under this key.
+  # @default -- See values.yaml
+  main:
+    enabled: false
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  config:
+    enabled: false
+
+  # Cache does NOT contain temporary transcoding data.
+  cache:
+    enabled: false
+    mountPath: /cache
+
+  media:
+    enabled: false
+    mountPath: /media
+
+resources:
+  limits:
+    cpu: "1"
+    memory: 256Mi
+  requests:
+    cpu: "0.5"
+    memory: 128Mi
