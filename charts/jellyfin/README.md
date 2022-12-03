@@ -1,4 +1,4 @@
-# sonarr
+# jellyfin
 
 ## loeken-at-home
 
@@ -14,6 +14,7 @@ Using base library from https://bjw-s.github.io/helm-charts/docs/common-library/
 validating chart versions against these kubernetes versions: 
 
 ["1.21.13", "1.22.16", "1.23.14","1.24.8", "1.25.4"]
+
 
 ## Configuration
 

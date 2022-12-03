@@ -10,8 +10,10 @@ Using base library from https://bjw-s.github.io/helm-charts/docs/common-library/
 - if not i ll create a github repo that has a github action to build the image ( linked in links: section of artifacthub.io`s helm chart page )
 - dont forget to encrypt your secrets! ( https://artifacthub.io/packages/helm/bitnami-labs/sealed-secrets )
 
-## Requirements
-tested chart versions >= 1.0.0 on Kubernetes: v1.23.12
+## Compatibility
+validating chart versions against these kubernetes versions: 
+
+["1.21.13", "1.22.16", "1.23.14","1.24.8", "1.25.4"]
 
 ## Configuration
 

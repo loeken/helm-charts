@@ -10,7 +10,7 @@ Using base library from https://bjw-s.github.io/helm-charts/docs/common-library/
 - if not i ll create a github repo that has a github action to build the image ( linked in links: section of artifacthub.io`s helm chart page )
 - dont forget to encrypt your secrets! ( https://artifacthub.io/packages/helm/bitnami-labs/sealed-secrets )
 
-## Requirements
+## Compatibility
 tested chart versions >= 1.0.0 on k3s v1.23.13+k3s1
 
 ## Configuration
