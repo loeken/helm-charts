@@ -39,3 +39,15 @@ resources:
   requests:
     cpu: "0.5"
     memory: 256Mi
+
+probes:
+  startup:
+    spec:
+      initialDelaySeconds: 20
+
+# change user/group ids if needed
+# env:
+#  - name: PUID
+#    value: 568
+#  - name: PGID
+#    value: 568

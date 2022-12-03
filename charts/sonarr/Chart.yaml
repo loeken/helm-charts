@@ -21,5 +21,6 @@ mmaintainers:
 name: sonarr
 sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/sonarr
+#  - https://github.com/loeken/docker-sonarr/blob/main/.github/workflows/release.yml
 type: application
 version: 0.0.3
