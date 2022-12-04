@@ -1,0 +1,6 @@
+dependencies:
+- name: common
+  repository: https://loeken.github.io/helm-charts
+  version: 1.1.4
+digest: sha256:6a8f171a88e68b4ab88812c00efb301a553e28795eadd796aa7e2b5d01941a0f
+generated: "2022-12-04T22:18:04.539310281+01:00"
