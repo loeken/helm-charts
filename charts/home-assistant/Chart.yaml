@@ -5,8 +5,10 @@ annotations:
       description: docker image and chart tested, released 1.0.0
     - kind: changed
       description: common library forked and now maintained by me aswell
+    - kind: changed
+      description: updated chart to 2022.11.5
 apiVersion: v2
-appVersion: 2022.11.4
+appVersion: 2022.11.5
 dependencies:
   - name: common
     repository: https://loeken.github.io/helm-charts
@@ -35,4 +37,4 @@ sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/home-assistant
   - https://github.com/loeken/docker-home-assistant/blob/main/.github/workflows/release.yml
 type: application
-version: 1.0.2
+version: 1.0.3
