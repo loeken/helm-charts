@@ -7,6 +7,8 @@ annotations:
       description: common library forked and now maintained by me aswell
     - kind: changed
       description: updated chart to 2022.11.5
+    - kind: changed
+      description: removed hardcoded tag from values.yaml
 apiVersion: v2
 appVersion: 2022.11.5
 dependencies:
@@ -37,4 +39,4 @@ sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/home-assistant
   - https://github.com/loeken/docker-home-assistant/blob/main/.github/workflows/release.yml
 type: application
-version: 1.0.3
+version: 1.0.4
