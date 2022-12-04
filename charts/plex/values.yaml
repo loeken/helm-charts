@@ -70,7 +70,7 @@ persistence:
     enabled: false
     mountPath: /config
 
-  transcode:
+  transco3de:
     enabled: false
     mountPath: /transcode
 

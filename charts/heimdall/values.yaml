@@ -4,7 +4,7 @@ image:
   # -- image tag
   tag: version-v2.5.3
   # -- image pull policy
-  pullPolicy: Always
+  pullPolicy: IfNotPresent
 
 # -- environment variables. See more environment variables in the [heimdall documentation](https://github.com/linuxserver/docker-heimdall#parameters).
 # @default -- See below
