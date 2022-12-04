@@ -10,7 +10,7 @@ image:
   repository: loeken/home-assistant
   # -- image tag
   # @default -- chart.appVersion
-  tag: 2022.11.4
+  tag:
   # -- image pull policy
   pullPolicy: Always
 
