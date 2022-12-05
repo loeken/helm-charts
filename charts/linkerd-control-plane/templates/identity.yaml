@@ -1,42 +1,5 @@
 {{if .Values.identity -}}
 ---
-###
-### Identity Controller Service
-###
-{{ if and (.Values.identity.issuer) (eq .Values.identity.issuer.scheme "linkerd.io/tls") -}}
----
-kind: Secret
-apiVersion: v1
-metadata:
-  name: linkerd-identity-issuer
-  namespace: {{ .Release.Namespace }}
-  labels:
-    linkerd.io/control-plane-component: identity
-    linkerd.io/control-plane-ns: {{.Release.Namespace}}
-    {{- with .Values.commonLabels }}{{ toYaml . | trim | nindent 4 }}{{- end }}
-  annotations:
-    {{ include "partials.annotations.created-by" . }}
-data:
-  crt.pem: {{b64enc .Values.identity.issuer.tls.crtPEM | trim }}
-  key.pem: {{b64enc .Values.identity.issuer.tls.keyPEM | trim }}
-{{- end}}
-{{ if not (.Values.identity.externalCA) -}}
----
-kind: ConfigMap
-apiVersion: v1
-metadata:
-  name: linkerd-identity-trust-roots
-  namespace: {{ .Release.Namespace }}
-  labels:
-    linkerd.io/control-plane-component: identity
-    linkerd.io/control-plane-ns: {{.Release.Namespace}}
-    {{- with .Values.commonLabels }}{{ toYaml . | trim | nindent 4 }}{{- end }}
-  annotations:
-    {{ include "partials.annotations.created-by" . }}
-data:
-  ca-bundle.crt: |{{.Values.identityTrustAnchorsPEM | trim | nindent 4}}
-{{- end}}
----
 kind: Service
 apiVersion: v1
 metadata:
