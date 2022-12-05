@@ -8,27 +8,27 @@ on:
 env:
   DATREE_TOKEN: ${{ secrets.DATREE_TOKEN }} 
 jobs:
-  test:
-    name: validate helm
-    strategy:
-      matrix:
-        version: ["1.21.13", "1.22.16", "1.23.14","1.24.8", "1.25.4"]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          submodules: 'true'
+  # test:
+  #   name: validate helm
+  #   strategy:
+  #     matrix:
+  #       version: ["1.21.13", "1.22.16", "1.23.14","1.24.8", "1.25.4"]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
+  #       with:
+  #         submodules: 'true'
 
-      - name: copy common library into the right spot
-        run: cp -R common_library/charts/library/common/ charts/common/
+  #     - name: copy common library into the right spot
+  #       run: cp -R common_library/charts/library/common/ charts/common/
 
-      - name: Run Datree Policy Check
-        uses: datreeio/action-datree@main
-        with:
-          path: 'charts'
-          isHelmChart: true
-          cliArguments: '--schema-version ${{ matrix.version }}'
+  #     - name: Run Datree Policy Check
+  #       uses: datreeio/action-datree@main
+  #       with:
+  #         path: 'charts'
+  #         isHelmChart: true
+  #         cliArguments: '--schema-version ${{ matrix.version }}'
           
 
   release:

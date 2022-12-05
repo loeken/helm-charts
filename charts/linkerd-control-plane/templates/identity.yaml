@@ -17,8 +17,8 @@ metadata:
   annotations:
     {{ include "partials.annotations.created-by" . }}
 data:
-  crt.pem: {{b64enc ("Please provide the identity issuer certificate" .Values.identity.issuer.tls.crtPEM | trim)}}
-  key.pem: {{b64enc ("Please provide the identity issue private key" .Values.identity.issuer.tls.keyPEM | trim)}}
+  crt.pem: {{b64enc .Values.identity.issuer.tls.crtPEM | trim }}
+  key.pem: {{b64enc .Values.identity.issuer.tls.keyPEM | trim }}
 {{- end}}
 {{ if not (.Values.identity.externalCA) -}}
 ---
