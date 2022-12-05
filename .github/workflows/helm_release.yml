@@ -2,9 +2,9 @@ name: validate & release to artifacthub
 on:
   push:
     branches: [ main ]
-    paths:
-      - 'charts/**'
-      - 'common_library/charts/library/common/**'
+    # paths:
+    #   - 'charts/**'
+    #   - 'common_library/charts/library/common/**'
 env:
   DATREE_TOKEN: ${{ secrets.DATREE_TOKEN }} 
 jobs:
@@ -34,7 +34,7 @@ jobs:
   release:
     name: release helm charts
     runs-on: ubuntu-latest
-    needs: test
+    #needs: test
     steps:
       - name: checkout git code
         uses: actions/checkout@v3
