@@ -511,33 +511,6 @@ entries:
     urls:
     - https://loeken.github.io/helm-charts/jellyseerr-0.0.1.tgz
     version: 0.0.1
-  linkerd-control-plane:
-  - apiVersion: v2
-    appVersion: edge-XX.X.X
-    created: "2022-12-05T21:10:59.17377018Z"
-    dependencies:
-    - name: partials
-      repository: file://../partials
-      version: 0.1.0
-    description: 'Linkerd gives you observability, reliability, and security for your
-      microservices — with no code change required. '
-    digest: 3e941dca0d9eb6a572124ecedeead7a4097809f7e2585f393205af217894b3b1
-    home: https://linkerd.io
-    icon: https://linkerd.io/images/logo-only-200h.png
-    keywords:
-    - service-mesh
-    kubeVersion: '>=1.21.0-0'
-    maintainers:
-    - email: cncf-linkerd-dev@lists.cncf.io
-      name: Linkerd authors
-      url: https://linkerd.io/
-    name: linkerd-control-plane
-    sources:
-    - https://github.com/linkerd/linkerd2/
-    type: application
-    urls:
-    - https://loeken.github.io/helm-charts/linkerd-control-plane-1.11.0-edge.tgz
-    version: 1.11.0-edge
   nzbget:
   - annotations:
       artifacthub.io/changes: |-
@@ -641,16 +614,6 @@ entries:
     urls:
     - https://loeken.github.io/helm-charts/nzbget-0.0.1.tgz
     version: 0.0.1
-  partials:
-  - apiVersion: v1
-    created: "2022-12-05T21:10:59.176787612Z"
-    description: 'A Helm chart containing Linkerd partial templates, depended by the
-      ''linkerd'' and ''patch'' charts. '
-    digest: 25ee0c35cba9f8e513114c7baa9b9843c8f214e78809ad512929daa4566b4702
-    name: partials
-    urls:
-    - https://loeken.github.io/helm-charts/partials-0.1.0.tgz
-    version: 0.1.0
   plex:
   - annotations:
       artifacthub.io/changes: |-
