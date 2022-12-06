@@ -1,10 +1,6 @@
 ---
 annotations:
   artifacthub.io/changes: |-
-    - kind: fixed
-      description: docker image and chart tested, released 1.0.1
-    - kind: changed
-      description: common library forked and now maintained by me aswell
     - kind: changed
       description: back to bjw-s for common library & bumped version of common library to 1.2.0
 apiVersion: v2
