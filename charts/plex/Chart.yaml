@@ -11,8 +11,8 @@ apiVersion: v2
 appVersion: 1.29.2.6364
 dependencies:
   - name: common
-    repository: https://loeken.github.io/helm-charts
-    version: 1.1.4
+    repository: https://bjw-s.github.io/helm-charts
+    version: 1.2.0
 description: plex - is an american streaming media service and a client–server media player platform
 engine: gotpl
 home: https://github.com/loeken/helm-charts

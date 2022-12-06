@@ -7,8 +7,8 @@ apiVersion: v2
 appVersion: v5-5.0.0.6803
 dependencies:
   - name: common
-    repository: https://loeken.github.io/helm-charts
-    version: 1.1.4
+    repository: https://bjw-s.github.io/helm-charts
+    version: 1.2.0
 description: a helm chart to install radarr
 engine: gotpl
 home: https://github.com/loeken/helm-charts

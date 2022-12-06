@@ -9,8 +9,8 @@ apiVersion: v2
 appVersion: 4.7.0
 dependencies:
   - name: common
-    repository: https://loeken.github.io/helm-charts
-    version: 1.1.4
+    repository: https://bjw-s.github.io/helm-charts
+    version: 1.2.0
 description: rtorrent-flood - flood, a beautiful web UI for various torrent clients combined with rtorrent in this chart.
 engine: gotpl
 home: https://github.com/loeken/helm-charts
