@@ -5,6 +5,8 @@ annotations:
       description: docker image and chart tested, released 1.0.3
     - kind: changed
       description: common library forked and now maintained by me aswell
+    - kind: changed
+      description: back to bjw-s for common library & bumped version of common library to 1.2.0
 apiVersion: v2
 appVersion: 4.7.0
 dependencies:
@@ -23,4 +25,4 @@ sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/rtorrent-flood
   - https://github.com/loeken/docker-rtorrent-flood/blob/main/.github/workflows/release.yml
 type: application
-version: 1.0.4
+version: 1.0.5
