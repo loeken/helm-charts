@@ -5,7 +5,7 @@ image:
   # @default -- chart.appVersion
   tag:
   # -- image pull policy
-  pullPolicy: IfNotPresent
+  pullPolicy: always
 
 # -- environment variables. See [image docs](https://jellyfin.org/docs/general/administration/configuration.html) for more details.
 # @default -- See below
