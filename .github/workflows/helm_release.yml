@@ -18,7 +18,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'true'
+          fetch-depth: 0
 
       - name: get changed file
         run: echo CHANGED_CHART=`git diff-tree --no-commit-id --name-only --diff-filter=ACMRT -r 37280c7b9262ac45603c3fe6c66be32621d45334 -- '*Chart.yaml' | sed '$s/$//'` >> $GITHUB_ENV
