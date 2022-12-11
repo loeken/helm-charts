@@ -25,3 +25,8 @@ argocd:
             hs = {}
             hs.status = "Healthy"
             return hs
+  service:
+    main:
+      ports:
+        http:
+          port: 8080
