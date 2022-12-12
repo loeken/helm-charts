@@ -1,7 +1,7 @@
 apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
 metadata:
-  name: {{ .Release.Name }}
+  name: homelab-repo
   labels:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
   annotations:
@@ -9,6 +9,7 @@ metadata:
     # consider also using "cluster-wide" if the namespace is also a parameter
     # please make sure you understand the implications, see README
     sealedsecrets.bitnami.com/namespace-wide: "true"
+  namespace: argocd
 spec:
   encryptedData:
   {{- range $key, $val := .Values.reposecrets }}
