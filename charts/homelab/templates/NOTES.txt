@@ -1,17 +1,20 @@
-apiVersion: bitnami.com/v1alpha1
-kind: SealedSecret
+1.) create a secret for your repo:
+
+echo 'apiVersion: v1
+kind: Secret
 metadata:
   name: homelab-repo
   labels:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
   annotations:
-    # this is because the name is a deployment time parameter
-    # consider also using "cluster-wide" if the namespace is also a parameter
-    # please make sure you understand the implications, see README
     sealedsecrets.bitnami.com/namespace-wide: "true"
   namespace: argocd
-spec:
-  encryptedData:
+stringData:
   {{- range $key, $val := .Values.reposecrets }}
     {{ $key }}: {{ $val | quote }}
   {{- end }}
+' > argocd-repository.yaml
+
+2.) encrypt is using sealed secrets and apply it to the cluster
+
+cat argocd-repository.yaml | kubeseal | kubectl apply -f -
