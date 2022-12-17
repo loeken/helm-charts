@@ -1,8 +1,8 @@
 ---
-# annotations:
-#   artifacthub.io/changes: |-
-#     - kind: added
-#       description: docker image and chart tested, released 1.0.0
+annotations:
+  artifacthub.io/changes: |-
+    - kind: added
+      description: updated docker image to v5-5.0.0.6823
 apiVersion: v2
 appVersion: v5-5.0.0.6823
 dependencies:
@@ -20,4 +20,4 @@ name: radarr
 sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/radarr
 type: application
-version: 0.0.1
+version: 0.0.2
