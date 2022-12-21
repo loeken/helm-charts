@@ -2,7 +2,8 @@ name: security checks for docker images
 on:
   schedule:
   -  cron: '0 */4 * * *'
-
+  push:
+    branches: [ main ]
 jobs:
   security:
     strategy:
