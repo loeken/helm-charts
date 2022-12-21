@@ -6,6 +6,7 @@ on:
 jobs:
   security:
     strategy:
+      fail-fast: false
       matrix:
         image: ["loeken/rtorrent-flood:4.7.1", "loeken/rtorrent:v0.9.8-r15", "loeken/vaultwarden:latest", "loeken/home-assistant:latest", "loeken/plex:latest", "linuxserver/heimdall:latest", "hotio/sonarr:latest", "linuxserver/nzbget:latest"]
     runs-on: ubuntu-latest
@@ -16,6 +17,7 @@ jobs:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       with:
         image: ${{matrix.image}}
+
     - name: Run Trivy vulnerability scanner
       uses: aquasecurity/trivy-action@master
       with:
@@ -25,3 +27,13 @@ jobs:
         ignore-unfixed: true
         vuln-type: 'os,library'
         severity: 'CRITICAL,HIGH'
+
+    - name: report version missmatch
+      if: always() && steps.release.outputs.value != matrix.repo.release
+      uses: ravsamhq/notify-slack-action@v1
+      with:
+        notification_title: "release check: ${{ steps.release.outputs.value }}"
+        status: "${{ job.status }}"
+        footer: "failed: ${{matrix.image}}"
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
