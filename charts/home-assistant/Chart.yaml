@@ -2,9 +2,9 @@
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: updated ha to 2022.12.7
+      description: updated ha to 2022.12.8
 apiVersion: v2
-appVersion: 2022.12.7
+appVersion: 2022.12.8
 dependencies:
   - name: common
     repository: https://bjw-s.github.io/helm-charts
