@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        image: ["loeken/rtorrent-flood:4.7.1", "loeken/rtorrent:v0.9.8-r15", "loeken/vaultwarden:latest", "loeken/home-assistant:latest", "loeken/plex:latest", "linuxserver/heimdall:latest", "hotio/sonarr:latest", "linuxserver/nzbget:latest"]
+        image: ["loeken/rtorrent-flood:4.7.1", "loeken/rtorrent:v0.9.8-r15", "loeken/vaultwarden:latest", "loeken/home-assistant:latest", "loeken/jellyseerr:latest", "loeken/jellyfin:latest", "linuxserver/heimdall:latest", "hotio/sonarr:latest", "linuxserver/nzbget:latest"]
     runs-on: ubuntu-latest
     steps:
     - name: Run Snyk to check Docker image for vulnerabilities
