@@ -4,7 +4,7 @@ annotations:
     - kind: added
       description: updated docker image to v5-5.0.0.6823
 apiVersion: v2
-appVersion: v5-5.0.0.6823
+appVersion: develop-version-4.3.2.6857
 dependencies:
   - name: common
     repository: https://bjw-s.github.io/helm-charts

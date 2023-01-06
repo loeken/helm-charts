@@ -4,7 +4,7 @@
 #     - kind: added
 #       description: docker image and chart tested, released 1.0.0
 apiVersion: v2
-appVersion: 1.2.1-alpine
+appVersion: 1.3.0-alpine
 dependencies:
   - name: common
     repository: https://bjw-s.github.io/helm-charts
@@ -20,4 +20,4 @@ name: jellyseerr
 sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/jellyseer
 type: application
-version: 0.0.2
+version: 0.0.3
