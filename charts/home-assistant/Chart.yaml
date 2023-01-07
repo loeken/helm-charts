@@ -4,7 +4,7 @@ annotations:
     - kind: changed
       description: updated ha to 2022.12.8
 apiVersion: v2
-appVersion: 2022.12.8
+appVersion: 2023.1.1
 dependencies:
   - name: common
     repository: https://bjw-s.github.io/helm-charts
