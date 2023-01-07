@@ -1,6 +1,6 @@
 image:
   # -- image repository
-  repository: hotio/radarr
+  repository: linuxserver/radarr
   # @default -- chart.appVersion
   tag:
   # -- image pull policy
