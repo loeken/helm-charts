@@ -4,7 +4,7 @@ annotations:
     - kind: changed
       description: heimdall updated to 2.5.4
 apiVersion: v2
-appVersion: 2.5.4
+appVersion: 2.5.5
 dependencies:
   - name: common
     repository: https://bjw-s.github.io/helm-charts
@@ -20,4 +20,4 @@ name: heimdall
 sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/heimdall
 type: application
-version: 1.0.19
+version: 1.0.20
