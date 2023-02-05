@@ -2,13 +2,13 @@
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: back to bjw-s for common library & bumped version of common library to 1.2.0
+      description: updated common library to 1.3.1
 apiVersion: v2
 appVersion: version-v21.1
 dependencies:
   - name: common
     repository: https://bjw-s.github.io/helm-charts
-    version: 1.2.0
+    version: 1.3.1
 description: nzbget - efficient usenet downloader.
 engine: gotpl
 home: https://github.com/loeken/helm-charts

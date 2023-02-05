@@ -2,13 +2,13 @@
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: heimdall updated to 2.5.4
+      description: updated common library to 1.3.1
 apiVersion: v2
 appVersion: 2.5.5
 dependencies:
   - name: common
     repository: https://bjw-s.github.io/helm-charts
-    version: 1.2.0
+    version: 1.3.1
 description: heimdall - an application dashboard and launcher
 engine: gotpl
 home: https://github.com/loeken/helm-charts
@@ -20,4 +20,4 @@ name: heimdall
 sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/heimdall
 type: application
-version: 1.0.20
+version: 1.0.21
