@@ -7,7 +7,7 @@
 
 image:
   # -- image repository
-  repository: loeken/vaultwarden
+  repository: vaultwarden/server
   # -- image pull policy
   pullPolicy: Always
   # -- image tag

@@ -2,9 +2,9 @@
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: updated common library to 1.3.1
+      description: image updated to vaultwardens base 1.27.0-alpine
 apiVersion: v2
-appVersion: 1.26.0-alpine
+appVersion: 1.27.0-alpine
 dependencies:
   - name: common
     repository: https://bjw-s.github.io/helm-charts
