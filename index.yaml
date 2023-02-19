@@ -1165,37 +1165,6 @@ entries:
     urls:
     - https://loeken.github.io/helm-charts/home-assistant-0.0.1.tgz
     version: 0.0.1
-  homelab:
-  - apiVersion: v2
-    appVersion: 0.0.1
-    created: "2022-12-12T11:36:20.297008303Z"
-    dependencies:
-    - name: common
-      repository: https://bjw-s.github.io/helm-charts
-      version: 1.2.0
-    - alias: argocd
-      name: argo-cd
-      repository: https://argoproj.github.io/argo-helm
-      version: 5.16.1
-    - alias: sealedsecrets
-      name: sealed-secrets
-      repository: https://bitnami-labs.github.io/sealed-secrets/
-      version: 2.7.0
-    description: a helm chart to install homelab ( helper script in loeken/homelab
-      git repo )
-    digest: 856b6a2cfd227333dedbb1bfaf2f9d14a0a61c58c6b7326d1a31481b69b44df6
-    home: https://github.com/loeken/helm-charts
-    icon: https://d33wubrfki0l68.cloudfront.net/8c14075578b2f3d5c3c7acb0b73a911c1830aec4/96df1/images/avatar.png
-    maintainers:
-    - email: loeken@internetz.me
-      name: loeken
-    name: homelab
-    sources:
-    - https://github.com/loeken/helm-charts/tree/main/charts/homelab
-    type: application
-    urls:
-    - https://loeken.github.io/helm-charts/homelab-0.0.1.tgz
-    version: 0.0.1
   jellyfin:
   - annotations:
       artifacthub.io/changes: |-
