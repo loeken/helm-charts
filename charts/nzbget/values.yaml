@@ -1,6 +1,6 @@
 image:
   # -- image repository
-  repository: linuxserver/nzbget
+  repository: loeken/nzbget
   # -- image tag
   tag: version-v21.1
   # -- image pull policy
