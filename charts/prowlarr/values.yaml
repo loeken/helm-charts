@@ -6,7 +6,7 @@
 
 image:
   # -- image repository
-  repository: linuxserver/prowlarr
+  repository: loeken/prowlarr
   # @default -- chart.appVersion
   tag:
   # -- image pull policy
