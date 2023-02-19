@@ -2,9 +2,9 @@
 annotations:
   artifacthub.io/changes: |-
     - kind: added
-      description: docker image and chart tested, released 1.0.0
+      description: changed image base to self hosted build process loeken/*
 apiVersion: v2
-appVersion: 10.8.9-alpine
+appVersion: 10.8.9
 dependencies:
   - name: common
     repository: https://bjw-s.github.io/helm-charts
@@ -20,4 +20,4 @@ name: jellyfin
 sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/jellyfin
 type: application
-version: 1.0.0
+version: 1.0.1

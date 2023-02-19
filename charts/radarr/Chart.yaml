@@ -2,7 +2,7 @@
 annotations:
   artifacthub.io/changes: |-
     - kind: added
-      description: updated docker image to v5-5.0.0.6823
+      description: changed image base to self hosted build process loeken/*
 apiVersion: v2
 appVersion: version-4.3.2.6857
 dependencies:
@@ -20,4 +20,4 @@ name: radarr
 sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/radarr
 type: application
-version: 0.0.3
+version: 0.0.4

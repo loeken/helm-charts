@@ -2,7 +2,7 @@
 annotations:
   artifacthub.io/changes: |-
     - kind: added
-      description: fixed updated to develop-version-1.2.0.2583
+      description: changed image base to self hosted build process loeken/*
 apiVersion: v2
 appVersion: develop-version-1.2.0.2583
 dependencies:
@@ -20,4 +20,4 @@ name: prowlarr
 sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/prowlarr
 type: application
-version: 0.0.7
+version: 0.0.8

@@ -1,6 +1,6 @@
 image:
   # -- image repository
-  repository: linuxserver/heimdall
+  repository: loeken/heimdall
   # -- image tag
   tag:
   # -- image pull policy

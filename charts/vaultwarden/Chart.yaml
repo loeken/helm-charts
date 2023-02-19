@@ -2,7 +2,7 @@
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: back to my image
+      description: changed image base to self hosted build process loeken/*
 apiVersion: v2
 appVersion: 1.27.0-alpine
 dependencies:
@@ -29,4 +29,4 @@ sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/vaultwarden
   - https://github.com/loeken/docker-vaultwarden/blob/main/.github/workflows/release.yml
 type: application
-version: 1.0.5
+version: 1.0.6
