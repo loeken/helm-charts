@@ -1,6 +1,6 @@
 image:
   # -- image repository
-  repository: linuxserver/radarr
+  repository: loeken/radarr
   # @default -- chart.appVersion
   tag:
   # -- image pull policy
