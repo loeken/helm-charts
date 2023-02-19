@@ -2,9 +2,9 @@
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: updated common library
+      description: corrected app version to 4.7.0
 apiVersion: v2
-appVersion: 4.7.1
+appVersion: 4.7.0
 dependencies:
   - name: common
     repository: https://bjw-s.github.io/helm-charts
@@ -21,4 +21,4 @@ sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/rtorrent-flood
   - https://github.com/loeken/docker-rtorrent-flood/blob/main/.github/workflows/release.yml
 type: application
-version: 1.0.7
+version: 1.0.8
