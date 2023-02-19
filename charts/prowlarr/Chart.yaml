@@ -2,13 +2,13 @@
 annotations:
   artifacthub.io/changes: |-
     - kind: added
-      description: changed image base to self hosted build process loeken/*
+      description: updated common library to 1.3.2
 apiVersion: v2
 appVersion: develop-version-1.2.0.2583
 dependencies:
   - name: common
     repository: https://bjw-s.github.io/helm-charts
-    version: 1.3.1
+    version: 1.3.2
 description: prowlarr - Prowlarr is an indexer manager/proxy built on the popular *arr software
 engine: gotpl
 home: https://github.com/loeken/helm-charts
@@ -20,4 +20,4 @@ name: prowlarr
 sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/prowlarr
 type: application
-version: 0.0.8
+version: 0.0.9
