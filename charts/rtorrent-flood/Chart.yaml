@@ -2,7 +2,7 @@
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: updated common library to 1.3.2
+      description: rebuilt image to patch npm
 apiVersion: v2
 appVersion: 4.7.0
 dependencies:
@@ -21,4 +21,4 @@ sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/rtorrent-flood
   - https://github.com/loeken/docker-rtorrent-flood/blob/main/.github/workflows/release.yml
 type: application
-version: 1.0.10
+version: 1.0.11
