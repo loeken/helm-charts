@@ -2,7 +2,7 @@
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: updated common library to 1.3.2
+      description: postgresql bump to 12.2.2
 apiVersion: v2
 appVersion: 1.27.0-alpine
 dependencies:
@@ -16,7 +16,8 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.bitnami.com/bitnami
-    version: 11.6.12
+    version: 12.2.2
+#    version: 11.6.12
 description: vaultwarden - unofficial bitwarden compatible server written in rust, formerly known as bitwarden_rs
 engine: gotpl
 home: https://github.com/loeken/helm-charts
@@ -29,4 +30,4 @@ sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/vaultwarden
   - https://github.com/loeken/docker-vaultwarden/blob/main/.github/workflows/release.yml
 type: application
-version: 1.0.7
+version: 1.0.8
