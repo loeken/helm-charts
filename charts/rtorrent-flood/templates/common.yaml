@@ -1,14 +1,21 @@
----
-{{- include "bjw-s.common.loader.init" . }}
 
-{{- define "app-template.hardcodedValues" -}}
-# Set the nameOverride based on the release name if no override has been set
-{{ if not .Values.global.nameOverride }}
-global:
-  nameOverride: "{{ .Release.Name }}"
-{{ end }}
+
+{{/* Make sure all variables are set properly */}}
+{{- include "common.values.setup" . }}
+
+{{/* Append the hardcoded settings */}}
+{{- define "rtorrent-flood.harcodedValues" -}}
+persistence:
+  rtorrent-flood-config:
+    enabled: true
+    mountPath: "/config/.rtorrent.rc"
+    subPath: ".rtorrent.rc"
+    type: "custom"
+    volumeSpec:
+      configMap:
+        name: {{ include "common.names.fullname" . }}-config
 {{- end -}}
-{{- $_ := mergeOverwrite .Values (include "app-template.hardcodedValues" . | fromYaml) -}}
+{{- $_ := mergeOverwrite .Values (include "rtorrent-flood.harcodedValues" . | fromYaml) -}}
 
 {{/* Render the templates */}}
-{{ include "bjw-s.common.loader.generate" . }}
+{{ include "common.all" . }}
