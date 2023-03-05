@@ -74,7 +74,7 @@ persistence:
 
   rtorrent-flood-config:
     enabled: true
-    mountPath: "/config/.rtorrent.rc"
+    mountPath: "~/.rtorrent.rc"
     subPath: ".rtorrent.rc"
     type: "custom"
     volumeSpec:
