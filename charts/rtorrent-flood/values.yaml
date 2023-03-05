@@ -72,6 +72,15 @@ persistence:
   downloads:
     enabled: false
 
+  rtorrent-flood-config:
+    enabled: true
+    mountPath: "/config/.rtorrent.rc"
+    subPath: ".rtorrent.rc"
+    type: "custom"
+    volumeSpec:
+      configMap:
+        name: rtorrent-flood-config
+
 # -- Minimal configuration provided from https://github.com/jesec/rtorrent/blob/master/doc/rtorrent.rc
 # @default -- string
 config: |
