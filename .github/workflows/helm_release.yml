@@ -20,11 +20,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: get changed file
-        run: |
-          echo CHANGED_CHART=`git diff-tree --no-commit-id --name-only --diff-filter=ACMRT -r main -- '*Chart.yaml' | sed '$s/$//'` >> $GITHUB_ENV
-          echo CHANGED_CHART_NAME=`git diff-tree --no-commit-id --name-only --diff-filter=ACMRT -r main -- '*Chart.yaml' | sed '$s/$//' |cut -d'/' -f 2 ` >> $GITHUB_ENV
-        id: changed_file
+      # - name: get changed file
+      #   run: |
+      #     echo CHANGED_CHART=`git diff-tree --no-commit-id --name-only --diff-filter=ACMRT -r main -- '*Chart.yaml' | sed '$s/$//'` >> $GITHUB_ENV
+      #     echo CHANGED_CHART_NAME=`git diff-tree --no-commit-id --name-only --diff-filter=ACMRT -r main -- '*Chart.yaml' | sed '$s/$//' |cut -d'/' -f 2 ` >> $GITHUB_ENV
+      #   id: changed_file
 
       # - name: Run Datree Policy Check
       #   uses: datreeio/action-datree@main
@@ -33,10 +33,10 @@ jobs:
       #     isHelmChart: true
       #     cliArguments: '--schema-version ${{ matrix.version }}'
 
-      - name: Build Helm chart
-        run: |
-          echo ${{ env.CHANGED_CHART }}
-          helm package charts/${{ env.CHANGED_CHART_NAME }}
+      # - name: Build Helm chart
+      #   run: |
+      #     echo ${{ env.CHANGED_CHART }}
+      #     helm package charts/${{ env.CHANGED_CHART_NAME }}
 
       - name: Prepare GPG key
         run: |
@@ -56,6 +56,7 @@ jobs:
         uses: helm/chart-releaser-action@v1.2.1
         with:
           config: cr.yaml
+          charts_dir: charts
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
