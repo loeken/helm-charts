@@ -41,6 +41,7 @@ jobs:
       - name: Prepare GPG key
         run: |
           helm repo add bjw-s http://bjw-s.github.io/helm-charts/
+          helm repo add https://bjw-s.github.io/helm-charts https://bjw-s.github.io/helm-charts
           find charts/* -maxdepth 0 -type d -name "*" |  xargs -I {} helm dependency update {} 
           gpg_dir=.cr-gpg
           mkdir "$gpg_dir"
