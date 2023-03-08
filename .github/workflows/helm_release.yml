@@ -44,7 +44,7 @@ jobs:
 
       - name: Sign Helm chart
         env:
-          GNUPGHOME: /github/home/.gnupg
+          GNUPGHOME: $HOME/.gnupg
           GPG_KEY_ID: ${{ secrets.GPG_KEY_ID }}
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
         run: |
