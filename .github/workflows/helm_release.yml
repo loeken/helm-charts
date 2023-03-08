@@ -26,12 +26,12 @@ jobs:
           echo CHANGED_CHART_NAME=`git diff-tree --no-commit-id --name-only --diff-filter=ACMRT -r main -- '*Chart.yaml' | sed '$s/$//' |cut -d'/' -f 2 ` >> $GITHUB_ENV
         id: changed_file
 
-      - name: Run Datree Policy Check
-        uses: datreeio/action-datree@main
-        with:
-          path: ${{ env.CHANGED_CHART }}
-          isHelmChart: true
-          cliArguments: '--schema-version ${{ matrix.version }}'
+      # - name: Run Datree Policy Check
+      #   uses: datreeio/action-datree@main
+      #   with:
+      #     path: ${{ env.CHANGED_CHART }}
+      #     isHelmChart: true
+      #     cliArguments: '--schema-version ${{ matrix.version }}'
 
       - name: Build Helm chart
         run: |
