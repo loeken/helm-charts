@@ -33,15 +33,14 @@ jobs:
       #     isHelmChart: true
       #     cliArguments: '--schema-version ${{ matrix.version }}'
 
-      - name: Build Helm chart
-        run: |
-          echo ${{ env.CHANGED_CHART }}
-          helm package charts/${{ env.CHANGED_CHART_NAME }}
+      # - name: Build Helm chart
+      #   run: |
+      #     echo ${{ env.CHANGED_CHART }}
+      #     helm package charts/${{ env.CHANGED_CHART_NAME }}
 
       - name: Sign Helm chart
         run: |
-          ls -oah
-          helm package --sign --key ${{ secrets.GPG_KEY_ID }} ${{ env.CHANGED_CHART_NAME }}*.tgz
+          helm package --sign --key ${{ secrets.GPG_KEY_ID }} charts/${{ env.CHANGED_CHART_NAME }}
 
       - name: Publish Helm chart
         uses: stefanprodan/helm-gh-pages@master
