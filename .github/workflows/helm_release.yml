@@ -38,12 +38,26 @@ jobs:
           echo ${{ env.CHANGED_CHART }}
           helm package charts/${{ env.CHANGED_CHART_NAME }}
 
-      - name: Sign Helm chart
-        uses: helm/sign@v1.2.0
+      - name: Prepare GPG key
+        run: |
+          gpg_dir=.cr-gpg
+          mkdir "$gpg_dir"
+          keyring="$gpg_dir/secring.gpg"
+          base64 -d <<< "$GPG_KEYRING_BASE64" > "$keyring"
+          passphrase_file="$gpg_dir/passphrase"
+          echo "$GPG_PASSPHRASE" > "$passphrase_file"
+          echo "CR_PASSPHRASE_FILE=$passphrase_file" >> "$GITHUB_ENV"
+          echo "CR_KEYRING=$keyring" >> "$GITHUB_ENV"
+        env:
+          GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
+          GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
+
+      - name: Run chart-releaser
+        uses: helm/chart-releaser-action@v1.2.1
         with:
-          key: ${{ secrets.HELM_PRIVATE_KEY }}
-          cert: ${{ secrets.HELM_PUBLIC_CERT }}
-          chart: ${{ env.CHANGED_CHART_NAME }}*.tgz
+          config: cr.yaml
+        env:
+          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
       # - name: Sign Helm chart
       #   run: |
@@ -59,10 +73,10 @@ jobs:
       #     helm package --sign --key $GPG_KEY_ID charts/${{ env.CHANGED_CHART_NAME }}*.tgz
 
 
-      - name: Publish Helm chart
-        uses: stefanprodan/helm-gh-pages@master
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          owner: loeken
-          repository: helm-charts
-          gpg_key: ${{ secrets.GPG_PRIVATE_KEY }}
+      # - name: Publish Helm chart
+      #   uses: stefanprodan/helm-gh-pages@master
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     owner: loeken
+      #     repository: helm-charts
+      #     gpg_key: ${{ secrets.GPG_PRIVATE_KEY }}
