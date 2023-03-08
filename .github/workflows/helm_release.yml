@@ -2,8 +2,8 @@ name: validate & release to artifacthub
 on:
   push:
     branches: [ main ]
-    paths:
-      - 'charts/**'
+    # paths:
+    #   - 'charts/**'
 env:
   DATREE_TOKEN: ${{ secrets.DATREE_TOKEN }} 
 jobs:
