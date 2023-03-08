@@ -2,7 +2,7 @@
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: initial release
+      description: initial release.
 apiVersion: v2
 appVersion: v1.8.0
 description: permission-manager - super-easy and user-friendly RBAC management for Kubernetes
