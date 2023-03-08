@@ -2,7 +2,7 @@
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: postgresql bump to 12.2.2
+      description: initial release
 apiVersion: v2
 appVersion: v1.8.0
 description: permission-manager - super-easy and user-friendly RBAC management for Kubernetes
@@ -17,4 +17,4 @@ sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/vaultwarden
   - https://github.com/loeken/docker-vaultwarden/blob/main/.github/workflows/release.yml
 type: application
-version: 1.0.8
+version: v1.8.0
