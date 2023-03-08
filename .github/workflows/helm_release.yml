@@ -39,20 +39,13 @@ jobs:
 
       - name: Sign Helm chart
         run: |
+          ls -oah
           helm package --sign --key ${{ secrets.GPG_KEY_ID }} ${{ env.CHANGED_CHART_NAME }}*.tgz
 
       - name: Publish Helm chart
         uses: stefanprodan/helm-gh-pages@master
         with:
-          chart_path: "*.tgz"
           token: ${{ secrets.GITHUB_TOKEN }}
           owner: loeken
           repository: helm-charts
           gpg_key: ${{ secrets.GPG_PRIVATE_KEY }}
-          
-      # - name: Publish Helm charts
-      #   uses: stefanprodan/helm-gh-pages@master
-      #   with:
-      #     token: ${{ secrets.GITHUB_TOKEN }}
-      #     owner: loeken
-      #     repository: helm-charts
