@@ -35,7 +35,7 @@ jobs:
 
       - name: Build Helm chart
         run: |
-          helm package ${{ env.CHANGED_CHART_NAME }}
+          helm package charts/${{ env.CHANGED_CHART_NAME }}
 
       - name: Sign Helm chart
         run: |
