@@ -20,4 +20,4 @@ name: sonarr
 sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/sonarr
 type: application
-version: 3.0.9.1549
+version: 3.0.9
