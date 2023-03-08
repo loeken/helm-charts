@@ -2557,29 +2557,6 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
-          description: initial release
-    apiVersion: v2
-    appVersion: v1.8.0
-    created: "2023-03-08T17:03:40.691624484Z"
-    description: permission-manager - super-easy and user-friendly RBAC management
-      for Kubernetes
-    digest: 02ffddb74ca0e58b13562ddd8b0e1154cc1a046ba5ad38ee7b3959d9dd325b63
-    home: https://github.com/loeken/helm-charts
-    icon: https://d33wubrfki0l68.cloudfront.net/8c14075578b2f3d5c3c7acb0b73a911c1830aec4/96df1/images/avatar.png
-    maintainers:
-    - email: loeken@internetz.me
-      name: loeken
-    name: vaultwarden
-    sources:
-    - https://github.com/loeken/helm-charts/tree/main/charts/vaultwarden
-    - https://github.com/loeken/docker-vaultwarden/blob/main/.github/workflows/release.yml
-    type: application
-    urls:
-    - https://loeken.github.io/helm-charts/vaultwarden-v1.8.0.tgz
-    version: v1.8.0
-  - annotations:
-      artifacthub.io/changes: |-
-        - kind: changed
           description: postgresql bump to 12.2.2
     apiVersion: v2
     appVersion: 1.27.0-alpine
