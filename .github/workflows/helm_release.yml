@@ -1,86 +1,40 @@
-name: validate & release to artifacthub
+name: security checks for docker images
 on:
+  schedule:
+  -  cron: '0 */4 * * *'
   push:
     branches: [ main ]
-    # paths:
-    #   - 'charts/**'
-env:
-  DATREE_TOKEN: ${{ secrets.DATREE_TOKEN }} 
 jobs:
-  test:
-    name: validate helm
+  security:
     strategy:
+      fail-fast: false
       matrix:
-        version: ["1.21.13"]
-        # , "1.22.16", "1.23.14","1.24.8", "1.25.4"
+        image: ["loeken/rtorrent-flood:4.7.1", "loeken/rtorrent:v0.9.8-r15", "loeken/vaultwarden:latest", "loeken/home-assistant:latest", "loeken/plex:latest", "linuxserver/heimdall:latest", "hotio/sonarr:latest", "linuxserver/nzbget:latest"]
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+    - name: Run Snyk to check Docker image for vulnerabilities
+      uses: snyk/actions/docker@master
+      env:
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      with:
+        image: ${{matrix.image}}
 
-      # - name: get changed file
-      #   run: |
-      #     echo CHANGED_CHART=`git diff-tree --no-commit-id --name-only --diff-filter=ACMRT -r main -- '*Chart.yaml' | sed '$s/$//'` >> $GITHUB_ENV
-      #     echo CHANGED_CHART_NAME=`git diff-tree --no-commit-id --name-only --diff-filter=ACMRT -r main -- '*Chart.yaml' | sed '$s/$//' |cut -d'/' -f 2 ` >> $GITHUB_ENV
-      #   id: changed_file
+    - name: Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        image-ref: ${{matrix.image}}
+        format: 'table'
+        exit-code: '1'
+        ignore-unfixed: true
+        vuln-type: 'os,library'
+        severity: 'CRITICAL,HIGH'
 
-      # - name: Run Datree Policy Check
-      #   uses: datreeio/action-datree@main
-      #   with:
-      #     path: ${{ env.CHANGED_CHART }}
-      #     isHelmChart: true
-      #     cliArguments: '--schema-version ${{ matrix.version }}'
-
-      # - name: Build Helm chart
-      #   run: |
-      #     echo ${{ env.CHANGED_CHART }}
-      #     helm package charts/${{ env.CHANGED_CHART_NAME }}
-
-      - name: Prepare GPG key
-        run: |
-          helm repo add bjw-s http://bjw-s.github.io/helm-charts/
-          helm repo add https://bjw-s.github.io/helm-charts https://bjw-s.github.io/helm-charts
-          find charts/* -maxdepth 0 -type d -name "*" |  xargs -I {} helm dependency update {} 
-          gpg_dir=.cr-gpg
-          mkdir "$gpg_dir"
-          keyring="$gpg_dir/secring.gpg"
-          base64 -d <<< "$GPG_KEYRING_BASE64" > "$keyring"
-          passphrase_file="$gpg_dir/passphrase"
-          echo "$GPG_PASSPHRASE" > "$passphrase_file"
-          echo "CR_PASSPHRASE_FILE=$passphrase_file" >> "$GITHUB_ENV"
-          echo "CR_KEYRING=$keyring" >> "$GITHUB_ENV"
-        env:
-          GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
-          GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
-
-      - name: Run chart-releaser
-        uses: helm/chart-releaser-action@v1.2.1
-        with:
-          config: cr.yaml
-          charts_dir: charts
-        env:
-          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-
-      # - name: Sign Helm chart
-      #   run: |
-      #     helm package --sign --key ${{ secrets.GPG_KEY_ID }} charts/${{ env.CHANGED_CHART_NAME }}
-
-      # - name: Sign Helm chart
-      #   env:
-      #     GPG_KEY_ID: ${{ secrets.GPG_KEY_ID }}
-      #     GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
-      #   run: |
-      #     mkdir /home/runner/work/helm-charts/helm-charts/$HOME/.gnupg -p
-      #     echo "$GPG_PRIVATE_KEY" | base64 --decode | gpg --import
-      #     helm package --sign --key $GPG_KEY_ID charts/${{ env.CHANGED_CHART_NAME }}*.tgz
-
-
-      # - name: Publish Helm chart
-      #   uses: stefanprodan/helm-gh-pages@master
-      #   with:
-      #     token: ${{ secrets.GITHUB_TOKEN }}
-      #     owner: loeken
-      #     repository: helm-charts
-      #     gpg_key: ${{ secrets.GPG_PRIVATE_KEY }}
+    - name: report version missmatch
+      if: always() && steps.release.outputs.value != matrix.repo.release
+      uses: ravsamhq/notify-slack-action@v1
+      with:
+        notification_title: "release check: ${{ steps.release.outputs.value }}"
+        status: "${{ job.status }}"
+        footer: "failed: ${{matrix.image}}"
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
