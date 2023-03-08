@@ -1,40 +1,49 @@
-name: security checks for docker images
+name: validate & release to artifacthub
 on:
-  schedule:
-  -  cron: '0 */4 * * *'
   push:
     branches: [ main ]
+    # paths:
+    #   - 'charts/**'
+env:
+  DATREE_TOKEN: ${{ secrets.DATREE_TOKEN }} 
 jobs:
-  security:
+  test:
+    name: validate helm
     strategy:
-      fail-fast: false
       matrix:
-        image: ["loeken/rtorrent-flood:4.7.1", "loeken/rtorrent:v0.9.8-r15", "loeken/vaultwarden:latest", "loeken/home-assistant:latest", "loeken/plex:latest", "linuxserver/heimdall:latest", "hotio/sonarr:latest", "linuxserver/nzbget:latest"]
+        version: ["v1.25.6"]
     runs-on: ubuntu-latest
     steps:
-    - name: Run Snyk to check Docker image for vulnerabilities
-      uses: snyk/actions/docker@master
-      env:
-        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-      with:
-        image: ${{matrix.image}}
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
-    - name: Run Trivy vulnerability scanner
-      uses: aquasecurity/trivy-action@master
-      with:
-        image-ref: ${{matrix.image}}
-        format: 'table'
-        exit-code: '1'
-        ignore-unfixed: true
-        vuln-type: 'os,library'
-        severity: 'CRITICAL,HIGH'
+      - name: get changed file
+        run: echo CHANGED_CHART=`git diff-tree --no-commit-id --name-only --diff-filter=ACMRT -r 37280c7b9262ac45603c3fe6c66be32621d45334 -- '*Chart.yaml' | sed '$s/$//'` >> $GITHUB_ENV
+        id: changed_file
 
-    - name: report version missmatch
-      if: always() && steps.release.outputs.value != matrix.repo.release
-      uses: ravsamhq/notify-slack-action@v1
-      with:
-        notification_title: "release check: ${{ steps.release.outputs.value }}"
-        status: "${{ job.status }}"
-        footer: "failed: ${{matrix.image}}"
-      env:
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: Run Datree Policy Check
+        uses: datreeio/action-datree@main
+        with:
+          path: ${{ env.CHANGED_CHART }}
+          isHelmChart: true
+          cliArguments: '--schema-version ${{ matrix.version }}'
+
+
+  release:
+    name: release helm charts
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: checkout git code
+        uses: actions/checkout@v3
+        with:
+          submodules: 'true'
+
+      - name: Publish Helm charts
+        uses: stefanprodan/helm-gh-pages@master
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          owner: loeken
+          repository: helm-charts
