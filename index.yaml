@@ -1866,16 +1866,6 @@ entries:
     urls:
     - https://loeken.github.io/helm-charts/nzbget-0.0.1.tgz
     version: 0.0.1
-  partials:
-  - apiVersion: v1
-    created: "2023-03-08T20:11:01.21563796Z"
-    description: 'A Helm chart containing Linkerd partial templates, depended by the
-      ''linkerd'' and ''patch'' charts. '
-    digest: 25ee0c35cba9f8e513114c7baa9b9843c8f214e78809ad512929daa4566b4702
-    name: partials
-    urls:
-    - https://loeken.github.io/helm-charts/partials-0.1.0.tgz
-    version: 0.1.0
   permission-manager:
   - annotations:
       artifacthub.io/changes: |-
