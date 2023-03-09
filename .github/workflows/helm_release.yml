@@ -1,41 +1,50 @@
-name: validate & release to artifacthub
+# release.yaml
+name: Release Charts
+
 on:
   push:
-    branches: [ main ]
-    # paths:
-    #   - 'charts/**'
-env:
-  DATREE_TOKEN: ${{ secrets.DATREE_TOKEN }} 
+    branches:
+      - main
+
 jobs:
-  test:
-    name: validate helm
-    strategy:
-      matrix:
-        version: ["v1.25.6"]
+  release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      
-      # - name: setup gnupg
-      #   uses: olafurpg/setup-gpg@v3
-      
-      - name: setup helm
-        uses: azure/setup-helm@v3
 
-      - name: Configure GPG Key
+      - name: Configure Git
         run: |
-          helm package charts/vaultwarden --sign --keyring ~/.gnupg/secring.gpg --key 73927B9AD6A8E6C5386EDD2088400BB88E717C97
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
-      - name: Verify signature
-        run: |
-          helm verify vaultwarden-*.tgz.asc
-
-      # - name: Run chart-releaser
-      #   uses: helm/chart-releaser-action@v1.2.1
-      #   with:
-      #     config: cr.yaml
+      # - name: Import GPG Key
+      #   uses: crazy-max/ghaction-import-gpg@v1
       #   env:
-      #     CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      #     GPG_PRIVATE_KEY: ${{ secrets.GGP_KEYRING_BASE64 }}
+      #     PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+          
+      # Optional step if GPG signing is used
+      - name: Prepare GPG key
+        run: |
+          gpg_dir=.cr-gpg
+          mkdir "$gpg_dir"
+          keyring="$gpg_dir/secring.gpg"
+          base64 -d <<< "$GPG_KEYRING_BASE64" > "$keyring"
+          passphrase_file="$gpg_dir/passphrase"
+          echo "$GPG_PASSPHRASE" > "$passphrase_file"
+          echo "CR_PASSPHRASE_FILE=$passphrase_file" >> "$GITHUB_ENV"
+          echo "CR_KEYRING=$keyring" >> "$GITHUB_ENV"
+          cat cr.yaml
+        env:
+          GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
+          GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
+
+      - name: Run chart-releaser
+        uses: helm/chart-releaser-action@v1.2.1
+        with:
+          config: cr.yaml
+        env:
+          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
