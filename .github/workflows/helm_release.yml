@@ -22,6 +22,7 @@ jobs:
       # Optional step if GPG signing is used
       - name: Prepare GPG key
         run: |
+          find charts/* -maxdepth 0 -type d -name "*" | xargs -I {} echo helm dependency update {}
           gpg_dir=.cr-gpg
           mkdir "$gpg_dir"
           keyring="$gpg_dir/secring.gpg"
