@@ -1,50 +1,50 @@
-# release.yaml
-name: Release Charts
-
+name: validate & release to artifacthub
 on:
   push:
-    branches:
-      - main
-
+    branches: [ main ]
+    # paths:
+    #   - 'charts/**'
+env:
+  DATREE_TOKEN: ${{ secrets.DATREE_TOKEN }} 
 jobs:
-  release:
+  test:
+    name: validate helm
+    strategy:
+      matrix:
+        version: ["1.21.13"]
+        # , "1.22.16", "1.23.14","1.24.8", "1.25.4"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: Configure Git
-        run: |
-          git config user.name "$GITHUB_ACTOR"
-          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+      - name: get changed file
+        run: echo CHANGED_CHART=`git diff-tree --no-commit-id --name-only --diff-filter=ACMRT -r main -- '*Chart.yaml' | sed '$s/$//'` >> $GITHUB_ENV
+        id: changed_file
 
-      # - name: Import GPG Key
-      #   uses: crazy-max/ghaction-import-gpg@v1
-      #   env:
-      #     GPG_PRIVATE_KEY: ${{ secrets.GGP_KEYRING_BASE64 }}
-      #     PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-          
-      # Optional step if GPG signing is used
-      - name: Prepare GPG key
-        run: |
-          gpg_dir=.cr-gpg
-          mkdir "$gpg_dir"
-          keyring="$gpg_dir/secring.gpg"
-          base64 -d <<< "$GPG_KEYRING_BASE64" > "$keyring"
-          passphrase_file="$gpg_dir/passphrase"
-          echo "$GPG_PASSPHRASE" > "$passphrase_file"
-          echo "CR_PASSPHRASE_FILE=$passphrase_file" >> "$GITHUB_ENV"
-          echo "CR_KEYRING=$keyring" >> "$GITHUB_ENV"
-          cat cr.yaml
-        env:
-          GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
-          GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
-
-      - name: Run chart-releaser
-        uses: helm/chart-releaser-action@v1.2.1
+      - name: Run Datree Policy Check
+        uses: datreeio/action-datree@main
         with:
-          config: cr.yaml
-        env:
-          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          path: ${{ env.CHANGED_CHART }}
+          isHelmChart: true
+          cliArguments: '--schema-version ${{ matrix.version }}'
+
+
+  release:
+    name: release helm charts
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: checkout git code
+        uses: actions/checkout@v3
+        with:
+          submodules: 'true'
+
+      - name: Publish Helm charts
+        uses: stefanprodan/helm-gh-pages@master
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          owner: loeken
+          repository: helm-charts
