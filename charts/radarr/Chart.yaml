@@ -2,9 +2,9 @@
 annotations:
   artifacthub.io/changes: |-
     - kind: added
-      description: changed version naming scheme so charts show app versions in search on artifacthub.io
+      description: updated to 4.4.4.7068
 apiVersion: v2
-appVersion: version-4.3.2.6857
+appVersion: version-4.4.4.7068
 dependencies:
   - name: common
     repository: https://bjw-s.github.io/helm-charts
@@ -19,4 +19,4 @@ name: radarr
 sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/radarr
 type: application
-version: 4.3.2
+version: 4.4.4
