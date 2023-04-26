@@ -2,9 +2,9 @@
 annotations:
   artifacthub.io/changes: |-
     - kind: added
-      description: changed version naming scheme so charts show app versions in search on artifacthub.io
+      description: bumped version to 1.5.0
 apiVersion: v2
-appVersion: 1.4.1
+appVersion: 1.5.0
 dependencies:
   - name: common
     repository: https://bjw-s.github.io/helm-charts
@@ -19,4 +19,4 @@ name: jellyseerr
 sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/jellyseer
 type: application
-version: 1.4.1
+version: 1.5.0
