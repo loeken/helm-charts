@@ -2,9 +2,9 @@
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: version bump to 1.28.1
+      description: version bump to 1.29.1
 apiVersion: v2
-appVersion: 1.28.1-alpine
+appVersion: 1.29.1-alpine
 dependencies:
   - name: common
     repository: https://bjw-s.github.io/helm-charts
@@ -28,4 +28,4 @@ sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/vaultwarden
   - https://github.com/loeken/docker-vaultwarden/blob/main/.github/workflows/release.yml
 type: application
-version: 1.28.1
+version: 1.29.1
