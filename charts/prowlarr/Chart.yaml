@@ -4,7 +4,7 @@ annotations:
     - kind: added
       description: changed version naming scheme so charts show app versions in search on artifacthub.io
 apiVersion: v2
-appVersion: develop-version-1.6.3.3608
+appVersion: develop-version-1.7.4.3769
 dependencies:
   - name: common
     repository: https://bjw-s.github.io/helm-charts
@@ -19,4 +19,4 @@ name: prowlarr
 sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/prowlarr
 type: application
-version: 1.6.3
+version: 1.7.4
