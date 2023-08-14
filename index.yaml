@@ -268,46 +268,6 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
-        description: updated to 2023.8.1
-    apiVersion: v2
-    appVersion: 2023.8.1
-    created: "2023-08-14T11:56:45.859523895Z"
-    dependencies:
-    - name: common
-      repository: https://bjw-s.github.io/helm-charts
-      version: 1.5.1
-    - condition: postgresql.enabled
-      name: postgresql
-      repository: https://charts.bitnami.com/bitnami
-      version: 11.6.12
-    - condition: mariadb.enabled
-      name: mariadb
-      repository: https://charts.bitnami.com/bitnami
-      version: 11.0.14
-    - condition: influxdb.enabled
-      name: influxdb
-      repository: https://charts.bitnami.com/bitnami
-      version: 5.3.5
-    description: home-assistant  - a free and open-source software for home automation
-      designed to be a central control system for smart home devices with a focus
-      on local control and privacy
-    digest: 9e3325274827b3ab1de5fca47442524459921ee174b17a9bc2f754fccb46f2b5
-    home: https://github.com/loeken/helm-charts
-    icon: https://d33wubrfki0l68.cloudfront.net/8c14075578b2f3d5c3c7acb0b73a911c1830aec4/96df1/images/avatar.png
-    maintainers:
-    - email: loeken@internetz.me
-      name: loeken
-    name: home-assistant
-    sources:
-    - https://github.com/loeken/helm-charts/tree/main/charts/home-assistant
-    - https://github.com/loeken/docker-home-assistant/blob/main/.github/workflows/release.yml
-    type: application
-    urls:
-    - https://loeken.github.io/helm-charts/home-assistant-2023.8.1.tgz
-    version: 2023.8.1
-  - annotations:
-      artifacthub.io/changes: |-
-        - kind: changed
           description: ha to 2023.7.3
     apiVersion: v2
     appVersion: 2023.7.3
