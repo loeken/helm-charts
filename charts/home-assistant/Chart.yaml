@@ -1,7 +1,7 @@
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-    description: updated to 2023.8.2
+      description: updated to 2023.8.2
 apiVersion: v2
 appVersion: 2023.8.2
 dependencies:
