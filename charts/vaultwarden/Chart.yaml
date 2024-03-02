@@ -1,31 +1,31 @@
----
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: version bump to 1.29.0
+      description: updated to 1.30.3
 apiVersion: v2
-appVersion: 1.29.0-alpine
+appVersion: 1.30.3-alpine
 dependencies:
-  - name: common
-    repository: https://bjw-s.github.io/helm-charts
-    version: 1.5.1
-  - condition: mariadb.enabled
-    name: mariadb
-    repository: https://charts.bitnami.com/bitnami
-    version: 11.0.14
-  - condition: postgresql.enabled
-    name: postgresql
-    repository: https://charts.bitnami.com/bitnami
-    version: 12.2.2
-description: vaultwarden - unofficial bitwarden compatible server written in rust, formerly known as bitwarden_rs
+- name: common
+  repository: https://bjw-s.github.io/helm-charts
+  version: 1.5.1
+- condition: mariadb.enabled
+  name: mariadb
+  repository: https://charts.bitnami.com/bitnami
+  version: 11.0.14
+- condition: postgresql.enabled
+  name: postgresql
+  repository: https://charts.bitnami.com/bitnami
+  version: 12.2.2
+description: vaultwarden - unofficial bitwarden compatible server written in rust,
+  formerly known as bitwarden_rs
 home: https://github.com/loeken/helm-charts
 icon: https://d33wubrfki0l68.cloudfront.net/8c14075578b2f3d5c3c7acb0b73a911c1830aec4/96df1/images/avatar.png
 maintainers:
-  - email: loeken@internetz.me
-    name: loeken
+- email: loeken@internetz.me
+  name: loeken
 name: vaultwarden
 sources:
-  - https://github.com/loeken/helm-charts/tree/main/charts/vaultwarden
-  - https://github.com/loeken/docker-vaultwarden/blob/main/.github/workflows/release.yml
+- https://github.com/loeken/helm-charts/tree/main/charts/vaultwarden
+- https://github.com/loeken/docker-vaultwarden/blob/main/.github/workflows/release.yml
 type: application
-version: 1.29.0
+version: 1.30.3
