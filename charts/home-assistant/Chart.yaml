@@ -1,36 +1,36 @@
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: updated to 2023.8.2
+      description: updated to 2024.2.5
 apiVersion: v2
-appVersion: 2023.8.2
+appVersion: 2024.2.5
 dependencies:
-  - name: common
-    repository: https://bjw-s.github.io/helm-charts
-    version: 1.5.1
-  - condition: postgresql.enabled
-    name: postgresql
-    repository: https://charts.bitnami.com/bitnami
-    version: 11.6.12
-  - condition: mariadb.enabled
-    name: mariadb
-    repository: https://charts.bitnami.com/bitnami
-    version: 11.0.14
-  - condition: influxdb.enabled
-    name: influxdb
-    repository: https://charts.bitnami.com/bitnami
-    version: 5.3.5
+- name: common
+  repository: https://bjw-s.github.io/helm-charts
+  version: 1.5.1
+- condition: postgresql.enabled
+  name: postgresql
+  repository: https://charts.bitnami.com/bitnami
+  version: 11.6.12
+- condition: mariadb.enabled
+  name: mariadb
+  repository: https://charts.bitnami.com/bitnami
+  version: 11.0.14
+- condition: influxdb.enabled
+  name: influxdb
+  repository: https://charts.bitnami.com/bitnami
+  version: 5.3.5
 description: home-assistant  - a free and open-source software for home automation
   designed to be a central control system for smart home devices with a focus on local
   control and privacy
 home: https://github.com/loeken/helm-charts
 icon: https://d33wubrfki0l68.cloudfront.net/8c14075578b2f3d5c3c7acb0b73a911c1830aec4/96df1/images/avatar.png
 maintainers:
-  - email: loeken@internetz.me
-    name: loeken
+- email: loeken@internetz.me
+  name: loeken
 name: home-assistant
 sources:
-  - https://github.com/loeken/helm-charts/tree/main/charts/home-assistant
-  - https://github.com/loeken/docker-home-assistant/blob/main/.github/workflows/release.yml
+- https://github.com/loeken/helm-charts/tree/main/charts/home-assistant
+- https://github.com/loeken/docker-home-assistant/blob/main/.github/workflows/release.yml
 type: application
-version: 2023.8.2
+version: 2024.2.5
