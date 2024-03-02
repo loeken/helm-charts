@@ -1,22 +1,21 @@
----
 annotations:
   artifacthub.io/changes: |-
-    - kind: added
-      description: bumped version to 1.6.0
+    - kind: changed
+      description: updated to 1.7.0
 apiVersion: v2
-appVersion: 1.6.0
+appVersion: 1.7.0
 dependencies:
-  - name: common
-    repository: https://bjw-s.github.io/helm-charts
-    version: 1.5.1
+- name: common
+  repository: https://bjw-s.github.io/helm-charts
+  version: 1.5.1
 description: a helm chart to install jellyseer
 home: https://github.com/loeken/helm-charts
 icon: https://d33wubrfki0l68.cloudfront.net/8c14075578b2f3d5c3c7acb0b73a911c1830aec4/96df1/images/avatar.png
 maintainers:
-  - email: loeken@internetz.me
-    name: loeken
+- email: loeken@internetz.me
+  name: loeken
 name: jellyseerr
 sources:
-  - https://github.com/loeken/helm-charts/tree/main/charts/jellyseer
+- https://github.com/loeken/helm-charts/tree/main/charts/jellyseer
 type: application
-version: 1.6.0
+version: 1.7.0
