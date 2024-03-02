@@ -4,8 +4,6 @@ on:
     branches: [ main ]
     # paths:
     #   - 'charts/**'
-env:
-  DATREE_TOKEN: ${{ secrets.DATREE_TOKEN }} 
 jobs:
   test:
     name: validate helm
@@ -22,13 +20,6 @@ jobs:
       - name: get changed file
         run: echo CHANGED_CHART=`git diff-tree --no-commit-id --name-only --diff-filter=ACMRT -r main -- '*Chart.yaml' | sed '$s/$//'` >> $GITHUB_ENV
         id: changed_file
-
-      - name: Run Datree Policy Check
-        uses: datreeio/action-datree@main
-        with:
-          path: ${{ env.CHANGED_CHART }}
-          isHelmChart: true
-          cliArguments: '--schema-version ${{ matrix.version }}'
 
 
   release:
