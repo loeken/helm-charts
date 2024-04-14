@@ -1,9 +1,9 @@
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: updated to 4.0.3
+      description: updated to 4.0.4
 apiVersion: v2
-appVersion: 4.0.3.1413
+appVersion: 4.0.4.1491
 dependencies:
 - name: common
   repository: https://bjw-s.github.io/helm-charts
@@ -18,4 +18,4 @@ name: sonarr
 sources:
 - https://github.com/loeken/helm-charts/tree/main/charts/sonarr
 type: application
-version: 4.0.3
+version: 4.0.4
