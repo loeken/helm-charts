@@ -1,9 +1,9 @@
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: updated to 2024.5.2
+      description: updated to 2024.5.3
 apiVersion: v2
-appVersion: 2024.5.2
+appVersion: 2024.5.3
 dependencies:
 - name: common
   repository: https://bjw-s.github.io/helm-charts
@@ -33,4 +33,4 @@ sources:
 - https://github.com/loeken/helm-charts/tree/main/charts/home-assistant
 - https://github.com/loeken/docker-home-assistant/blob/main/.github/workflows/release.yml
 type: application
-version: 2024.5.2
+version: 2024.5.3
