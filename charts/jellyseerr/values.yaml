@@ -44,9 +44,9 @@ persistence:
     mountPath: /media
 
 resources:
-  limits:
-    cpu: "2"
-    memory: 2048Mi
   requests:
-    cpu: "1"
+    cpu: 500m
+    memory: 512Mi
+  limits:
+    cpu: 1
     memory: 1024Mi
