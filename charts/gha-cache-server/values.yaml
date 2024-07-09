@@ -17,38 +17,14 @@ controllers:
           tag: "latest"
           pullPolicy: Always
         env:
-          - name: CACHE_SERVER_TOKEN
+        env:
+          - name: URL_ACCESS_TOKEN
             valueFrom:
               secretKeyRef:
-                name: gha-cache-server-secret
+                name: cache-secret
                 key: cacheServerToken
-          - name: SECRET
-            valueFrom:
-              secretKeyRef:
-                name: gha-cache-server-secret
-                key: secret
-          - name: BASE_URL
-            value: "http://localhost:3000"
-          - name: STORAGE_DRIVER
-            value: "minio"
-          - name: MINIO_BUCKET
-            value: "gh-actions-cache"
-          - name: MINIO_ACCESS_KEY
-            valueFrom:
-              secretKeyRef:
-                name: gha-cache-server-secret
-                key: minioAccessKey
-          - name: MINIO_SECRET_KEY
-            valueFrom:
-              secretKeyRef:
-                name: gha-cache-server-secret
-                key: minioSecretKey
-          - name: MINIO_ENDPOINT
-            value: "minio"
-          - name: MINIO_PORT
-            value: "9000"
-          - name: MINIO_USE_SSL
-            value: "false"
+          - name: API_BASE_URL
+            value: "http://gha-cache-server.cache:3000/api"
         volumeMounts:
           - name: cache-data
             mountPath: /data
@@ -79,3 +55,4 @@ persistentVolumeClaims:
       resources:
         requests:
           storage: 10Gi  # Adjust the size as needed
+
