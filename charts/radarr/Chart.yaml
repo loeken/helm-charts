@@ -1,9 +1,9 @@
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: updated to 5.9.1
+      description: updated to 5.10.4
 apiVersion: v2
-appVersion: version-5.9.1.9070
+appVersion: version-5.10.4.9218
 dependencies:
 - name: common
   repository: https://bjw-s.github.io/helm-charts
@@ -18,4 +18,4 @@ name: radarr
 sources:
 - https://github.com/loeken/helm-charts/tree/main/charts/radarr
 type: application
-version: 5.9.1
+version: 5.10.4
