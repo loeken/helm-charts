@@ -6,9 +6,9 @@ entries:
         - kind: fixed
           description: fixed checksum annotation when using configmaps with controller.type == cronjob
     apiVersion: v2
-    created: "2024-09-24T08:26:14.805462029Z"
+    created: "2024-09-25T08:17:07.589220485Z"
     description: Function library for Helm charts
-    digest: dfb001655e84bd31629388d111702da90a30500fcae22b968b20470c82ed3fb9
+    digest: 5f50d925279570be1fb5912b921c88309f659163a9294cab99d7cacaa7e7eea0
     home: https://github.com/bjw-s/helm-charts/tree/main/charts/library/common
     keywords:
     - common
@@ -52,13 +52,13 @@ entries:
   gha-cache-server:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-09-24T08:26:14.808471113Z"
+    created: "2024-09-25T08:17:07.592024053Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
       version: 3.2.1
     description: ggha-cache-server
-    digest: 5e6911c40a554bf8e84cf5e276faf53ae3c88201944b86c1c5d277c3e463c2fa
+    digest: 747fbad2363b31f7cc3333cb6a99922e389da3d14f05d0398cd860cff3d92afb
     name: gha-cache-server
     type: application
     urls:
@@ -71,13 +71,13 @@ entries:
           description: heimdall to 2.6.1
     apiVersion: v2
     appVersion: 2.6.1
-    created: "2024-09-24T08:26:14.811273489Z"
+    created: "2024-09-25T08:17:07.594787516Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
       version: 1.3.2
     description: heimdall - an application dashboard and launcher
-    digest: 29c46111ccd631e17b92c40fa30666b3fd9c9217fc99f41c75a6af730c031644
+    digest: eeaee83f51430844c0b794f6917959412863cacbbbbbd64776d4953a513b68a3
     home: https://github.com/loeken/helm-charts
     icon: https://d33wubrfki0l68.cloudfront.net/8c14075578b2f3d5c3c7acb0b73a911c1830aec4/96df1/images/avatar.png
     maintainers:
@@ -320,7 +320,7 @@ entries:
           description: updated to 2024.9.3
     apiVersion: v2
     appVersion: 2024.9.3
-    created: "2024-09-24T08:26:14.824006911Z"
+    created: "2024-09-25T08:17:07.607499322Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
@@ -340,7 +340,7 @@ entries:
     description: home-assistant  - a free and open-source software for home automation
       designed to be a central control system for smart home devices with a focus
       on local control and privacy
-    digest: 5de01b644f80caf5aae2c285cd7365b5990026c0d0643c25188b5d8b112639a2
+    digest: 93956666c567061994e697e23bef07a56b008fb544ef675680790da081e17797
     home: https://github.com/loeken/helm-charts
     icon: https://d33wubrfki0l68.cloudfront.net/8c14075578b2f3d5c3c7acb0b73a911c1830aec4/96df1/images/avatar.png
     maintainers:
@@ -2769,13 +2769,13 @@ entries:
           description: updated to 10.9.11
     apiVersion: v2
     appVersion: 10.9.11
-    created: "2024-09-24T08:26:14.826221366Z"
+    created: "2024-09-25T08:17:07.609722403Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
       version: 1.5.1
     description: a helm chart to install jellyfin
-    digest: bd1f4efad51d6f39c3f7fa8a120ab84865fd19c274d54e981e3fc22373a66409
+    digest: bc4bf99d64f48bf40df3798ba9870136c6a31c1bc325d9e656761d95c8a718dd
     home: https://github.com/loeken/helm-charts
     icon: https://d33wubrfki0l68.cloudfront.net/8c14075578b2f3d5c3c7acb0b73a911c1830aec4/96df1/images/avatar.png
     maintainers:
@@ -3159,13 +3159,13 @@ entries:
           description: updated to 1.9.2
     apiVersion: v2
     appVersion: 1.9.2
-    created: "2024-09-24T08:26:14.828576916Z"
+    created: "2024-09-25T08:17:07.611874652Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
       version: 1.5.1
     description: a helm chart to install jellyseer
-    digest: a4091757f6c576c411e46d21bfbe853956933204177acb0bb21d7082844b6e72
+    digest: ac4ea7240fe8d3ca1364a0a9f7e880f18df3f022b7be691293d9e770b87bd4b7
     home: https://github.com/loeken/helm-charts
     icon: https://d33wubrfki0l68.cloudfront.net/8c14075578b2f3d5c3c7acb0b73a911c1830aec4/96df1/images/avatar.png
     maintainers:
@@ -3548,13 +3548,13 @@ entries:
           description: changed version naming scheme so charts show app versions in search on artifacthub.io
     apiVersion: v2
     appVersion: version-v21.1
-    created: "2024-09-24T08:26:14.830732652Z"
+    created: "2024-09-25T08:17:07.615193137Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
       version: 1.5.1
     description: nzbget - efficient usenet downloader.
-    digest: 16a627a57d07936ce9e3572ef893b1a1a50482589f8e7606aeb186be121dfa36
+    digest: 0cd096d3b9eae3bac9e00a575b0c2dcd36688cba26d068bdc7a1c43216b67dab
     home: https://github.com/loeken/helm-charts
     icon: https://d33wubrfki0l68.cloudfront.net/8c14075578b2f3d5c3c7acb0b73a911c1830aec4/96df1/images/avatar.png
     maintainers:
@@ -3746,14 +3746,14 @@ entries:
           description: changed version naming scheme so charts show app versions in search on artifacthub.io
     apiVersion: v2
     appVersion: 1.30.1.6562
-    created: "2024-09-24T08:26:14.832955573Z"
+    created: "2024-09-25T08:17:07.617520955Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
       version: 1.5.1
     description: plex - is an american streaming media service and a client–server
       media player platform
-    digest: dbf164ff22ba0b9e91ce172fb6141c109cbe98eb6b0a5dbce4d70ff2d708cbd3
+    digest: 716efdcb1387b09f861b19e8d355f4a97e336814a3e295a1a3356e327f26f599
     home: https://github.com/loeken/helm-charts
     icon: https://d33wubrfki0l68.cloudfront.net/8c14075578b2f3d5c3c7acb0b73a911c1830aec4/96df1/images/avatar.png
     maintainers:
@@ -3855,14 +3855,14 @@ entries:
           description: updated to 1.23.1
     apiVersion: v2
     appVersion: 1.23.1.4708
-    created: "2024-09-24T08:26:14.836050253Z"
+    created: "2024-09-25T08:17:07.619629191Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
       version: 1.5.1
     description: prowlarr - Prowlarr is an indexer manager/proxy built on the popular
       *arr software
-    digest: 77d3dddf196175134c3c9b595d0d0d85b6a33aaf8896f3ec16018aeedaad3df1
+    digest: da0d461511fa9190733fc9d2e78e247acd8f5b6a416c54003924094c3b6e4f63
     home: https://github.com/loeken/helm-charts
     icon: https://d33wubrfki0l68.cloudfront.net/8c14075578b2f3d5c3c7acb0b73a911c1830aec4/96df1/images/avatar.png
     maintainers:
@@ -4447,6 +4447,31 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: updated to 5.11.0
+    apiVersion: v2
+    appVersion: version-5.11.0.9244
+    created: "2024-09-25T08:17:07.622298498Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 1.5.1
+    description: a helm chart to install radarr
+    digest: 8ed7ffc7ae28302b8e00912c32ea043b3217888d636cae70bfcb6f79507b233f
+    home: https://github.com/loeken/helm-charts
+    icon: https://d33wubrfki0l68.cloudfront.net/8c14075578b2f3d5c3c7acb0b73a911c1830aec4/96df1/images/avatar.png
+    maintainers:
+    - email: loeken@internetz.me
+      name: loeken
+    name: radarr
+    sources:
+    - https://github.com/loeken/helm-charts/tree/main/charts/radarr
+    type: application
+    urls:
+    - https://loeken.github.io/helm-charts/radarr-5.11.0.tgz
+    version: 5.11.0
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: updated to 5.10.4
     apiVersion: v2
     appVersion: version-5.10.4.9218
@@ -4747,14 +4772,14 @@ entries:
           description: updated to 4.8.2
     apiVersion: v2
     appVersion: 4.8.2
-    created: "2024-09-24T08:26:14.840772834Z"
+    created: "2024-09-25T08:17:07.624980626Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
       version: 1.5.1
     description: rtorrent-flood - flood, a beautiful web UI for various torrent clients
       combined with rtorrent in this chart.
-    digest: 5eec5fef70edf41a8e3fae5adb52495eec4863331b843e2d9496cf20856aed0c
+    digest: 0703de91288f859e52ec4fa0c68930200ed780d9ba162796ccbf63bc7c6dfb7b
     home: https://github.com/loeken/helm-charts
     icon: https://d33wubrfki0l68.cloudfront.net/8c14075578b2f3d5c3c7acb0b73a911c1830aec4/96df1/images/avatar.png
     maintainers:
@@ -5045,13 +5070,13 @@ entries:
           description: updated to 4.0.9
     apiVersion: v2
     appVersion: 4.0.9.2244
-    created: "2024-09-24T08:26:14.843915022Z"
+    created: "2024-09-25T08:17:07.6273282Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
       version: 1.5.1
     description: sonarr - an internet PVR for Usenet and Torrents.
-    digest: 5dad20639c6115a5fa85b37cfe63518d226500734610639f9e842de9d3e51387
+    digest: 357575c2185d47f26afbd2e1fda55e25e766127ede8ca00c2280d52ec571639c
     home: https://github.com/loeken/helm-charts
     icon: https://d33wubrfki0l68.cloudfront.net/8c14075578b2f3d5c3c7acb0b73a911c1830aec4/96df1/images/avatar.png
     maintainers:
@@ -5416,7 +5441,7 @@ entries:
           description: updated to 1.32.0
     apiVersion: v2
     appVersion: 1.32.0-alpine
-    created: "2024-09-24T08:26:14.853138541Z"
+    created: "2024-09-25T08:17:07.637296814Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
@@ -5431,7 +5456,7 @@ entries:
       version: 12.2.2
     description: vaultwarden - unofficial bitwarden compatible server written in rust,
       formerly known as bitwarden_rs
-    digest: 01c3594d09af532c4cbe08d200124d90e9abc95f01e24bc43a4b50da5c5e3b4a
+    digest: 0b1a727b98b679113bda6f694d46bba0b0e323dd392cee134bfb06d63b50f347
     home: https://github.com/loeken/helm-charts
     icon: https://d33wubrfki0l68.cloudfront.net/8c14075578b2f3d5c3c7acb0b73a911c1830aec4/96df1/images/avatar.png
     maintainers:
@@ -6045,4 +6070,4 @@ entries:
     urls:
     - https://loeken.github.io/helm-charts/vaultwarden-0.0.2.tgz
     version: 0.0.2
-generated: "2024-09-24T08:26:14.803209603Z"
+generated: "2024-09-25T08:17:07.587077914Z"
