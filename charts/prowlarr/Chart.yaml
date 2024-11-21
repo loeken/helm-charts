@@ -1,9 +1,9 @@
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: updated to 1.25.4
+      description: updated to 1.26.1
 apiVersion: v2
-appVersion: 1.25.4.4818
+appVersion: 1.26.1.4844
 dependencies:
 - name: common
   repository: https://bjw-s.github.io/helm-charts
@@ -19,4 +19,4 @@ name: prowlarr
 sources:
 - https://github.com/loeken/helm-charts/tree/main/charts/prowlarr
 type: application
-version: 1.25.4
+version: 1.26.1
