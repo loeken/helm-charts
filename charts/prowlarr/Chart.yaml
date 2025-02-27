@@ -7,7 +7,7 @@ appVersion: 1.31.2.4975
 dependencies:
 - name: common
   repository: https://bjw-s.github.io/helm-charts
-  version: 1.5.1
+  version: 3.7.1
 description: prowlarr - Prowlarr is an indexer manager/proxy built on the popular
   *arr software
 home: https://github.com/loeken/helm-charts
