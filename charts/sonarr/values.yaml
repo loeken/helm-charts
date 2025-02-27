@@ -2,7 +2,7 @@ image:
   # -- image repository
   repository: loeken/sonarr
   # @default -- chart.appVersion
-  tag: 4.0.10.2544
+  tag: 4.0.13.2932
   # -- image pull policy
   pullPolicy: IfNotPresent
 
