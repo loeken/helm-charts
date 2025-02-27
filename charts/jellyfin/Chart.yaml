@@ -1,13 +1,13 @@
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: updated to 10.9.9
+      description: updated to 10.10.6
 apiVersion: v2
-appVersion: 10.9.9
+appVersion: 10.10.6
 dependencies:
 - name: common
   repository: https://bjw-s.github.io/helm-charts
-  version: 1.5.1
+  version: 3.7.1
 description: a helm chart to install jellyfin
 home: https://github.com/loeken/helm-charts
 icon: https://d33wubrfki0l68.cloudfront.net/8c14075578b2f3d5c3c7acb0b73a911c1830aec4/96df1/images/avatar.png
@@ -18,4 +18,4 @@ name: jellyfin
 sources:
 - https://github.com/loeken/helm-charts/tree/main/charts/jellyfin
 type: application
-version: 10.9.9
+version: 10.10.6

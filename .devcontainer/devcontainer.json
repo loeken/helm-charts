@@ -1,0 +1,14 @@
+{
+    "name": "helm-charts",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "helm-charts",
+    "workspaceFolder": "/app",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "oderwat.indent-rainbow",
+                "ms-azuretools.vscode-docker"
+            ]
+        }
+    }
+}

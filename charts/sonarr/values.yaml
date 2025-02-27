@@ -2,7 +2,7 @@ image:
   # -- image repository
   repository: loeken/sonarr
   # @default -- chart.appVersion
-  tag:
+  tag: 4.0.13.2932
   # -- image pull policy
   pullPolicy: IfNotPresent
 
@@ -90,7 +90,7 @@ metrics:
       # -- image repository
       repository: ghcr.io/onedr0p/exportarr
       # -- image tag
-      tag: v1.0.0
+      tag: v2.0.1
       # -- image pull policy
       pullPolicy: IfNotPresent
     env:
