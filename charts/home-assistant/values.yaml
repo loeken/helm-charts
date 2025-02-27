@@ -5,72 +5,67 @@
 # https://github.com/bjw-s/helm-charts/blob/main/charts/library/common/values.yaml
 #
 
-# Define the main container settings
-containers:
+controllers:
   main:
-    # Override the container name
-    # nameOverride: ""
+    enabled: true
+    type: deployment
+    containers:
+      main:
+        image:
+          # -- image repository
+          repository: loeken/home-assistant
+          # -- image tag
+          # @default -- chart.appVersion
+          tag: "2025.2.5"
+          # -- image pull policy
+          pullPolicy: Always
 
-    # Specify if this container depends on any other containers
-    # This is used to determine the order in which the containers are rendered.
-    # dependsOn: []
+# -- environment variables.
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
 
-    image:
-      # Image repository
-      repository: loeken/home-assistant
-      # Image tag (default is chart.appVersion)
-      # tag: ""
-      # Image pull policy
-      pullPolicy: Always
-
-    # Environment variables
-    env:
-      # Set the container timezone
-      TZ: UTC
-
-    # Security context for the container
-    securityContext:
-      # Privileged securityContext may be required if USB devices are accessed directly through the host machine
-      # privileged: true
-
-    # Resource requests and limits
-    resources:
-      limits:
-        cpu: "1"
-        memory: 512Mi
-      requests:
-        cpu: "0.5"
-        memory: 256Mi
-
-# Configures service settings for the chart
+# -- Configures service settings for the chart. Normally this does not need to be modified.
+# @default -- See values.yaml
 service:
   main:
+    controller: main
     ports:
       http:
         port: 8123
 
-# Enable and configure ingress settings for the chart
 ingress:
+  # -- Enable and configure ingress settings for the chart under this key.
+  # @default -- See values.yaml
   main:
     enabled: false
 
-# Enable devices to be discoverable
+# -- Enable devices to be discoverable
 # hostNetwork: true
 
-# When hostNetwork is true, set dnsPolicy to ClusterFirstWithHostNet
+# -- When hostNetwork is true set dnsPolicy to ClusterFirstWithHostNet
 # dnsPolicy: ClusterFirstWithHostNet
 
-# Configure persistence settings for the chart
+securityContext:
+  # -- (bool) Privileged securityContext may be required if USB devices are accessed directly through the host machine
+  privileged: false
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
 persistence:
   config:
     enabled: false
-  # Configure a hostPathMount to mount a USB device in the container
+  # -- Configure a hostPathMount to mount a USB device in the container.
+  # @default -- See values.yaml
   usb:
     enabled: false
     type: hostPath
     hostPath: /path/to/device
 
-# Enable and configure MariaDB database subchart
+# -- Enable and configure mariadb database subchart under this key.
+#    For more options see [mariadb chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/mariadb)
+# @default -- See values.yaml
 mariadb:
   enabled: false
   architecture: standalone
@@ -82,66 +77,56 @@ mariadb:
   primary:
     persistence:
       enabled: false
-      # storageClass: ""
 
-# Enable and configure PostgreSQL database subchart
+# -- Enable and configure postgresql database subchart under this key.
+#    For more options see [postgresql chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/postgresql)
+# @default -- See values.yaml
 postgresql:
   enabled: false
   image:
     repository: bitnami/postgresql
     tag: 14.1.0
   auth:
+    database: home-assistant
     username: home-assistant
     password: home-assistant-pass
-    database: home-assistant
-  primary:
-    persistence:
-      enabled: false
-      # storageClass: ""
+  persistence:
+    enabled: false
 
-# Enable and configure InfluxDB database subchart
+# -- Enable and configure influxdb database subchart under this key.
+#    For more options see [influxdb chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/influxdb)
+# @default -- See values.yaml
 influxdb:
   enabled: false
   architecture: standalone
-  authEnabled: false
   database: home_assistant
+  authEnabled: false
   persistence:
     enabled: false
-    # storageClass: ""
-    # size: 8Gi
 
-# Enable and configure metrics settings for the chart
 metrics:
+  # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
+  # @default -- See values.yaml
   enabled: false
   serviceMonitor:
     interval: 1m
     scrapeTimeout: 30s
     labels: {}
-    # See https://www.home-assistant.io/docs/authentication/ for where to find
-    # long-lived access token creation under your account profile, which is
-    # needed to monitor Home Assistant
     # bearerTokenSecret:
     #   name: ""
     #   key: ""
+
+  # -- Enable and configure Prometheus Rules for the chart under this key.
+  # @default -- See values.yaml
   prometheusRule:
     enabled: false
     labels: {}
-    # Configure additional rules for the chart
     rules: []
-      # - alert: HomeAssistantAbsent
-      #   annotations:
-      #     description: Home Assistant has disappeared from Prometheus service discovery.
-      #     summary: Home Assistant is down.
-      #   expr: |
-      #     absent(up{job=~".*home-assistant.*"} == 1)
-      #   for: 5m
-      #   labels:
-      #     severity: critical
 
-# Enable and configure addons for the chart
 addons:
-  # Enable and configure CodeServer for the chart
-  # This allows for easy access to configuration.yaml
+  # -- Enable and configure codeserver for the chart.
+  #    This allows for easy access to configuration.yaml
+  # @default -- See values.yaml
   codeserver:
     enabled: false
     args:
@@ -152,3 +137,11 @@ addons:
     volumeMounts:
       - name: config
         mountPath: /data/config
+
+resources:
+  limits:
+    cpu: "1"
+    memory: 512Mi
+  requests:
+    cpu: "0.5"
+    memory: 256Mi
