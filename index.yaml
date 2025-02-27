@@ -6,9 +6,9 @@ entries:
         - kind: fixed
           description: fixed checksum annotation when using configmaps with controller.type == cronjob
     apiVersion: v2
-    created: "2025-02-27T13:22:33.20099898Z"
+    created: "2025-02-27T13:23:41.429994634Z"
     description: Function library for Helm charts
-    digest: 74352b9020d09c82f15fcb1a0f2f41c6c4ebdb3a602aaec1e6a085f8502de54f
+    digest: 2df70165360684909f93cb0c5b56e372bfe2d2f8882bed0df3b088963bd702bf
     home: https://github.com/bjw-s/helm-charts/tree/main/charts/library/common
     keywords:
     - common
@@ -320,7 +320,7 @@ entries:
           description: updated to 2025.2.5
     apiVersion: v2
     appVersion: 2025.2.5
-    created: "2025-02-27T13:22:33.217573113Z"
+    created: "2025-02-27T13:23:41.447450258Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
@@ -340,7 +340,7 @@ entries:
     description: home-assistant  - a free and open-source software for home automation
       designed to be a central control system for smart home devices with a focus
       on local control and privacy
-    digest: 543971d470259b2270d3f0d711230f22419b33c11e5d9779dd1cc0352b54d92d
+    digest: a9439cd8530328dc3c95d12038e31f2b57b98bd75bede8d8a8bf0c036c63acc2
     home: https://github.com/loeken/helm-charts
     icon: https://d33wubrfki0l68.cloudfront.net/8c14075578b2f3d5c3c7acb0b73a911c1830aec4/96df1/images/avatar.png
     maintainers:
@@ -3489,13 +3489,13 @@ entries:
           description: updated to 10.10.6
     apiVersion: v2
     appVersion: 10.10.6
-    created: "2025-02-27T09:50:28.892264017Z"
+    created: "2025-02-27T13:23:41.450709852Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
-      version: 1.5.1
+      version: 3.7.1
     description: a helm chart to install jellyfin
-    digest: 325ef4fb4924cbc93eb17a0412014bd804b69c88abd8fdb9f364cd93906ff364
+    digest: 834ec7fe8c249bda590811190c4f70dac9b9245e86591f9a85fb0cd227e570c5
     home: https://github.com/loeken/helm-charts
     icon: https://d33wubrfki0l68.cloudfront.net/8c14075578b2f3d5c3c7acb0b73a911c1830aec4/96df1/images/avatar.png
     maintainers:
@@ -7643,4 +7643,4 @@ entries:
     urls:
     - https://loeken.github.io/helm-charts/vaultwarden-0.0.2.tgz
     version: 0.0.2
-generated: "2025-02-27T13:22:33.198079969Z"
+generated: "2025-02-27T13:23:41.427660396Z"
