@@ -19,12 +19,11 @@ controllers:
           tag: "2025.2.5"
           # -- image pull policy
           pullPolicy: Always
-
-# -- environment variables.
-# @default -- See below
-env:
-  # -- Set the container timezone
-  TZ: UTC
+        # -- environment variables.
+        # @default -- See below
+        env:
+          # -- Set the container timezone
+          TZ: UTC
 
 # -- Configures service settings for the chart. Normally this does not need to be modified.
 # @default -- See values.yaml
@@ -34,3 +33,27 @@ service:
     ports:
       http:
         port: 8123
+
+ingress:
+  # -- Enable and configure ingress settings for the chart under this key.
+  # @default -- See values.yaml
+  main:
+    enabled: false
+
+# -- Enable and configure mariadb database subchart under this key.
+#    For more options see [mariadb chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/mariadb)
+# @default -- See values.yaml
+mariadb:
+  enabled: false
+postgresql:
+  enabled: false
+influxdb:
+  enabled: false
+metrics:
+  enabled: false
+addons:
+  # -- Enable and configure codeserver for the chart.
+  #    This allows for easy access to configuration.yaml
+  # @default -- See values.yaml
+  codeserver:
+    enabled: false
