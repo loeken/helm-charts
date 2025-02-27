@@ -6,7 +6,7 @@ controllers:
       main:
         image:
           # -- image repository
-          repository: loeken/jellyfin
+          repository: loeken/jellyseerr
           # -- image tag
           # @default -- chart.appVersion
           tag: "10.10.5"
