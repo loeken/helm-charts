@@ -46,14 +46,20 @@ ingress:
             pathType: Prefix
             service:
               port: http
+              name: main
+              identifier: main
           - path: /notifications/hub/negotiate
             pathType: Prefix
             service:
               port: http
+              name: main
+              identifier: main
           - path: /notifications/hub
             pathType: Prefix
             service:
               port: websocket
+              name: main
+              identifier: main
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml
