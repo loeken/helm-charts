@@ -12,7 +12,7 @@ image:
   pullPolicy: Always
   # -- image tag
   # @default -- chart.appVersion
-  tag: 1.33.1-alpine
+  tag: 1.33.2-alpine
 
 strategy:
   type: Recreate
