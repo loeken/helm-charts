@@ -6,9 +6,9 @@ entries:
         - kind: fixed
           description: fixed checksum annotation when using configmaps with controller.type == cronjob
     apiVersion: v2
-    created: "2025-02-27T16:31:30.902048459Z"
+    created: "2025-02-27T17:06:09.465601898Z"
     description: Function library for Helm charts
-    digest: 4058f3c08cf090fd8cc1e62f8d5f1113b523accc04b21691eb44608cc2dbe9ea
+    digest: 44c6ba3a3cab021228e27b658642cb49e40bf1e0e3f5ed8300d1432c90afc41a
     home: https://github.com/bjw-s/helm-charts/tree/main/charts/library/common
     keywords:
     - common
@@ -320,7 +320,7 @@ entries:
           description: updated to 2025.2.5
     apiVersion: v2
     appVersion: 2025.2.5
-    created: "2025-02-27T16:31:30.918707399Z"
+    created: "2025-02-27T17:06:09.482166654Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
@@ -340,7 +340,7 @@ entries:
     description: home-assistant  - a free and open-source software for home automation
       designed to be a central control system for smart home devices with a focus
       on local control and privacy
-    digest: 19a0aaade331d4aeb91ff925a5c67889d0592fc8ab687765c717640625a9dead
+    digest: af828813b0f5266a8907a9f5580fb8db8158f0e5fe23a1e42e7bf8fae724242c
     home: https://github.com/loeken/helm-charts
     icon: https://d33wubrfki0l68.cloudfront.net/8c14075578b2f3d5c3c7acb0b73a911c1830aec4/96df1/images/avatar.png
     maintainers:
@@ -3489,13 +3489,13 @@ entries:
           description: updated to 10.10.6
     apiVersion: v2
     appVersion: 10.10.6
-    created: "2025-02-27T16:31:30.921743726Z"
+    created: "2025-02-27T17:06:09.485225979Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
       version: 3.7.1
     description: a helm chart to install jellyfin
-    digest: 3680584a9ba310e88492f6a6414a902754bcaba4b60a364644aac9766a01be2f
+    digest: 6fd8490e5f59754668d43087cea70d2655d0762fd93778e3ab67d626ecfdae73
     home: https://github.com/loeken/helm-charts
     icon: https://d33wubrfki0l68.cloudfront.net/8c14075578b2f3d5c3c7acb0b73a911c1830aec4/96df1/images/avatar.png
     maintainers:
@@ -4029,13 +4029,13 @@ entries:
           description: updated to 2.3.0
     apiVersion: v2
     appVersion: 2.3.0
-    created: "2025-02-27T16:31:30.924734028Z"
+    created: "2025-02-27T17:06:09.488211246Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
       version: 3.7.1
     description: a helm chart to install jellyseer
-    digest: 052051bddc4f54dccf0cc20cc9d11019dc6ef9269871bb5e7eac1e8d4b274e9b
+    digest: 0ebbb00d370906630d67a1bfa9ed08d75ad52ced049c54d7e82ebae2af61ed6b
     home: https://github.com/loeken/helm-charts
     icon: https://d33wubrfki0l68.cloudfront.net/8c14075578b2f3d5c3c7acb0b73a911c1830aec4/96df1/images/avatar.png
     maintainers:
@@ -6944,11 +6944,11 @@ entries:
           description: updated to 1.33.1
     apiVersion: v2
     appVersion: 1.33.1-alpine
-    created: "2025-02-27T09:50:28.933261865Z"
+    created: "2025-02-27T17:06:09.502316065Z"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts
-      version: 1.5.1
+      version: 3.7.1
     - condition: mariadb.enabled
       name: mariadb
       repository: https://charts.bitnami.com/bitnami
@@ -6959,7 +6959,7 @@ entries:
       version: 16.4.14
     description: vaultwarden - unofficial bitwarden compatible server written in rust,
       formerly known as bitwarden_rs
-    digest: 80d2fbcfdb79124ed25dce118abf12dca6e06f7ddf6e0e2f97f8ca883daa3d7c
+    digest: 006169e9ffaf2a2ab6f5709de84f511d642c0ddb78560afcab0c8c8e0c648ab7
     home: https://github.com/loeken/helm-charts
     icon: https://d33wubrfki0l68.cloudfront.net/8c14075578b2f3d5c3c7acb0b73a911c1830aec4/96df1/images/avatar.png
     maintainers:
@@ -7643,4 +7643,4 @@ entries:
     urls:
     - https://loeken.github.io/helm-charts/vaultwarden-0.0.2.tgz
     version: 0.0.2
-generated: "2025-02-27T16:31:30.899149929Z"
+generated: "2025-02-27T17:06:09.46310133Z"
