@@ -1,0 +1,25 @@
+{
+    "name": "helm-charts",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "helm-charts",
+    "workspaceFolder": "/app",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "HashiCorp.terraform",
+                "run-at-scale.terraform-doc-snippets",
+                "oderwat.indent-rainbow",
+                "ms-azuretools.vscode-docker"
+            ],
+            "settings": { 
+                "python.pythonPath": "/usr/local/bin/python3",
+                "terminal.integrated.defaultProfile.linux": "zsh",
+                "terminal.integrated.profiles.linux": {
+                    "zsh": {
+                        "path": "/bin/zsh"
+                    }
+                }
+            }
+        }
+    }
+}

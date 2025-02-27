@@ -1,0 +1,17 @@
+services:
+  helm-charts:
+    container_name: helm-charts
+    build:
+      context: .
+      dockerfile: ./deploy/docker/Dockerfile.dev
+    restart: on-failure
+    networks:
+      - helm-charts-network
+    volumes:
+      - ${HOME}/.config/gh:/home/vscode/.config/gh
+      - ${HOME}/.ssh:/home/vscode/.ssh
+      - ${HOME}/.zhistory:/home/vscode/.zhistory
+# Networks to be created to facilitate communication between containers
+networks:
+  helm-charts-network:
+    driver: bridge
