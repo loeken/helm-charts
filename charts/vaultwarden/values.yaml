@@ -40,9 +40,13 @@ service:
     ports:
       http:
         port: 80
+        name: main
+        identifier: main
       websocket:
         enabled: true
         port: 3012
+        name: main
+        identifier: main
 
 ingress:
   # -- Enable and configure ingress settings for the chart under this key.
@@ -54,6 +58,7 @@ ingress:
 persistence:
   config:
     enabled: false
+    accessMode: ReadWriteOnce
 
 # https://github.com/bitnami/charts/tree/master/bitnami/mariadb/#installing-the-chart
 mariadb:

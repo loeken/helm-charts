@@ -1,15 +1,35 @@
-image:
-  # -- image repository
-  repository: loeken/nzbget
-  # -- image tag
-  tag: version-v21.1
-  # -- image pull policy
-  pullPolicy: IfNotPresent
+controllers:
+  main:
+    enabled: true
+    type: deployment
+    containers:
+      main:
+        image:
+          # -- image repository
+          repository: loeken/nzbget
+          # -- image tag
+          # @default -- chart.appVersion
+          tag: "v24.6-ls182"
+          # -- image pull policy
+          pullPolicy: Always
+        # -- environment variables.
+        # @default -- See below
+        env:
+          # -- Set the container timezone
+          TZ: UTC
+        resources:
+          limits:
+            cpu: "1"
+            memory: 512Mi
+          requests:
+            cpu: "0.5"
+            memory: 256Mi
 
 # -- Configures service settings for the chart.
 # @default -- See values.yaml
 service:
   main:
+    controller: main
     ports:
       http:
         port: 6789
@@ -32,13 +52,6 @@ persistence:
     enabled: false
     mountPath: /downloads
 
-resources:
-  limits:
-    cpu: "1"
-    memory: 512Mi
-  requests:
-    cpu: "0.5"
-    memory: 256Mi
 
 probes:
   startup:
