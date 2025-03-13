@@ -15,7 +15,7 @@ dependencies:
 - condition: postgresql.enabled
   name: postgresql
   repository: https://charts.bitnami.com/bitnami
-  version: 16.4.16
+  version: 16.5.0
 description: vaultwarden - unofficial bitwarden compatible server written in rust,
   formerly known as bitwarden_rs
 home: https://github.com/loeken/helm-charts
