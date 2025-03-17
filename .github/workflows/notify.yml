@@ -1,0 +1,26 @@
+name: Renovate PR Notifications
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+    branches:
+      - "renovate/**"
+
+jobs:
+  notify_slack:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send message to Slack
+        env:
+          SLACK_NOTIFICATION_HOOK_URL: ${{ secrets.SLACK_NOTIFICATION_HOOK_URL }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          REPO: ${{ github.repository }}
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{
+            "text": "📢 *New Renovate PR* 🚀\n*Title:* \"${PR_TITLE}\"\n*Repository:* \"${REPO}\"\n*Author:* \"${AUTHOR}\"\n*PR URL:* <${PR_URL}|View PR>"
+          }' "$SLACK_NOTIFICATION_HOOK_URL"
