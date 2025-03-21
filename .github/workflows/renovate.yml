@@ -29,5 +29,3 @@ jobs:
           RENOVATE_TOKEN: ${{ secrets.RENOVATE_TOKEN }}
         run: |
           renovate loeken/helm-charts
-          renovate loeken/docker-homeassistant
-
