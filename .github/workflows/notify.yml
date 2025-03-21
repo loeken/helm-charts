@@ -6,11 +6,10 @@ on:
       - opened
       - synchronize
       - reopened
-    branches:
-      - "renovate/**"
 
 jobs:
   notify_slack:
+    if: startsWith(github.head_ref, 'renovate/')
     runs-on: ubuntu-latest
     steps:
       - name: Send message to Slack
