@@ -46,3 +46,8 @@ persistence:
     enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
+    advancedMounts:
+      main:
+        main:
+          - path: /app/data
+            readOnly: false
