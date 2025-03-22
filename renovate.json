@@ -5,6 +5,10 @@
   "prHourlyLimit": 0,
   "packageRules": [
     {
+      "matchPackageNames": ["loeken/nzbget"],
+      "versioning": "loose"
+    },
+    {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
     }
