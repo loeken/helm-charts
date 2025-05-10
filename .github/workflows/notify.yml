@@ -20,6 +20,6 @@ jobs:
           REPO: ${{ github.repository }}
           AUTHOR: ${{ github.event.pull_request.user.login }}
         run: |
-          curl -X POST -H 'Content-type: application/json' --data '{
-            "text": "📢 *New Renovate PR* 🚀\n*Title:* \"${PR_TITLE}\"\n*Repository:* \"${REPO}\"\n*Author:* \"${AUTHOR}\"\n*PR URL:* <${PR_URL}|View PR>"
-          }' "$SLACK_NOTIFICATION_HOOK_URL"
+          curl -X POST -H 'Content-type: application/json' --data "{
+            \"text\": \"📢 *New Renovate PR* 🚀\\n*Title:* \\\"${PR_TITLE}\\\"\\n*Repository:* \\\"${REPO}\\\"\\n*Author:* \\\"${AUTHOR}\\\"\\n*PR URL:* <${PR_URL}|View PR>\"
+          }" "$SLACK_NOTIFICATION_HOOK_URL"
