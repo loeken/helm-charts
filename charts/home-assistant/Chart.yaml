@@ -11,15 +11,15 @@ dependencies:
 - condition: postgresql.enabled
   name: postgresql
   repository: https://charts.bitnami.com/bitnami
-  version: 16.5.5
+  version: 16.6.6
 - condition: mariadb.enabled
   name: mariadb
   repository: https://charts.bitnami.com/bitnami
-  version: 20.4.1
+  version: 20.5.5
 - condition: influxdb.enabled
   name: influxdb
   repository: https://charts.bitnami.com/bitnami
-  version: 6.6.1
+  version: 6.6.9
 description: home-assistant  - a free and open-source software for home automation
   designed to be a central control system for smart home devices with a focus on local
   control and privacy

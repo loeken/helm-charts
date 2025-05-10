@@ -11,11 +11,11 @@ dependencies:
 - condition: mariadb.enabled
   name: mariadb
   repository: https://charts.bitnami.com/bitnami
-  version: 20.4.1
+  version: 20.5.5
 - condition: postgresql.enabled
   name: postgresql
   repository: https://charts.bitnami.com/bitnami
-  version: 16.5.5
+  version: 16.6.6
 description: vaultwarden - unofficial bitwarden compatible server written in rust,
   formerly known as bitwarden_rs
 home: https://github.com/loeken/helm-charts
