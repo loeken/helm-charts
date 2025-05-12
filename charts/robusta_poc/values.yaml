@@ -1,0 +1,49 @@
+controllers:
+  robusta:
+    containers:
+      robusta:
+        image:
+          repository: robusta/robusta
+          tag: 0.22.0
+        env:
+          - name: SIGNING_KEY
+            valueFrom:
+              secretKeyRef:
+                name: robusta-secret
+                key: SIGNING_KEY
+          - name: ACCOUNT_ID
+            valueFrom:
+              secretKeyRef:
+                name: robusta-secret
+                key: ACCOUNT_ID
+          - name: ROBUSTA_UI_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: robusta-secret
+                key: ROBUSTA_UI_TOKEN
+          - name: SLACK_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: robusta-secret
+                key: SLACK_API_KEY
+          - name: ROBUSTA_AI
+            value: "true"
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi
+    replicas: 1
+
+serviceAccount:
+  create: true
+
+service:
+  robusta:
+    enabled: false
+
+persistence:
+  data:
+    enabled: false
