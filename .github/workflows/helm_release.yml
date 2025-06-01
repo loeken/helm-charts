@@ -1,37 +1,70 @@
 name: validate & release to artifacthub
+
 on:
   push:
     branches: [ main ]
-    # paths:
-    #   - 'charts/**'
   workflow_dispatch:
+
 jobs:
   test:
     name: validate helm
     strategy:
       matrix:
-        version: ["1.25.4"]
+        version: ["1.33.1", "1.32.0", "1.31"]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: get changed file
-        run: echo CHANGED_CHART=`git diff-tree --no-commit-id --name-only --diff-filter=ACMRT -r main -- '*Chart.yaml' | sed '$s/$//'` >> $GITHUB_ENV
+      - name: Get changed chart
+        run: |
+          echo "CHANGED_CHART=$(git diff-tree --no-commit-id --name-only --diff-filter=ACMRT -r main -- '*Chart.yaml' | sed '$s/$//')" >> $GITHUB_ENV
         id: changed_file
 
-
   release:
-    name: release helm charts
+    name: sign & release helm charts
     runs-on: ubuntu-latest
     needs: test
     steps:
-      - name: checkout git code
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - name: Checkout source
+        uses: actions/checkout@v4
         with:
-          submodules: 'true'
+          submodules: true
+          fetch-depth: 0
+
+      - name: Import GPG key
+        run: |
+          echo "${{ secrets.HELM_GPG_PRIVATE_KEY }}" | gpg --batch --import
+          echo "allow-loopback-pinentry" >> ~/.gnupg/gpg-agent.conf
+          echo "pinentry-mode loopback" >> ~/.gnupg/gpg.conf
+        env:
+          GNUPGHOME: /home/runner/.gnupg
+
+      - name: Package and sign Helm charts
+        run: |
+          mkdir -p .cr-release-packages
+          for chart in charts/*; do
+            if [ -f "$chart/Chart.yaml" ]; then
+              helm dependency update "$chart"
+              helm package "$chart" \
+                --destination .cr-release-packages \
+                --sign \
+                --key "${{ secrets.HELM_GPG_KEY_ID }}" \
+                --keyring ~/.gnupg/pubring.kbx
+            fi
+          done
+
+      - name: Clean gh-pages branch
+        run: |
+          git config --global user.name github-actions
+          git config --global user.email github-actions@github.com
+          git fetch origin gh-pages
+          git switch gh-pages || git checkout --orphan gh-pages
+          git rm -rf . || true
+          git commit -m "clean gh-pages" || echo "nothing to commit"
+          git push origin gh-pages --force
 
       - name: Publish Helm charts
         uses: stefanprodan/helm-gh-pages@master
