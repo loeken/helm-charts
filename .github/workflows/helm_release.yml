@@ -45,17 +45,17 @@ jobs:
       - name: List GPG keys after import
         run: gpg --list-secret-keys --keyid-format LONG
 
-      - name: Install helm-schema-gen
-        run: npm install -g helm-schema-gen
+      # - name: Install helm-schema-gen
+      #   run: npm install -g helm-schema-gen
 
-      - name: Generate values.schema.json files
-        run: |
-          for chart in charts/*; do
-            if [ -f "$chart/values.yaml" ]; then
-              echo "Generating schema for $chart"
-              helm-schema-gen "$chart/values.yaml" > "$chart/values.schema.json"
-            fi
-          done
+      # - name: Generate values.schema.json files
+      #   run: |
+      #     for chart in charts/*; do
+      #       if [ -f "$chart/values.yaml" ]; then
+      #         echo "Generating schema for $chart"
+      #         helm-schema-gen "$chart/values.yaml" > "$chart/values.schema.json"
+      #       fi
+      #     done
 
       - name: Package and sign Helm charts
         run: |
