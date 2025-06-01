@@ -39,4 +39,3 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           owner: loeken
           repository: helm-charts
-          keep_index: false
