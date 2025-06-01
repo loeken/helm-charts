@@ -61,17 +61,19 @@ jobs:
               helm dependency update "$chart"
               helm package "$chart" --destination .cr-release-packages
 
-              tgz_file=$(basename $(ls .cr-release-packages/$(basename "$chart")-*.tgz 2>/dev/null || true))
+              # Safely find .tgz file
+              tgz_file=$(find .cr-release-packages -maxdepth 1 -type f -name "$(basename "$chart")-*.tgz" | head -n1)
 
-              if [ -n "$tgz_file" ] && [ -f ".cr-release-packages/$tgz_file" ]; then
-                echo "Signing $tgz_file..."
-                gpg --armor --output .cr-release-packages/$tgz_file.prov \
-                    --detach-sign .cr-release-packages/$tgz_file
+              if [ -n "$tgz_file" ] && [ -f "$tgz_file" ]; then
+                echo "Signing $(basename "$tgz_file")..."
+                gpg --armor --output "$tgz_file.prov" \
+                    --detach-sign "$tgz_file"
               else
-                echo "❌ Skipping signing for $(basename "$chart") — package not found."
+                echo "❌ Skipping signing for $chart — .tgz package not found."
               fi
             fi
           done
+
 
 
       - name: Show signed package contents
