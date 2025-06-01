@@ -47,7 +47,7 @@ jobs:
           echo "allow-loopback-pinentry" >> "$GNUPGHOME/gpg-agent.conf"
           echo "pinentry-mode loopback" >> "$GNUPGHOME/gpg.conf"
 
-          echo -e "5\ny\n" | gpg --command-fd 0 --expert --edit-key "${{ secrets.HELM_GPG_KEY_ID }}" trust
+          echo "${{ secrets.HELM_GPG_KEY_ID }}:6:" | gpg --import-ownertrust
 
       - name: Verify GPG key is usable
         run: gpg --list-secret-keys --keyid-format LONG
