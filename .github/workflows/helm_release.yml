@@ -4,6 +4,7 @@ on:
     branches: [ main ]
     # paths:
     #   - 'charts/**'
+  workflow_dispatch:
 jobs:
   test:
     name: validate helm
@@ -38,3 +39,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           owner: loeken
           repository: helm-charts
+          keep_index: false
