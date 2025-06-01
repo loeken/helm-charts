@@ -37,57 +37,57 @@ jobs:
           submodules: true
           fetch-depth: 0
 
-      - name: Import GPG key
-        run: |
-          mkdir -p "$GNUPGHOME"
-          chmod 700 "$GNUPGHOME"
+      # - name: Import GPG key
+      #   run: |
+      #     mkdir -p "$GNUPGHOME"
+      #     chmod 700 "$GNUPGHOME"
 
-          echo "${{ secrets.HELM_GPG_PRIVATE_KEY }}" | gpg --batch --import
+      #     echo "${{ secrets.HELM_GPG_PRIVATE_KEY }}" | gpg --batch --import
 
-          echo "allow-loopback-pinentry" >> "$GNUPGHOME/gpg-agent.conf"
-          echo "pinentry-mode loopback" >> "$GNUPGHOME/gpg.conf"
+      #     echo "allow-loopback-pinentry" >> "$GNUPGHOME/gpg-agent.conf"
+      #     echo "pinentry-mode loopback" >> "$GNUPGHOME/gpg.conf"
 
-          echo "${{ secrets.HELM_GPG_KEY_ID }}:6:" | gpg --import-ownertrust
+      #     echo "${{ secrets.HELM_GPG_KEY_ID }}:6:" | gpg --import-ownertrust
 
-      - name: Verify GPG key is usable
-        run: gpg --list-secret-keys --keyid-format LONG
+      # - name: Verify GPG key is usable
+      #   run: gpg --list-secret-keys --keyid-format LONG
 
-      - name: Package and GPG-sign Helm charts manually
-        run: |
-          mkdir -p .cr-release-packages
-          for chart in charts/*; do
-            if [ -f "$chart/Chart.yaml" ]; then
-              echo "Processing chart: $chart"
-              helm dependency update "$chart"
-              helm package "$chart" --destination .cr-release-packages
+      # - name: Package and GPG-sign Helm charts manually
+      #   run: |
+      #     mkdir -p .cr-release-packages
+      #     for chart in charts/*; do
+      #       if [ -f "$chart/Chart.yaml" ]; then
+      #         echo "Processing chart: $chart"
+      #         helm dependency update "$chart"
+      #         helm package "$chart" --destination .cr-release-packages
 
-              # Safely find .tgz file
-              tgz_file=$(find .cr-release-packages -maxdepth 1 -type f -name "$(basename "$chart")-*.tgz" | head -n1)
+      #         # Safely find .tgz file
+      #         tgz_file=$(find .cr-release-packages -maxdepth 1 -type f -name "$(basename "$chart")-*.tgz" | head -n1)
 
-              if [ -n "$tgz_file" ] && [ -f "$tgz_file" ]; then
-                echo "Signing $(basename "$tgz_file")..."
-                gpg --armor --output "$tgz_file.prov" \
-                    --detach-sign "$tgz_file"
-              else
-                echo "❌ Skipping signing for $chart — .tgz package not found."
-              fi
-            fi
-          done
+      #         if [ -n "$tgz_file" ] && [ -f "$tgz_file" ]; then
+      #           echo "Signing $(basename "$tgz_file")..."
+      #           gpg --armor --output "$tgz_file.prov" \
+      #               --detach-sign "$tgz_file"
+      #         else
+      #           echo "❌ Skipping signing for $chart — .tgz package not found."
+      #         fi
+      #       fi
+      #     done
 
 
 
-      - name: Show signed package contents
-        run: ls -lh .cr-release-packages/
+      # - name: Show signed package contents
+      #   run: ls -lh .cr-release-packages/
 
-      - name: Clean gh-pages branch
-        run: |
-          git config --global user.name github-actions
-          git config --global user.email github-actions@github.com
-          git fetch origin gh-pages
-          git switch gh-pages || git checkout --orphan gh-pages
-          git rm -rf . || true
-          git commit -m "clean gh-pages" || echo "nothing to commit"
-          git push origin gh-pages --force
+      # - name: Clean gh-pages branch
+      #   run: |
+      #     git config --global user.name github-actions
+      #     git config --global user.email github-actions@github.com
+      #     git fetch origin gh-pages
+      #     git switch gh-pages || git checkout --orphan gh-pages
+      #     git rm -rf . || true
+      #     git commit -m "clean gh-pages" || echo "nothing to commit"
+      #     git push origin gh-pages --force
 
       - name: Publish Helm charts
         uses: stefanprodan/helm-gh-pages@master
