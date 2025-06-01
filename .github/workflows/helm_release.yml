@@ -27,6 +27,9 @@ jobs:
     name: sign & release helm charts
     runs-on: ubuntu-latest
     needs: test
+    env:
+      GNUPGHOME: /home/runner/.gnupg
+
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
@@ -36,40 +39,37 @@ jobs:
 
       - name: Import GPG key
         run: |
+          mkdir -p "$GNUPGHOME"
+          chmod 700 "$GNUPGHOME"
+
           echo "${{ secrets.HELM_GPG_PRIVATE_KEY }}" | gpg --batch --import
-          echo "allow-loopback-pinentry" >> ~/.gnupg/gpg-agent.conf
-          echo "pinentry-mode loopback" >> ~/.gnupg/gpg.conf
-        env:
-          GNUPGHOME: /home/runner/.gnupg
 
-      - name: List GPG keys after import
+          echo "allow-loopback-pinentry" >> "$GNUPGHOME/gpg-agent.conf"
+          echo "pinentry-mode loopback" >> "$GNUPGHOME/gpg.conf"
+
+          echo -e "5\ny\n" | gpg --command-fd 0 --expert --edit-key "${{ secrets.HELM_GPG_KEY_ID }}" trust
+
+      - name: Verify GPG key is usable
         run: gpg --list-secret-keys --keyid-format LONG
-
-      # - name: Install helm-schema-gen
-      #   run: npm install -g helm-schema-gen
-
-      # - name: Generate values.schema.json files
-      #   run: |
-      #     for chart in charts/*; do
-      #       if [ -f "$chart/values.yaml" ]; then
-      #         echo "Generating schema for $chart"
-      #         helm-schema-gen "$chart/values.yaml" > "$chart/values.schema.json"
-      #       fi
-      #     done
 
       - name: Package and sign Helm charts
         run: |
           mkdir -p .cr-release-packages
           for chart in charts/*; do
             if [ -f "$chart/Chart.yaml" ]; then
+              echo "Processing chart: $chart"
               helm dependency update "$chart"
               helm package "$chart" \
                 --destination .cr-release-packages \
                 --sign \
                 --key "${{ secrets.HELM_GPG_KEY_ID }}" \
-                --keyring ~/.gnupg/pubring.kbx
+                --keyring $GNUPGHOME/pubring.kbx \
+                --debug
             fi
           done
+
+      - name: Show signed package contents
+        run: ls -lh .cr-release-packages/
 
       - name: Clean gh-pages branch
         run: |
@@ -87,4 +87,3 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           owner: loeken
           repository: helm-charts
-
