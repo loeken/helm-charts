@@ -22,7 +22,11 @@ controllers:
         # @default -- See below
         env:
           # -- Set the container timezone
-          TZ: UTC
+          - name: TZ
+            value: UTC
+        envFrom:
+        - secretRef:
+            name: vaultwarden
 strategy:
   type: Recreate
 
