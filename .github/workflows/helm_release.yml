@@ -57,13 +57,22 @@ jobs:
           mkdir -p .cr-release-packages
           for chart in charts/*; do
             if [ -f "$chart/Chart.yaml" ]; then
+              echo "Processing chart: $chart"
               helm dependency update "$chart"
               helm package "$chart" --destination .cr-release-packages
-              tgz_file=$(basename $(ls .cr-release-packages/$(basename $chart)-*.tgz))
-              gpg --armor --output .cr-release-packages/$tgz_file.prov \
-                  --detach-sign .cr-release-packages/$tgz_file
+
+              tgz_file=$(basename $(ls .cr-release-packages/$(basename "$chart")-*.tgz 2>/dev/null || true))
+
+              if [ -n "$tgz_file" ] && [ -f ".cr-release-packages/$tgz_file" ]; then
+                echo "Signing $tgz_file..."
+                gpg --armor --output .cr-release-packages/$tgz_file.prov \
+                    --detach-sign .cr-release-packages/$tgz_file
+              else
+                echo "❌ Skipping signing for $(basename "$chart") — package not found."
+              fi
             fi
           done
+
 
       - name: Show signed package contents
         run: ls -lh .cr-release-packages/
