@@ -42,6 +42,9 @@ jobs:
         env:
           GNUPGHOME: /home/runner/.gnupg
 
+      - name: List GPG keys after import
+        run: gpg --list-secret-keys --keyid-format LONG
+
       - name: Install helm-schema-gen
         run: npm install -g helm-schema-gen
 
