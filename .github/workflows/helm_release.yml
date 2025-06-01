@@ -52,19 +52,16 @@ jobs:
       - name: Verify GPG key is usable
         run: gpg --list-secret-keys --keyid-format LONG
 
-      - name: Package and sign Helm charts
+      - name: Package and GPG-sign Helm charts manually
         run: |
           mkdir -p .cr-release-packages
           for chart in charts/*; do
             if [ -f "$chart/Chart.yaml" ]; then
-              echo "Processing chart: $chart"
               helm dependency update "$chart"
-              helm package "$chart" \
-                --destination .cr-release-packages \
-                --sign \
-                --key "${{ secrets.HELM_GPG_KEY_ID }}" \
-                --keyring $GNUPGHOME/pubring.kbx \
-                --debug
+              helm package "$chart" --destination .cr-release-packages
+              tgz_file=$(basename $(ls .cr-release-packages/$(basename $chart)-*.tgz))
+              gpg --armor --output .cr-release-packages/$tgz_file.prov \
+                  --detach-sign .cr-release-packages/$tgz_file
             fi
           done
 
