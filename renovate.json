@@ -9,8 +9,8 @@
       "versioning": "loose"
     },
     {
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true
+      "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest"],
+      "automerge": false
     }
   ],
   "pinDigests": true
