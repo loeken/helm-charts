@@ -3,15 +3,31 @@
   "prConcurrentLimit": 0,
   "branchConcurrentLimit": 0,
   "prHourlyLimit": 0,
+  "pinDigests": true,
   "packageRules": [
-    {
-      "matchPackageNames": ["loeken/nzbget"],
-      "versioning": "loose"
-    },
     {
       "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest"],
       "automerge": false
     }
   ],
-  "pinDigests": true
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["^charts/.*/values\\.yaml$"],
+      "matchStrings": [
+        "repository:\\s*(?<depName>.+)",
+        "tag:\\s*(?<currentValue>[\\w\\.-]+)"
+      ],
+      "datasourceTemplate": "docker"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["^charts/.*/Chart\\.yaml$"],
+      "matchStrings": [
+        "appVersion:\\s*(?<currentValue>[\\w\\.-]+)"
+      ],
+      "datasourceTemplate": "docker",
+      "packageNameTemplate": "{{ chartPath }}/values.yaml:repository"
+    }
+  ]
 }
