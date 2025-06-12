@@ -79,14 +79,19 @@ jobs:
       - name: Show signed package contents
         run: ls -lh .cr-release-packages/
 
-      - name: Prepare gh-pages branch
+      - name: Push chart repo to gh-pages
         run: |
-          git config --global user.name github-actions
-          git config --global user.email github-actions@github.com
+          mkdir gh-pages-work
+          cp .cr-release-packages/* gh-pages-work/
+
+          cd gh-pages-work
+          git init
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git remote add origin https://github.com/loeken/helm-charts.git
           git fetch origin gh-pages
-          git switch gh-pages || git checkout --orphan gh-pages
-          rm -rf *
-          cp ../.cr-release-packages/* .
+          git checkout gh-pages || git checkout -b gh-pages
+
           helm repo index . --url https://loeken.github.io/helm-charts
           git add .
           git commit -m "Publish charts" || echo "nothing to commit"
