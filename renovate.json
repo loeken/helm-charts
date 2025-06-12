@@ -13,21 +13,10 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": ["^charts/.*/values\\.yaml$"],
-      "matchStrings": [
-        "repository:\\s*(?<depName>.+)",
-        "tag:\\s*(?<currentValue>[\\w\\.-]+)"
-      ],
-      "datasourceTemplate": "docker"
-    },
-    {
-      "customType": "regex",
-      "fileMatch": ["^charts/.*/Chart\\.yaml$"],
-      "matchStrings": [
-        "appVersion:\\s*(?<currentValue>[\\w\\.-]+)"
-      ],
+      "fileMatch": ["^charts/home-assistant/Chart\\.yaml$"],
+      "matchStrings": ["appVersion:\\s*(?<currentValue>[\\w\\.-]+)"],
       "datasourceTemplate": "docker",
-      "packageNameTemplate": "{{ chartPath }}/values.yaml:repository"
+      "packageNameTemplate": "homeassistant/home-assistant"
     }
   ]
 }
