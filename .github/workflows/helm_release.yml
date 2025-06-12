@@ -96,3 +96,5 @@ jobs:
           owner: loeken
           repository: helm-charts
           charts_dir: .cr-release-packages
+          target_dir: .
+          linting: off
