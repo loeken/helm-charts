@@ -79,7 +79,7 @@ jobs:
       - name: Show signed package contents
         run: ls -lh .cr-release-packages/
 
-      - name: Push chart repo to gh-pages
+      - name: Publish Helm charts to gh-pages (force push clean state)
         run: |
           mkdir gh-pages-work
           cp .cr-release-packages/* gh-pages-work/
@@ -91,12 +91,12 @@ jobs:
           git config user.email github-actions@github.com
           git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/loeken/helm-charts.git
 
-          git fetch origin gh-pages || echo "no existing gh-pages"
-          git checkout gh-pages || git checkout -b gh-pages
+          # Hard reset branch
+          git checkout --orphan gh-pages
+          git rm -rf . || true
 
           helm repo index . --url https://loeken.github.io/helm-charts
 
           git add .
-          git commit -m "Publish signed charts and index" || echo "nothing to commit"
-          git pull origin gh-pages --rebase || echo "Nothing to rebase"
-          git push origin gh-pages
+          git commit -m "Clean publish of signed Helm charts"
+          git push origin gh-pages --force
