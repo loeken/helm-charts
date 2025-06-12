@@ -88,8 +88,9 @@ jobs:
           git init
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git remote add origin https://github.com/loeken/helm-charts.git
-          git fetch origin gh-pages
+          git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/loeken/helm-charts.git
+
+          git fetch origin gh-pages || echo "no existing gh-pages"
           git checkout gh-pages || git checkout -b gh-pages
 
           helm repo index . --url https://loeken.github.io/helm-charts
