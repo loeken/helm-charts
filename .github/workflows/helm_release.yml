@@ -84,6 +84,7 @@ jobs:
           mkdir gh-pages-work
           cp .cr-release-packages/* gh-pages-work/
           cp pgp-public.key gh-pages-work/
+          cp artifacthub-repo.yml gh-pages-work/
 
           cd gh-pages-work
           git init
