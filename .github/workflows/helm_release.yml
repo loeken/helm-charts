@@ -95,3 +95,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           owner: loeken
           repository: helm-charts
+          charts_dir: .cr-release-packages
