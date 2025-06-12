@@ -1,4 +1,5 @@
 annotations:
+  artifacthub.io/values-schema: values.schema.json
   artifacthub.io/changes: |-
     - kind: changed
       description: updated to 2025.2.5
