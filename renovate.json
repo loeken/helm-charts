@@ -15,7 +15,7 @@
       "customType": "regex",
       "fileMatch": ["^charts/home-assistant/Chart\\.yaml$"],
       "matchStrings": [
-        "^appVersion:\\s*(?<currentValue>[\\d\\.]+)$"
+        "^appVersion:\\s*(?<currentValue>\\d+\\.\\d+\\.\\d+)$"
       ],
       "datasourceTemplate": "docker",
       "packageNameTemplate": "homeassistant/home-assistant"
@@ -24,7 +24,7 @@
       "customType": "regex",
       "fileMatch": ["^charts/home-assistant/Chart\\.yaml$"],
       "matchStrings": [
-        "^version:\\s*(?<currentValue>[\\d\\.]+)$"
+        "^(?<!- )version:\\s*(?<currentValue>\\d+\\.\\d+\\.\\d+)$"
       ],
       "datasourceTemplate": "docker",
       "packageNameTemplate": "homeassistant/home-assistant"
