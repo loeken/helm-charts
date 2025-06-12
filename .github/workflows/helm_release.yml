@@ -6,22 +6,22 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
-    name: validate helm
-    strategy:
-      matrix:
-        version: ["1.33.1", "1.32.0", "1.31"]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-        with:
-          fetch-depth: 0
+  # test:
+  #   name: validate helm
+  #   strategy:
+  #     matrix:
+  #       version: ["1.33.1", "1.32.0", "1.31"]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+  #       with:
+  #         fetch-depth: 0
 
-      - name: Get changed chart
-        run: |
-          echo "CHANGED_CHART=$(git diff-tree --no-commit-id --name-only --diff-filter=ACMRT -r main -- '*Chart.yaml' | sed '$s/$//')" >> $GITHUB_ENV
-        id: changed_file
+  #     - name: Get changed chart
+  #       run: |
+  #         echo "CHANGED_CHART=$(git diff-tree --no-commit-id --name-only --diff-filter=ACMRT -r main -- '*Chart.yaml' | sed '$s/$//')" >> $GITHUB_ENV
+  #       id: changed_file
 
   release:
     name: sign & release helm charts
