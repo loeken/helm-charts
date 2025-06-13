@@ -28,6 +28,24 @@
       ],
       "datasourceTemplate": "docker",
       "packageNameTemplate": "homeassistant/home-assistant"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["^charts/jellyfin/Chart\\.yaml$"],
+      "matchStrings": [
+        "^appVersion:\\s*(?<currentValue>\\d+\\.\\d+\\.\\d+)\\s*$"
+      ],
+      "datasourceTemplate": "github-releases",
+      "packageNameTemplate": "jellyfin/jellyfin"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["^charts/jellyfin/Chart\\.yaml$"],
+      "matchStrings": [
+        "^version:\\s*(?<currentValue>\\d+\\.\\d+\\.\\d+)\\s*$"
+      ],
+      "datasourceTemplate": "github-releases",
+      "packageNameTemplate": "jellyfin/jellyfin"
     }
   ]
 }
