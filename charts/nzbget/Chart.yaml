@@ -1,5 +1,6 @@
 ---
 annotations:
+  artifacthub.io/values-schema: values.schema.json
   artifacthub.io/changes: |-
     - kind: changed
       description: changed version naming scheme so charts show app versions in search on artifacthub.io
