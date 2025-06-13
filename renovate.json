@@ -1,37 +1,22 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "regexManagers": [
-    {
-      "fileMatch": ["^charts/jellyfin/values.yaml$"],
-      "matchStrings": [
-        "^[ \\t]*tag:\\s*\"?(?<currentValue>\\d+\\.\\d+\\.\\d+)\"?"
-      ],
-      "datasourceTemplate": "docker",
-      "packageNameTemplate": "loeken/jellyfin"
-    },
-    {
-      "fileMatch": ["^charts/jellyfin/Chart.yaml$"],
-      "matchStrings": [
-        "^[ \\t]*appVersion:\\s*(?<currentValue>\\d+\\.\\d+\\.\\d+)$"
-      ],
-      "datasourceTemplate": "docker",
-      "packageNameTemplate": "loeken/jellyfin"
-    },
-    {
-      "fileMatch": ["^charts/jellyfin/Chart.yaml$"],
-      "matchStrings": [
-        "^[ \\t]*version:\\s*(?<currentValue>\\d+\\.\\d+\\.\\d+)$"
-      ],
-      "datasourceTemplate": "docker",
-      "packageNameTemplate": "loeken/jellyfin"
-    }
+  "extends": [
+    "config:base"
   ],
+  "helm-values": {
+    "fileMatch": ["values.yaml"],
+    "extractVersion": "^\\s*tag:\\s*\"(?<version>.*)\"$"
+  },
   "packageRules": [
     {
-      "matchPackageNames": ["loeken/jellyfin"],
-      "matchManagers": ["regex"],
-      "automerge": true,
-      "automergeType": "pr"
+      "matchDatasources": ["helm-values"],
+      "matchManagers": ["helm-values"],
+      "depName": "jellyfin",
+      "updates": {
+        "tag": "{{{newVersion}}}",
+        "appVersion": "{{{newVersion}}}",
+        "version": "{{{newVersion}}}"
+      }
     }
   ]
 }
