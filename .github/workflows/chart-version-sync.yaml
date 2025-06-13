@@ -24,18 +24,19 @@ jobs:
       - name: Find changed values.yaml files
         id: changed
         run: |
-          git diff --name-only ${{ github.event.pull_request.base.sha }}...${{ github.event.pull_request.head.sha }} | grep 'values.yaml$' || true
+          changed=$(git diff --name-only ${{ github.event.pull_request.base.sha }}...${{ github.event.pull_request.head.sha }} | grep 'values.yaml$' || true)
+          echo "changed=$changed" >> $GITHUB_OUTPUT
         shell: bash
+
       - name: Parse and update Chart.yaml(s)
-        if: steps.changed.outputs.stdout != ''
+        if: steps.changed.outputs.changed != ''
         run: |
-          for values_file in $(git diff --name-only origin/${{ github.base_ref }}...HEAD | grep 'values.yaml$'); do
+          for values_file in ${{ steps.changed.outputs.changed }}; do
             chart_dir=$(dirname "$values_file")
             chart_file="$chart_dir/Chart.yaml"
             if [ -f "$chart_file" ]; then
               tag=$(grep -E '^\s*tag:\s*"?([0-9]+\.[0-9]+\.[0-9]+)"?' "$values_file" | head -n1 | sed -E 's/.*tag:\s*"?([0-9]+\.[0-9]+\.[0-9]+)"?/\1/')
               if [ -n "$tag" ]; then
-                # Update appVersion and version in Chart.yaml
                 sed -i -E "s/^appVersion: .*/appVersion: $tag/" "$chart_file"
                 sed -i -E "s/^version: .*/version: $tag/" "$chart_file"
                 echo "Set appVersion: and version: in $chart_file to $tag"
@@ -44,6 +45,7 @@ jobs:
               fi
             fi
           done
+
 
       - name: Commit and push if needed
         run: |
