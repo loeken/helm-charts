@@ -1,15 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "prConcurrentLimit": 0,
+  "branchConcurrentLimit": 0,
+  "prHourlyLimit": 0,
   "packageRules": [
     {
-      "matchManagers": ["helmv3"],
-      "bumpVersions": [
-        {
-          "filePatterns": ["{{packageFileDir}}/Chart.yaml"],
-          "matchStrings": ["^version:\\s*(?<version>\\d+\\.\\d+\\.\\d+)"],
-          "bumpType": "{{#if isPatch}}patch{{else}}minor{{/if}}"
-        }
-      ]
+      "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest"],
+      "automerge": false
     }
-  ]
+  ],
+  "pinDigests": true
 }
