@@ -4,7 +4,7 @@
     {
       "fileMatch": ["^charts/jellyfin/values.yaml$"],
       "matchStrings": [
-        "loeken/jellyfin:(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+        "tag:\\s*\"?(?<currentValue>\\d+\\.\\d+\\.\\d+)\"?"
       ],
       "datasourceTemplate": "docker",
       "packageNameTemplate": "loeken/jellyfin"
@@ -12,8 +12,8 @@
     {
       "fileMatch": ["^charts/jellyfin/Chart.yaml$"],
       "matchStrings": [
-        "appVersion:\\s*(?<currentValue>\\d+\\.\\d+\\.\\d+)",
-        "version:\\s*(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+        "^appVersion:\\s*(?<currentValue>\\d+\\.\\d+\\.\\d+)$",
+        "^(?!(\\s*[-]?\\s*name:)).*^version:\\s*(?<currentValue>\\d+\\.\\d+\\.\\d+)$"
       ],
       "datasourceTemplate": "docker",
       "packageNameTemplate": "loeken/jellyfin"
