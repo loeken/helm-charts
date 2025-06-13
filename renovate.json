@@ -33,7 +33,7 @@
       "customType": "regex",
       "fileMatch": ["^charts/jellyfin/Chart\\.yaml$"],
       "matchStrings": [
-        "^appVersion:\\s*(?<currentValue>\\d+\\.\\d+\\.\\d+)\\s*$"
+        "^appVersion:\\s*(?<currentValue>\\d+\\.\\d+\\.\\d+)$"
       ],
       "datasourceTemplate": "github-releases",
       "packageNameTemplate": "jellyfin/jellyfin"
@@ -42,7 +42,7 @@
       "customType": "regex",
       "fileMatch": ["^charts/jellyfin/Chart\\.yaml$"],
       "matchStrings": [
-        "^version:\\s*(?<currentValue>\\d+\\.\\d+\\.\\d+)\\s*$"
+        "^version:\\s*(?<currentValue>\\d+\\.\\d+\\.\\d+)$"
       ],
       "datasourceTemplate": "github-releases",
       "packageNameTemplate": "jellyfin/jellyfin"
