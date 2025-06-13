@@ -1,0 +1,56 @@
+name: Sync Chart.yaml version with values.yaml tag
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
+      - master
+      - '**'
+
+jobs:
+  sync-chart-version:
+    if: github.actor == 'renovate[bot]'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Find changed values.yaml files
+        id: changed
+        run: |
+          git fetch origin ${{ github.base_ref }} --depth=1
+          git diff --name-only origin/${{ github.base_ref }}...HEAD | grep 'values.yaml$' || true
+        shell: bash
+
+      - name: Parse and update Chart.yaml(s)
+        if: steps.changed.outputs.stdout != ''
+        run: |
+          for values_file in $(git diff --name-only origin/${{ github.base_ref }}...HEAD | grep 'values.yaml$'); do
+            chart_dir=$(dirname "$values_file")
+            chart_file="$chart_dir/Chart.yaml"
+            if [ -f "$chart_file" ]; then
+              tag=$(grep -E '^\s*tag:\s*"?([0-9]+\.[0-9]+\.[0-9]+)"?' "$values_file" | head -n1 | sed -E 's/.*tag:\s*"?([0-9]+\.[0-9]+\.[0-9]+)"?/\1/')
+              if [ -n "$tag" ]; then
+                # Update appVersion and version in Chart.yaml
+                sed -i -E "s/^appVersion: .*/appVersion: $tag/" "$chart_file"
+                sed -i -E "s/^version: .*/version: $tag/" "$chart_file"
+                echo "Set appVersion: and version: in $chart_file to $tag"
+              else
+                echo "No tag found in $values_file, skipping $chart_file"
+              fi
+            fi
+          done
+
+      - name: Commit and push if needed
+        run: |
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add .
+          git diff --cached --exit-code || git commit -m "ci: sync Chart.yaml version/appVersion with values.yaml tag [auto]"
+          git push
