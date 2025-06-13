@@ -10,7 +10,6 @@ on:
 
 jobs:
   sync-chart-version:
-    if: github.actor == 'renovate[bot]'
     runs-on: ubuntu-latest
     permissions:
       contents: write
