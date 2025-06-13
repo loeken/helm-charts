@@ -1,26 +1,30 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "prConcurrentLimit": 0,
-  "branchConcurrentLimit": 0,
-  "prHourlyLimit": 0,
-  "pinDigests": true,
+  "regexManagers": [
+    {
+      "fileMatch": ["^charts/jellyfin/values.yaml$"],
+      "matchStrings": [
+        "loeken/jellyfin:(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "datasourceTemplate": "docker",
+      "packageNameTemplate": "loeken/jellyfin"
+    },
+    {
+      "fileMatch": ["^charts/jellyfin/Chart.yaml$"],
+      "matchStrings": [
+        "appVersion:\\s*(?<currentValue>\\d+\\.\\d+\\.\\d+)",
+        "version:\\s*(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "datasourceTemplate": "docker",
+      "packageNameTemplate": "loeken/jellyfin"
+    }
+  ],
   "packageRules": [
     {
       "matchPackageNames": ["loeken/jellyfin"],
-      "matchDatasources": ["docker"],
-      "extractVersion": "loeken/jellyfin:(?<version>\\d+\\.\\d+\\.\\d+)",
-      "additionalPackageFiles": [
-        {
-          "fileMatch": ["^charts/jellyfin/Chart\\.yaml$"],
-          "appendIfMissing": false,
-          "replaceStrings": [
-            "appVersion:\\s*\\d+\\.\\d+\\.\\d+",
-            "version:\\s*\\d+\\.\\d+\\.\\d+"
-          ],
-          "versioning": "semver"
-        }
-      ],
-      "automerge": true
+      "matchManagers": ["regex"],
+      "automerge": true,
+      "automergeType": "pr"
     }
   ]
 }
