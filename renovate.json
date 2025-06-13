@@ -6,46 +6,21 @@
   "pinDigests": true,
   "packageRules": [
     {
-      "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest"],
-      "automerge": false
-    }
-  ],
-  "customManagers": [
-    {
-      "customType": "regex",
-      "fileMatch": ["^charts/home-assistant/Chart\\.yaml$"],
-      "matchStrings": [
-        "^appVersion:\\s*(?<currentValue>\\d+\\.\\d+\\.\\d+)\\s*$"
+      "matchPackageNames": ["loeken/jellyfin"],
+      "matchDatasources": ["docker"],
+      "extractVersion": "loeken/jellyfin:(?<version>\\d+\\.\\d+\\.\\d+)",
+      "additionalPackageFiles": [
+        {
+          "fileMatch": ["^charts/jellyfin/Chart\\.yaml$"],
+          "appendIfMissing": false,
+          "replaceStrings": [
+            "appVersion:\\s*\\d+\\.\\d+\\.\\d+",
+            "version:\\s*\\d+\\.\\d+\\.\\d+"
+          ],
+          "versioning": "semver"
+        }
       ],
-      "datasourceTemplate": "docker",
-      "packageNameTemplate": "homeassistant/home-assistant"
-    },
-    {
-      "customType": "regex",
-      "fileMatch": ["^charts/home-assistant/Chart\\.yaml$"],
-      "matchStrings": [
-        "^version:\\s*(?<currentValue>\\d+\\.\\d+\\.\\d+)\\s*$"
-      ],
-      "datasourceTemplate": "docker",
-      "packageNameTemplate": "homeassistant/home-assistant"
-    },
-    {
-      "customType": "regex",
-      "fileMatch": ["^charts/jellyfin/Chart\\.yaml$"],
-      "matchStrings": [
-        "^appVersion:\\s*(?<currentValue>\\d+\\.\\d+\\.\\d+)$"
-      ],
-      "datasourceTemplate": "github-releases",
-      "packageNameTemplate": "jellyfin/jellyfin"
-    },
-    {
-      "customType": "regex",
-      "fileMatch": ["^charts/jellyfin/Chart\\.yaml$"],
-      "matchStrings": [
-        "^version:\\s*(?<currentValue>\\d+\\.\\d+\\.\\d+)$"
-      ],
-      "datasourceTemplate": "github-releases",
-      "packageNameTemplate": "jellyfin/jellyfin"
+      "automerge": true
     }
   ]
 }
