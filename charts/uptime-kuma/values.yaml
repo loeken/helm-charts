@@ -6,10 +6,10 @@ controllers:
       main:
         image:
           # -- image repository
-          repository: sinusbot/docker
+          repository: louislam/uptime-kuma
           # -- image tag
           # @default -- chart.appVersion
-          tag: "1.0.0-beta.14-dc94a7c"
+          tag: "1.23.16"
           # -- image pull policy
           pullPolicy: Always
         # -- environment variables.
@@ -17,10 +17,14 @@ controllers:
         env:
           # -- Set the container timezone
           TZ: UTC
-          # -- Specify the user ID the application will run as
-          UID: "1001"
-          # -- Specify the group ID the application will run as
-          GID: "1001"
+        # default limits
+        resources:
+          limits:
+            cpu: "1"
+            memory: 512Mi
+          requests:
+            cpu: "0.2"
+            memory: 256Mi
 
 # -- Configures service settings for the chart.
 # @default -- See values.yaml
