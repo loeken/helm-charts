@@ -1,22 +1,22 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base"
-  ],
-  "helm-values": {
-    "fileMatch": ["values.yaml"],
-    "extractVersion": "^\\s*tag:\\s*\"(?<version>.*)\"$"
-  },
   "packageRules": [
     {
-      "matchDatasources": ["helm-values"],
       "matchManagers": ["helm-values"],
-      "depName": "jellyfin",
-      "updates": {
-        "tag": "{{{newVersion}}}",
-        "appVersion": "{{{newVersion}}}",
-        "version": "{{{newVersion}}}"
+      "postUpgradeTasks": {
+        "commands": [
+          "yq e '.version = \"{{newVersion}}\" | .appVersion = \"{{newVersion}}\"' -i '{{{yamlFile}}}'"
+        ],
+        "fileFilters": [
+          "**/Chart.yaml"
+        ],
+        "executionMode": "update"
       }
     }
-  ]
+  ],
+  "helm-values": {
+    "fileMatch": [
+      "**/values.yaml"
+    ]
+  }
 }
