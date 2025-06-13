@@ -24,10 +24,8 @@ jobs:
       - name: Find changed values.yaml files
         id: changed
         run: |
-          git fetch origin ${{ github.base_ref }} --depth=1
-          git diff --name-only origin/${{ github.base_ref }}...HEAD | grep 'values.yaml$' || true
+          git diff --name-only ${{ github.event.pull_request.base.sha }}...${{ github.event.pull_request.head.sha }} | grep 'values.yaml$' || true
         shell: bash
-
       - name: Parse and update Chart.yaml(s)
         if: steps.changed.outputs.stdout != ''
         run: |
