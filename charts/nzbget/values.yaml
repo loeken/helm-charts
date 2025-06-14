@@ -17,6 +17,16 @@ controllers:
         env:
           # -- Set the container timezone
           TZ: UTC
+          NZBGET_PASS:
+            valueFrom:
+              secretKeyRef:
+                name: nzbget
+                key: password
+          NZBGET_USER:
+            valueFrom:
+              secretKeyRef:
+                name: nzbget
+                key: username
         resources:
           limits:
             cpu: "1"
