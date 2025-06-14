@@ -39,9 +39,3 @@ persistence:
   config:
     enabled: false
 
-  # Cache does NOT contain temporary transcoding data.
-  cache:
-    enabled: false
-
-  media:
-    enabled: false
