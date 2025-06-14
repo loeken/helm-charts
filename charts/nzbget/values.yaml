@@ -57,10 +57,8 @@ persistence:
     enabled: false
   media:
     enabled: false
-    mountPath: /media
   downloads:
     enabled: false
-    mountPath: /downloads
 
 
 probes:

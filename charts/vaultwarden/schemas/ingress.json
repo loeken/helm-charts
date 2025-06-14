@@ -1,0 +1,121 @@
+{
+  "instance": {
+    "allOf": [
+      { "$ref": "definitions.json#/resourceIdentifier" },
+      {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "forceRename": {},
+          "prefix": {},
+          "suffix": {},
+          "enabled": {
+            "type": "boolean",
+            "default": true
+          },
+          "annotations": {
+            "$ref": "definitions.json#/annotations"
+          },
+          "className": {
+            "type": "string"
+          },
+          "defaultBackend": {
+            "$ref": "k8s-api.json#/networking.v1.ingressBackend"
+          },
+          "hosts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/hostEntry"
+            }
+          },
+          "labels": {
+            "$ref": "definitions.json#/labels"
+          },
+          "tls": {
+            "type": "array",
+            "items": {
+              "$ref": "#/tlsEntry"
+            }
+          }
+        }
+      }
+    ]
+  },
+
+  "hostEntry": {
+    "additionalProperties": false,
+    "properties": {
+      "host": {
+        "type": "string"
+      },
+      "paths": {
+        "items": {
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "pathType": {
+              "type": "string",
+              "default": "Prefix"
+            },
+
+            "service": {
+              "oneOf": [
+                {"$ref": "#/serviceReferenceByName"},
+                {"$ref": "#/serviceReferenceByIdentifier"}
+              ]
+            }
+          },
+          "required": ["path"]
+        },
+        "title": "paths",
+        "type": "array"
+      }
+    },
+    "required": ["host", "paths"]
+  },
+
+  "tlsEntry": {
+    "additionalProperties": false,
+    "properties": {
+      "hosts": {
+        "type": "array",
+        "items": {
+          "type": ["string"]
+        }
+      },
+      "secretName": {
+        "type": "string"
+      }
+    },
+    "required": ["hosts"]
+  },
+
+  "serviceReferenceByName": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "port": {
+        "type": ["integer"]
+      }
+    },
+    "required": ["name", "port"]
+  },
+
+  "serviceReferenceByIdentifier": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "identifier": {
+        "type": "string"
+      },
+      "port": {
+        "type": ["string", "integer"]
+      }
+    }
+  }
+}

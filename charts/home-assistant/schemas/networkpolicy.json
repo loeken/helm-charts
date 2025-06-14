@@ -1,0 +1,57 @@
+{
+  "instance": {
+    "allOf": [
+      { "$ref": "definitions.json#/resourceIdentifier" },
+      {
+        "type": "object",
+        "additionalProperties": false,
+
+        "properties": {
+          "forceRename": {},
+          "prefix": {},
+          "suffix": {},
+          "enabled": {
+            "type": "boolean",
+            "default": true
+          },
+          "annotations": {
+            "$ref": "definitions.json#/annotations"
+          },
+          "controller": {
+            "type": "string"
+          },
+          "labels": {
+            "$ref": "definitions.json#/labels"
+          },
+          "podSelector": {},
+          "policyTypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "rules": {
+            "type": "object",
+            "additionalProperties": false,
+
+            "properties": {
+              "ingress": {
+                "type": "array",
+                "items": {
+                  "$ref": "k8s-api.json#/networking.v1.NetworkPolicyIngressRule"
+                }
+              },
+              "egress": {
+                "type": "array",
+                "items": {
+                  "$ref": "k8s-api.json#/networking.v1.NetworkPolicyEgressRule"
+                }
+              }
+            }
+          }
+        },
+        "required": ["rules"]
+      }
+    ]
+  }
+}

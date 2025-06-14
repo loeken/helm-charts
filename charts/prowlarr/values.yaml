@@ -12,10 +12,10 @@ controllers:
       main:
         image:
           # -- image repository
-          repository: louislam/uptime-kuma
+          repository: loeken/prowlarr
           # -- image tag
           # @default -- chart.appVersion
-          tag: "1.23.16"
+          tag: "1.37.0"
           # -- image pull policy
           pullPolicy: Always
         # -- environment variables.
@@ -39,7 +39,7 @@ service:
     controller: main
     ports:
       http:
-        port: 3001
+        port: 9696
 
 ingress:
   # -- Enable and configure ingress settings for the chart under this key.
