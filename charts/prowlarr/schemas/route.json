@@ -1,0 +1,140 @@
+{
+  "instance": {
+    "allOf": [
+      { "$ref": "definitions.json#/resourceIdentifier" },
+      {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "forceRename": {},
+          "prefix": {},
+          "suffix": {},
+          "enabled": {
+            "type": "boolean",
+            "default": true
+          },
+
+          "annotations": {
+            "$ref": "definitions.json#/annotations"
+          },
+          "labels": {
+            "$ref": "definitions.json#/labels"
+          },
+
+          "hostnames": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+
+          "kind": {
+            "type": "string",
+            "enum": ["GRPCRoute", "HTTPRoute", "TCPRoute", "TLSRoute", "UDPRoute"]
+          },
+
+          "parentRefs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "group": {
+                  "type": "string"
+                },
+                "kind": {
+                  "type": "string"
+                },
+                "namespace": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "sectionName": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                }
+              },
+              "required": ["name"]
+            }
+          },
+
+          "rules": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "backendRefs": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "group": {
+                        "type": "string"
+                      },
+                      "kind": {
+                        "type": "string"
+                      },
+                      "namespace": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "A reference to a backend Service name."
+                      },
+                      "identifier": {
+                        "type": "string",
+                        "description": "A reference to a service identifier that is defined within the chart values."
+                      },
+                      "port": {
+                        "type": ["string", "integer"]
+                      },
+                      "weight": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                },
+                "matches": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "path": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "filters": {
+                  "type": "array",
+                  "items": {}
+                },
+                "sessionPersistence": {
+                  "description": "SessionPersistence defines the desired state of SessionPersistence",
+                  "type": "object"
+                },
+                "timeouts": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

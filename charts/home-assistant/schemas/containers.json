@@ -1,0 +1,221 @@
+{
+  "container": {
+    "type": "object",
+    "additionalProperties": false,
+
+    "properties": {
+      "enabled": {
+        "type": "boolean",
+        "default": true
+      },
+      "args": {
+        "$ref": "#/args"
+      },
+      "command": {
+        "$ref": "#/command"
+      },
+      "dependsOn": {
+        "oneOf": [
+          {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          {"type": "string"}
+        ]
+      },
+      "env": {
+        "$ref": "#/env"
+      },
+      "envFrom": {
+        "$ref": "#/envFrom"
+      },
+      "image": {
+        "$ref": "#/image"
+      },
+      "lifecycle": {
+        "$ref": "k8s-api.json#/core.v1.Lifecycle"
+      },
+      "nameOverride": {
+        "type": "string"
+      },
+      "ports": {
+        "type": "array",
+        "items": {
+          "$ref": "k8s-api.json#/core.v1.ContainerPort"
+        }
+      },
+      "probes": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "liveness": {
+            "$ref": "#/probe"
+          },
+          "readiness": {
+            "$ref": "#/probe"
+          },
+          "startup": {
+            "$ref": "#/probe"
+          }
+        }
+      },
+      "resources": {
+        "$ref": "k8s-api.json#/core.v1.ResourceRequirements"
+      },
+      "restartPolicy": {
+        "type": "string"
+      },
+      "securityContext": {
+        "$ref": "k8s-api.json#/core.v1.ContainerSecurityContext"
+      },
+      "stdin": {
+        "type": "boolean",
+        "default": false
+      },
+      "terminationMessagePath": {
+        "type": "string"
+      },
+      "terminationMessagePolicy": {
+        "type": "string",
+        "enum": ["File", "FallbackToLogsOnError"]
+      },
+      "tty": {
+        "type": "boolean",
+        "default": false
+      },
+      "workingDir": {
+        "type": "string"
+      }
+    }
+  },
+
+  "args": {
+    "oneOf": [
+      {
+        "type": "array",
+        "items": {"type": "string"}
+      },
+      {"type": "string"}
+    ]
+  },
+
+  "command": {
+    "oneOf": [
+      {
+        "type": "array",
+        "items": {"type": "string"}
+      },
+      {"type": "string"}
+    ]
+  },
+
+  "env": {
+    "oneOf": [
+      {
+        "type": "array",
+        "items": {
+          "anyOf": [
+            {"$ref": "envVars.json#/envVarListItem"},
+            {"$ref": "envVars.json#/valueFromListItem"}
+          ]
+        }
+      },
+      {
+        "type": "object",
+        "additionalProperties": {
+          "anyOf": [
+            {"$ref": "envVars.json#/envVarValue"},
+            {"$ref": "envVars.json#/envVarItem"},
+            {"$ref": "envVars.json#/valueFromItem"}
+          ]
+        }
+      }
+    ]
+  },
+
+  "envFrom": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "configMap": {
+          "type": "string"
+        },
+        "configMapRef": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": {"type": "string"},
+            "identifier": {"type": "string"},
+            "optional": {"type": "boolean"}
+          },
+          "oneOf": [{"required": ["name"]}, {"required": ["identifier"]}]
+        },
+        "prefix": {
+          "type": ["string", "null"]
+        },
+        "secret": {
+          "type": "string"
+        },
+        "secretRef": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": {"type": "string"},
+            "identifier": {"type": "string"},
+            "optional": {"type": "boolean"}
+          },
+          "oneOf": [{"required": ["name"]}, {"required": ["identifier"]}]
+        }
+      }
+    }
+  },
+
+  "image": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "pullPolicy": {
+        "type": "string",
+        "enum": ["Always", "IfNotPresent", "Never"]
+      },
+      "repository": {
+        "type": "string"
+      },
+      "tag": {
+        "type": ["string", "number"]
+      }
+    }
+  },
+
+  "probe": {
+    "additionalProperties": false,
+    "properties": {
+      "enabled": {
+        "type": "boolean",
+        "default": false
+      },
+      "custom": {
+        "type": "boolean",
+        "default": false
+      },
+      "path": {
+        "type": "string"
+      },
+      "port": {
+        "type": ["number", "string"]
+      },
+      "service": {
+        "type": "string"
+      },
+      "spec": {
+        "$ref": "k8s-api.json#/core.v1.Probe"
+      },
+      "type": {
+        "type": "string",
+        "enum": ["TCP", "HTTP", "HTTPS", "GRPC", "AUTO"]
+      }
+    }
+  }
+}
