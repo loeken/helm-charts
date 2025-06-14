@@ -43,8 +43,3 @@ persistence:
   # -- single volume
   sinusbot:
     enabled: false
-    subPath:
-      - mountPath: /opt/sinusbot/data
-        path: data
-      - mountPath: /opt/sinusbot/scripts
-        path: scripts
