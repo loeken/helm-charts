@@ -52,14 +52,3 @@ persistence:
   media:
     enabled: false
 
-  dev-dri:
-    enabled: true
-    type: hostPath
-    hostPath: /dev/dri
-    accessMode: ReadWriteOnce
-    globalMounts: []  # avoid mounting everywhere
-    advancedMounts:
-      main:
-        main:
-          - path: /dev/dri
-            readOnly: false
