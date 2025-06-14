@@ -4,7 +4,7 @@ annotations:
     - kind: changed
       description: updated to 2.3.0
 apiVersion: v2
-appVersion: 2.3.0
+appVersion: 2.6.0
 dependencies:
 - name: common
   repository: https://bjw-s-labs.github.io/helm-charts
@@ -19,4 +19,4 @@ name: jellyseerr
 sources:
 - https://github.com/loeken/helm-charts/tree/main/charts/jellyseer
 type: application
-version: 2.3.0
+version: 2.6.0
