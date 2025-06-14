@@ -17,6 +17,19 @@ controllers:
         env:
           # -- Set the container timezone
           TZ: UTC
+        securityContext:
+          privileged: true
+
+        # Mount /dev/dri for VAAPI/QSV
+        volumeMounts:
+          - name: dev-dri
+            mountPath: /dev/dri
+
+    # Volumes defined here
+    volumes:
+      - name: dev-dri
+        hostPath:
+          path: /dev/dri
 # -- environment variables. See [image docs](https://jellyfin.org/docs/general/administration/configuration.html) for more details.
 # @default -- See below
 env:
