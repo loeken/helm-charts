@@ -38,4 +38,3 @@ ingress:
 persistence:
   config:
     enabled: false
-
