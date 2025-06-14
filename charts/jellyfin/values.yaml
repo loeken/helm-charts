@@ -52,3 +52,12 @@ persistence:
   media:
     enabled: false
 
+  devdri:
+    enabled: false
+    type: hostPath
+    hostPath: /dev/dri
+    hostPathType: Directory
+    advancedMounts:
+      main:
+        main:
+          - path: /dev/dri
