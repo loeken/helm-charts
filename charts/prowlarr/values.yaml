@@ -12,7 +12,7 @@ controllers:
       main:
         image:
           # -- image repository
-          repository: louislam/prowlarr
+          repository: loeken/prowlarr
           # -- image tag
           # @default -- chart.appVersion
           tag: "1.37.0"
