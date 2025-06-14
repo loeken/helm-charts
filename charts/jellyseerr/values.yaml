@@ -42,8 +42,6 @@ persistence:
   # Cache does NOT contain temporary transcoding data.
   cache:
     enabled: false
-    mountPath: /cache
 
   media:
     enabled: false
-    mountPath: /media
