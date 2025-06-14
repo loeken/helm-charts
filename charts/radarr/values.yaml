@@ -2,7 +2,7 @@ image:
   # -- image repository
   repository: loeken/radarr
   # @default -- chart.appVersion
-  tag: 5.26.0-nightly
+  tag: 5.27.0-nightly
   # -- image pull policy
   pullPolicy: IfNotPresent
 
