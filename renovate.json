@@ -3,11 +3,16 @@
   "prConcurrentLimit": 0,
   "branchConcurrentLimit": 0,
   "prHourlyLimit": 0,
+  "pinDigests": true,
   "packageRules": [
     {
       "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest"],
       "automerge": false
+    },
+    {
+      "matchPackageNames": ["loeken/nzbget"],
+      "matchDatasources": ["docker"],
+      "versioning": "loose"
     }
-  ],
-  "pinDigests": true
+  ]
 }
