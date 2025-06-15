@@ -1,0 +1,81 @@
+controllers:
+  main:
+    enabled: true
+    type: deployment
+    containers:
+      main:
+        image:
+          # -- image repository
+          repository: loeken/changeme
+          # -- image tag
+          # @default -- chart.appVersion
+          tag: "1.0.0"
+          # -- image pull policy
+          pullPolicy: Always
+        # -- environment variables.
+        # @default -- See below
+        env:
+          # -- Set the container timezone
+          TZ: UTC
+
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    controller: main
+    ports:
+      http:
+        port: 8000
+
+ingress:
+  # -- Enable and configure ingress settings for the chart under this key.
+  # @default -- See values.yaml
+  main:
+    enabled: false
+
+# ingress:
+#   main:
+#     enabled: {{ .Values.example.ingress.enabled }}
+#     annotations:
+#       cert-manager.io/cluster-issuer: "{{ .Values.clusterIssuer }}"
+#       external-dns.alpha.kubernetes.io/hostname: "example.{{ .Values.domain }}."
+#       external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
+#       external-dns.alpha.kubernetes.io/ttl: "120"
+#       {{- if .Values.example.useAuthelia }}
+#       nginx.ingress.kubernetes.io/auth-url: "http://authelia.authelia.svc.cluster.local/api/authz/auth-request"
+#       nginx.ingress.kubernetes.io/auth-signin: "https://auth.{{ .Values.domain }}"
+#       {{end}}
+#     className: "nginx"
+#     hosts:
+#       - host: example.{{ .Values.domain }}
+#         paths:
+#           - path: /
+#             pathType: Prefix
+#             service:
+#               name: example
+#               port: 8096
+#     tls:
+#     - secretName: example-tls
+#       hosts:
+#       - example.{{ .Values.domain }} 
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  config:
+    enabled: true
+
+  # devdri:
+  #   enabled: false
+  #   type: hostPath
+  #   hostPath: /dev/dri
+  #   hostPathType: Directory
+  #   advancedMounts:
+  #     main:
+  #       main:
+  #         - path: /dev/dri

@@ -1,0 +1,38 @@
+annotations:
+  artifacthub.io/values-schema: values.schema.json
+  artifacthub.io/changes: |-
+    - kind: changed
+      description: inital creation
+apiVersion: v2
+appVersion: 1.0.0
+dependencies:
+- name: common
+  repository: https://bjw-s-labs.github.io/helm-charts
+  version: 4.1.1
+- name: influxdb
+  version: 6.6.12
+  repository: https://charts.bitnami.com/bitnami
+  condition: influxdb.enabled
+- name: mongodb
+  version: 16.5.7
+  repository: https://charts.bitnami.com/bitnami
+  condition: mongodb.enabled
+- name: postgresql
+  version: 16.7.10
+  repository: https://charts.bitnami.com/bitnami
+  condition: postgresql.enabled
+- name: redis
+  version: 21.2.1
+  repository: https://charts.bitnami.com/bitnami
+  condition: redis.enabled
+description: a helm chart to install a generic container along with bitnami dbs for postgresql, mongodb, influxdb and redis
+home: https://github.com/loeken/helm-charts
+icon: https://gravatar.com/avatar/61f5b56ca85bc7e22f270e125c7e61ca?s=400
+maintainers:
+- email: loeken@internetz.me
+  name: loeken
+name: generic_service
+sources:
+- https://github.com/loeken/helm-charts/tree/main/charts/generic_service
+type: application
+version: 1.0.0
