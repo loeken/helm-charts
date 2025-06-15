@@ -21,6 +21,13 @@ controllers:
           UID: "1001"
           # -- Specify the group ID the application will run as
           GID: "1001"
+        # default limits
+        resources:
+          limits:
+            memory: 512Mi
+          requests:
+            cpu: "10m"
+            memory: 128Mi
 
 # -- Configures service settings for the chart.
 # @default -- See values.yaml

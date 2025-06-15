@@ -25,7 +25,12 @@ controllers:
           # -- Set the container timezone
           TZ: UTC
           LOGGER: "debug"
-
+        resources:
+          limits:
+            memory: 512Mi
+          requests:
+            cpu: "10m"
+            memory: 128Mi
 # -- Configures service settings for the chart. Normally this does not need to be modified.
 # @default -- See values.yaml
 service:

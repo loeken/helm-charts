@@ -29,11 +29,10 @@ controllers:
                 key: username
         resources:
           limits:
-            cpu: "1"
             memory: 512Mi
           requests:
-            cpu: "0.5"
-            memory: 256Mi
+            cpu: "10m"
+            memory: 128Mi
 
 # -- Configures service settings for the chart.
 # @default -- See values.yaml

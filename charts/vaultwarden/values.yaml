@@ -27,6 +27,13 @@ controllers:
         envFrom:
         - secretRef:
             name: vaultwarden
+        # default limits
+        resources:
+          limits:
+            memory: 512Mi
+          requests:
+            cpu: "10m"
+            memory: 128Mi
 strategy:
   type: Recreate
 

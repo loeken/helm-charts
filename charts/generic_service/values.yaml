@@ -17,6 +17,13 @@ controllers:
         env:
           # -- Set the container timezone
           TZ: UTC
+        # default limits
+        resources:
+          limits:
+            memory: 512Mi
+          requests:
+            cpu: "10m"
+            memory: 128Mi
 
 # @default -- See below
 env:
