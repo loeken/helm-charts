@@ -52,12 +52,10 @@ service:
       http:
         port: 80
         name: main
-        identifier: main
       websocket:
         enabled: true
         port: 3012
         name: main
-        identifier: main
 
 ingress:
   # -- Enable and configure ingress settings for the chart under this key.
