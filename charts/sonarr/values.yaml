@@ -1,16 +1,31 @@
-image:
-  # -- image repository
-  repository: loeken/sonarr
-  # @default -- chart.appVersion
-  tag: 4.0.14
-  # -- image pull policy
-  pullPolicy: IfNotPresent
+controllers:
+  main:
+    enabled: true
+    type: deployment
+    containers:
+      main:
+        image:
+          # -- image repository
+          repository: loeken/sonarr
+          # @default -- chart.appVersion
+          tag: 4.0.14
+          # -- image pull policy
+          pullPolicy: IfNotPresent
 
-# -- environment variables.
-# @default -- See below
-env:
-  # -- Set the container timezone
-  TZ: UTC
+        # -- environment variables.
+        # @default -- See below
+        env:
+          # -- Set the container timezone
+          TZ: UTC
+        # default limits
+        resources:
+          limits:
+            cpu: "1"
+            memory: 512Mi
+          requests:
+            cpu: "0.5"
+            memory: 256Mi
+
 
 # -- Configures service settings for the chart.
 # @default -- See values.yaml
