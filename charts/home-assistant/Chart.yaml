@@ -20,7 +20,7 @@ dependencies:
 - condition: influxdb.enabled
   name: influxdb
   repository: https://charts.bitnami.com/bitnami
-  version: 7.1.4
+  version: 7.1.5
 description: home-assistant  - a free and open-source software for home automation
   designed to be a central control system for smart home devices with a focus on local
   control and privacy
