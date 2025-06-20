@@ -69,3 +69,12 @@ ingress:
 #     - secretName: example-tls
 #       hosts:
 #       - example.{{ .Values.domain }} 
+
+postgresql:
+  enabled: false
+redis:
+  enabled: false
+mongodb:
+  enabled: false
+influxdb:
+  enabled: false
