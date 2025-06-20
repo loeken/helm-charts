@@ -44,25 +44,3 @@ ingress:
   main:
     enabled: false
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
-persistence:
-  config:
-    enabled: false
-
-  # Cache does NOT contain temporary transcoding data.
-  cache:
-    enabled: false
-
-  media:
-    enabled: false
-
-  devdri:
-    enabled: false
-    type: hostPath
-    hostPath: /dev/dri
-    hostPathType: Directory
-    advancedMounts:
-      main:
-        main:
-          - path: /dev/dri

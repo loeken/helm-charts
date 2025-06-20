@@ -69,19 +69,3 @@ ingress:
 #     - secretName: example-tls
 #       hosts:
 #       - example.{{ .Values.domain }} 
-
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
-persistence:
-  config:
-    enabled: false
-    type: emtpyDir
-  # devdri:
-  #   enabled: false
-  #   type: hostPath
-  #   hostPath: /dev/dri
-  #   hostPathType: Directory
-  #   advancedMounts:
-  #     main:
-  #       main:
-  #         - path: /dev/dri
