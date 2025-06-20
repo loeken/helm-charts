@@ -44,7 +44,6 @@ ingress:
   # @default -- See values.yaml
   main:
     enabled: false
-
 # ingress:
 #   main:
 #     enabled: {{ .Values.example.ingress.enabled }}
@@ -76,7 +75,7 @@ ingress:
 persistence:
   config:
     enabled: false
-
+    type: emtpyDir
   # devdri:
   #   enabled: false
   #   type: hostPath
