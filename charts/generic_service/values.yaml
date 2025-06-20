@@ -75,7 +75,7 @@ ingress:
 # @default -- See values.yaml
 persistence:
   config:
-    enabled: true
+    enabled: false
 
   # devdri:
   #   enabled: false
