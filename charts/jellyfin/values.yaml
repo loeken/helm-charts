@@ -23,11 +23,6 @@ controllers:
           requests:
             cpu: "10m"
             memory: 128Mi
-# -- environment variables. See [image docs](https://jellyfin.org/docs/general/administration/configuration.html) for more details.
-# @default -- See below
-env:
-  # -- Set the container timezone
-  TZ: UTC
 
 # -- Configures service settings for the chart.
 # @default -- See values.yaml
