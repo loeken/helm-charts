@@ -10,7 +10,7 @@ dependencies:
   repository: https://bjw-s-labs.github.io/helm-charts
   version: 4.1.1
 - name: influxdb
-  version: 7.1.5
+  version: 7.1.6
   repository: https://charts.bitnami.com/bitnami
   condition: influxdb.enabled
 - name: mongodb
