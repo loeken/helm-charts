@@ -14,7 +14,7 @@ dependencies:
   repository: https://charts.bitnami.com/bitnami
   condition: influxdb.enabled
 - name: mongodb
-  version: 16.5.26
+  version: 16.5.27
   repository: https://charts.bitnami.com/bitnami
   condition: mongodb.enabled
 - name: postgresql
