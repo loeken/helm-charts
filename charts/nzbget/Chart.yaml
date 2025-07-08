@@ -9,7 +9,7 @@ appVersion: v25.2-ls204
 dependencies:
   - name: common
     repository: https://bjw-s-labs.github.io/helm-charts
-    version: 4.1.1
+    version: 4.1.2
 description: nzbget - efficient usenet downloader.
 home: https://github.com/loeken/helm-charts
 icon: https://gravatar.com/avatar/61f5b56ca85bc7e22f270e125c7e61ca?s=400
