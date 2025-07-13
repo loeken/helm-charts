@@ -1,10 +1,10 @@
 dependencies:
 - name: common
   repository: https://bjw-s-labs.github.io/helm-charts
-  version: 4.1.1
+  version: 4.1.2
 - name: influxdb
   repository: https://charts.bitnami.com/bitnami
-  version: 7.1.7
+  version: 7.1.8
 - name: mongodb
   repository: https://charts.bitnami.com/bitnami
   version: 16.5.27
