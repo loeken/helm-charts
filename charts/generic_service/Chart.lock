@@ -1,10 +1,10 @@
 dependencies:
 - name: common
   repository: https://bjw-s-labs.github.io/helm-charts
-  version: 4.1.1
+  version: 4.1.2
 - name: influxdb
   repository: https://charts.bitnami.com/bitnami
-  version: 7.1.7
+  version: 7.1.8
 - name: mongodb
   repository: https://charts.bitnami.com/bitnami
   version: 16.5.27
@@ -13,6 +13,6 @@ dependencies:
   version: 16.7.15
 - name: redis
   repository: https://charts.bitnami.com/bitnami
-  version: 21.2.7
-digest: sha256:ce4becdce7b3a12fce59a9668a956eb9b7f473b06c9345a7eda021482ddc26d6
-generated: "2025-07-07T11:54:17.671175599Z"
+  version: 21.2.10
+digest: sha256:84b0ba0f4963515a10887734423f3b2f22d919bd30ec239d66952822269cb162
+generated: "2025-07-12T06:15:18.502245341Z"

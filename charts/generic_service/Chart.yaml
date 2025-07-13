@@ -8,9 +8,9 @@ appVersion: 1.0.0
 dependencies:
 - name: common
   repository: https://bjw-s-labs.github.io/helm-charts
-  version: 4.1.1
+  version: 4.1.2
 - name: influxdb
-  version: 7.1.7
+  version: 7.1.8
   repository: https://charts.bitnami.com/bitnami
   condition: influxdb.enabled
 - name: mongodb
@@ -22,7 +22,7 @@ dependencies:
   repository: https://charts.bitnami.com/bitnami
   condition: postgresql.enabled
 - name: redis
-  version: 21.2.7
+  version: 21.2.10
   repository: https://charts.bitnami.com/bitnami
   condition: redis.enabled
 description: a helm chart to install a generic container along with bitnami dbs for postgresql, mongodb, influxdb and redis
