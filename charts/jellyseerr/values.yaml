@@ -9,7 +9,7 @@ controllers:
           repository: loeken/jellyseerr
           # -- image tag
           # @default -- chart.appVersion
-          tag: "2.7.1"
+          tag: "2.7.2"
           # -- image pull policy
           pullPolicy: Always
         # -- environment variables.
