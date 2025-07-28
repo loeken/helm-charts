@@ -11,6 +11,8 @@ controllers:
     type: deployment
     containers:
       main:
+        securityContext:
+          privileged: true
         image:
           # -- image repository
           repository: loeken/home-assistant
