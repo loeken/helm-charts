@@ -4,7 +4,7 @@ dependencies:
   version: 4.1.2
 - name: influxdb
   repository: https://charts.bitnami.com/bitnami
-  version: 7.1.10
+  version: 7.1.13
 - name: mongodb
   repository: https://charts.bitnami.com/bitnami
   version: 16.5.36
@@ -14,5 +14,5 @@ dependencies:
 - name: redis
   repository: https://charts.bitnami.com/bitnami
   version: 21.2.14
-digest: sha256:647603c9b71db2ed2bfc87d176d66dfd9a4065e3323193288186cf1ab86f78bc
-generated: "2025-08-08T07:33:14.389940329Z"
+digest: sha256:28e4b638ca91fb1ceb59f08d459070620113c4324d17176941fcb8dacb3f87b9
+generated: "2025-08-08T07:41:47.401899362Z"
