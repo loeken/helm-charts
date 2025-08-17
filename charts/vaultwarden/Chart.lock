@@ -4,7 +4,7 @@ dependencies:
   version: 4.2.0
 - name: mariadb
   repository: https://charts.bitnami.com/bitnami
-  version: 21.0.7
+  version: 21.0.8
 - name: postgresql
   repository: https://charts.bitnami.com/bitnami
   version: 16.7.26
