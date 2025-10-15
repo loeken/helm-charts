@@ -5,7 +5,7 @@ annotations:
     - kind: changed
       description: changed version naming scheme so charts show app versions in search on artifacthub.io
 apiVersion: v2
-appVersion: v25.3-ls215
+appVersion: v25.4-ls216
 dependencies:
   - name: common
     repository: https://bjw-s-labs.github.io/helm-charts
@@ -20,4 +20,4 @@ name: nzbget
 sources:
   - https://github.com/loeken/helm-charts/tree/main/charts/nzbget
 type: application
-version: v25.3-ls215
+version: v25.4-ls216
