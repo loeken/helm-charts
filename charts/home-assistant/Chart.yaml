@@ -4,7 +4,7 @@ annotations:
     - kind: changed
       description: updated to 2025.2.5
 apiVersion: v2
-appVersion: 2025.10.3
+appVersion: 2025.10.4
 dependencies:
 - name: common
   repository: https://bjw-s-labs.github.io/helm-charts
@@ -34,4 +34,4 @@ sources:
 - https://github.com/loeken/helm-charts/tree/main/charts/home-assistant
 - https://github.com/loeken/docker-home-assistant/blob/main/.github/workflows/release.yml
 type: application
-version: 2025.10.3
+version: 2025.10.4
