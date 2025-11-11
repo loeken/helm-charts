@@ -22,7 +22,7 @@ dependencies:
   repository: https://charts.bitnami.com/bitnami
   condition: postgresql.enabled
 - name: redis
-  version: 23.2.3
+  version: 23.2.12
   repository: https://charts.bitnami.com/bitnami
   condition: redis.enabled
 description: a helm chart to install a generic container along with bitnami dbs for postgresql, mongodb, influxdb and redis
