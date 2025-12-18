@@ -9,7 +9,7 @@ controllers:
           repository: loeken/jellyfin
           # -- image tag
           # @default -- chart.appVersion
-          tag: "10.11.4"
+          tag: "10.11.5"
           # -- image pull policy
           pullPolicy: Always
         # -- environment variables.
