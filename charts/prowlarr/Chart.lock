@@ -1,6 +1,6 @@
 dependencies:
 - name: common
   repository: https://bjw-s-labs.github.io/helm-charts
-  version: 4.4.0
-digest: sha256:b13db3d8b1e84cd94bd970ee56248dd3d378754ebb819c0665991d7a1db91c20
-generated: "2025-10-15T11:22:14.34886087Z"
+  version: 4.5.0
+digest: sha256:b7a6381c243e49ebe8409e4ce9696dd0aadcd58a983bfd409bb6ed984ee14b71
+generated: "2025-12-18T12:44:56.705550935Z"
