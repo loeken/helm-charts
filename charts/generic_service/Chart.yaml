@@ -18,7 +18,7 @@ dependencies:
   repository: https://charts.bitnami.com/bitnami
   condition: mongodb.enabled
 - name: postgresql
-  version: 18.1.14
+  version: 18.1.15
   repository: https://charts.bitnami.com/bitnami
   condition: postgresql.enabled
 - name: redis

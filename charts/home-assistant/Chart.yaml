@@ -12,7 +12,7 @@ dependencies:
 - condition: postgresql.enabled
   name: postgresql
   repository: https://charts.bitnami.com/bitnami
-  version: 18.1.14
+  version: 18.1.15
 - condition: mariadb.enabled
   name: mariadb
   repository: https://charts.bitnami.com/bitnami
