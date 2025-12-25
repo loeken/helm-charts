@@ -9,7 +9,7 @@ controllers:
           repository: loeken/nzbget
           # -- image tag
           # @default -- chart.appVersion
-          tag: "v25.4-ls224"
+          tag: "v25.4-ls225"
           # -- image pull policy
           pullPolicy: Always
         # -- environment variables.
