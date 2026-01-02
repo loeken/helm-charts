@@ -1,0 +1,53 @@
+{
+  "resourceIdentifier": {
+    "type": "object",
+    "properties": {
+      "forceRename": {
+        "description": "Override the default resource name. Mutually exclusive with prefix and suffix.",
+        "type": "string"
+      },
+      "prefix": {
+        "description": "Prefix to prepend to the resource name. Mutually exclusive with forceRename.",
+        "type": "string",
+        "default": ""
+      },
+      "suffix": {
+        "description": "Suffix to append to the resource name. Defaults to the resource identifier if there are multiple items, otherwise empty. Mutually exclusive with forceRename.",
+        "type": "string"
+      }
+    },
+    "not": {
+      "anyOf": [
+        { "required": ["forceRename", "suffix"] },
+        { "required": ["forceRename", "prefix"] }
+      ]
+    }
+  },
+
+  "annotations": {
+    "description": "Annotations to set on the item.",
+    "type": ["object", "null"],
+    "additionalProperties": { "type": ["string", "null"] }
+  },
+
+  "labels": {
+    "description": "Labels to set on the item.",
+    "type": ["object", "null"],
+    "additionalProperties": { "type": ["string", "null"] }
+  },
+
+  "imageSpecification": {
+    "type": "object",
+    "properties": {
+      "repository": {
+        "type": "string"
+      },
+      "tag": {
+        "type": ["string", "number"]
+      },
+      "digest": {
+        "type": ["string"]
+      }
+    }
+  }
+}

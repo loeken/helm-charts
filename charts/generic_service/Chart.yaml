@@ -1,0 +1,26 @@
+annotations:
+  artifacthub.io/values-schema: values.schema.json
+  artifacthub.io/changes: |-
+    - kind: changed
+      description: poc
+apiVersion: v2
+appVersion: 1.0.0
+dependencies:
+- name: common
+  repository: https://bjw-s-labs.github.io/helm-charts
+  version: 4.5.0
+- condition: postgresql.enabled
+  name: postgresql
+  repository: https://charts.bitnami.com/bitnami
+  version: 18.2.0
+description: a helm chart to install sinusbot
+home: https://github.com/loeken/helm-charts
+icon: https://gravatar.com/avatar/61f5b56ca85bc7e22f270e125c7e61ca?s=400
+maintainers:
+- email: loeken@internetz.me
+  name: loeken
+name: generic_service
+sources:
+- https://github.com/loeken/helm-charts/tree/main/charts/generic_service
+type: application
+version: 1.0.0

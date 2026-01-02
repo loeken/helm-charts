@@ -1,0 +1,6 @@
+controllers:
+  main:
+    enabled: false
+
+postgresql:
+  enabled: false
