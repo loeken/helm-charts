@@ -18,7 +18,7 @@ controllers:
           repository: loeken/home-assistant
           # -- image tag
           # @default -- chart.appVersion
-          tag: "2025.12.5"
+          tag: "2026.1.0"
           # -- image pull policy
           pullPolicy: Always
         # -- environment variables.
