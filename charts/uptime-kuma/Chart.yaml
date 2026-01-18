@@ -8,7 +8,7 @@ appVersion: 2.0.2
 dependencies:
 - name: common
   repository: https://bjw-s-labs.github.io/helm-charts
-  version: 4.6.0
+  version: 4.6.2
 description: a helm chart to install uptime-kuma
 home: https://github.com/loeken/helm-charts
 icon: https://gravatar.com/avatar/61f5b56ca85bc7e22f270e125c7e61ca?s=400
