@@ -9,7 +9,7 @@ controllers:
           repository: louislam/uptime-kuma
           # -- image tag
           # @default -- chart.appVersion
-          tag: "2.1.1"
+          tag: "2.1.3"
           # -- image pull policy
           pullPolicy: Always
         # -- environment variables.
