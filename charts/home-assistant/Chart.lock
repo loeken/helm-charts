@@ -4,12 +4,12 @@ dependencies:
   version: 4.6.2
 - name: postgresql
   repository: https://charts.bitnami.com/bitnami
-  version: 18.5.14
+  version: 18.5.15
 - name: mariadb
   repository: https://charts.bitnami.com/bitnami
   version: 25.0.6
 - name: influxdb
   repository: https://charts.bitnami.com/bitnami
   version: 7.1.20
-digest: sha256:1f9af5c403effa21457f0469debf6a3ae4369f45f381c98805551acc0d60348f
-generated: "2026-03-25T06:37:25.654969583Z"
+digest: sha256:44b559d8588d20204d76fe0d9bb5416cd219914e3b41d1925d38168d9020eb14
+generated: "2026-04-02T06:37:59.129660185Z"
