@@ -1,0 +1,41 @@
+# This chart inherits from the bjw-s common library chart.
+# See https://github.com/bjw-s/helm-charts/blob/main/charts/library/common/values.yaml for all options.
+
+controllers:
+  main:
+    enabled: true
+    type: deployment
+    containers:
+      main:
+        image:
+          repository: ghcr.io/grafana-community/grafana-mcp
+          tag: "0.9.0"
+          pullPolicy: IfNotPresent
+        env:
+          GRAFANA_URL: "http://observability-grafana.observability.svc.cluster.local"
+          GRAFANA_API_KEY: ""
+        resources:
+          requests:
+            memory: 128Mi
+            cpu: 100m
+          limits:
+            memory: 256Mi
+            cpu: 500m
+
+service:
+  main:
+    controller: main
+    ports:
+      http:
+        port: 8000
+
+ingress:
+  main:
+    enabled: false
+    className: ""
+    hosts:
+      - host: mcp-grafana.local
+        paths:
+          - path: /
+            pathType: Prefix
+    tls: []
