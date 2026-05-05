@@ -8,7 +8,7 @@ appVersion: 1.36.0-alpine
 dependencies:
 - name: common
   repository: https://bjw-s-labs.github.io/helm-charts
-  version: 4.6.2
+  version: 5.0.0
 - condition: mariadb.enabled
   name: mariadb
   repository: https://charts.bitnami.com/bitnami
