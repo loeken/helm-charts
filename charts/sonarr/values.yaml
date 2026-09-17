@@ -8,7 +8,7 @@ controllers:
           # -- image repository
           repository: loeken/sonarr
           # @default -- chart.appVersion
-          tag: 4.0.18
+          tag: 4.0.19
           # -- image pull policy
           pullPolicy: IfNotPresent
 
