@@ -1,0 +1,19 @@
+repositoryID: 4b751ce5-031e-48f9-8244-787af52624aa
+name: helm-charts
+displayName: loeken charts
+description: Official Helm charts maintained by Loeken
+type: helm
+url: https://loeken.github.io/helm-charts
+maintainers:
+  - name: loeken
+    email: loeken@internetz.me
+    url: https://github.com/loeken
+    githubUsername: loeken
+signatures:
+  enabled: true
+  key:
+    fingerprint: 86ED57BD4D93E4A9
+    url: https://loeken.github.io/helm-charts/pgp-public.key
+    contentURL: https://loeken.github.io/helm-charts/pgp-public.key
+    provider: other
+    createdAt: "2025-06-01T00:00:00Z"
