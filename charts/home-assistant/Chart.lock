@@ -7,9 +7,9 @@ dependencies:
   version: 18.12.14
 - name: mariadb
   repository: https://charts.bitnami.com/bitnami
-  version: 28.1.1
+  version: 28.1.4
 - name: influxdb
   repository: https://charts.bitnami.com/bitnami
   version: 7.1.20
-digest: sha256:69eb16523bdbc51166b10f840896ffa91356e9ca19fea4949522ff37649b0da6
-generated: "2026-10-21T06:31:38.299882326Z"
+digest: sha256:382aa315bff9ab7b99f551483a3d4ec7421513a4cbb84a97161aeac3ad5906cf
+generated: "2026-10-24T06:28:19.17857253Z"
