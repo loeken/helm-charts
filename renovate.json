@@ -6,6 +6,7 @@
   "pinDigests": true,
   "automergeType": "pr",
   "platformAutomerge": true,
+  "allowedCommands": ["bash .github/sync-chart-version.sh"],
   "packageRules": [
     {
       "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest"],
