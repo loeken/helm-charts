@@ -30,5 +30,17 @@ jobs:
         env:
           RENOVATE_TOKEN: ${{ secrets.RENOVATE_TOKEN }}
           RENOVATE_ALLOWED_COMMANDS: "bash .github/sync-chart-version.sh"
+          GH_TOKEN: ${{ github.token }}
         run: |
-          renovate loeken/helm-charts
+          last_merge() { gh pr list --repo loeken/helm-charts --state merged --limit 1 --json mergedAt --jq '.[0].mergedAt // "none"'; }
+          prev_ts=$(last_merge)
+          for i in 1 2 3 4 5; do
+            renovate loeken/helm-charts
+            cur_ts=$(last_merge)
+            if [ "$cur_ts" = "$prev_ts" ]; then
+              echo "No new merges in iteration $i; done"
+              break
+            fi
+            echo "Merge detected in iteration $i; re-running Renovate to drain remaining PRs"
+            prev_ts=$cur_ts
+          done
