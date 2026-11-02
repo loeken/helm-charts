@@ -34,7 +34,7 @@ jobs:
         run: |
           last_merge() { gh pr list --repo loeken/helm-charts --state merged --limit 1 --json mergedAt --jq '.[0].mergedAt // "none"'; }
           prev_ts=$(last_merge)
-          for i in 1 2 3 4 5; do
+          for i in 1 2 3 4 5 6 7 8 9 10; do
             renovate loeken/helm-charts
             cur_ts=$(last_merge)
             if [ "$cur_ts" = "$prev_ts" ]; then
