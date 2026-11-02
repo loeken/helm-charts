@@ -29,5 +29,6 @@ jobs:
       - name: Run Renovate
         env:
           RENOVATE_TOKEN: ${{ secrets.RENOVATE_TOKEN }}
+          RENOVATE_ALLOWED_COMMANDS: "bash .github/sync-chart-version.sh"
         run: |
           renovate loeken/helm-charts
