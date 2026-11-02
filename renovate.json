@@ -5,7 +5,8 @@
   "prHourlyLimit": 0,
   "pinDigests": true,
   "automergeType": "pr",
-  "platformAutomerge": true,
+  "platformAutomerge": false,
+  "ignoreTests": true,
   "packageRules": [
     {
       "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest"],
